@@ -1,0 +1,759 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<sim:process xmlns:sim="http://www.intalio.com/bpms/designer/sim" poolID="_ltsq0IHgEeOg9duzhzfyfA" poolDisplayName="OrderManagement" startingActivitiesIDs="[_lt1NsIHgEeOg9duzhzfyfA]" bpdmFile="processes/OrderManagement.bpm/_ltsq0IHgEeOg9duzhzfyfA.bpdm">
+  <sim:activities>
+    <sim:activity ID="_lt1NsIHgEeOg9duzhzfyfA" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Recieve sales order" isMyRole="true">
+      <sim:request><![CDATA[<message xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi">
+  <root>
+    <SalesOrderForm1:initProcessRequest>
+      <SalesOrderForm1:taskId xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi">1</SalesOrderForm1:taskId>
+      <SalesOrderForm1:participantToken xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi">123123</SalesOrderForm1:participantToken>
+      <SalesOrderForm1:user xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi">example\msmith</SalesOrderForm1:user>
+      <SalesOrderForm1:formUrl xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi">http://test/com</SalesOrderForm1:formUrl>
+      <SalesOrderForm1:taskOutput xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi">
+        <bpms_demo_form_elements:SalesOrder xmlns:bpms_demo_form_elements="http://demo.intalio.com/form_elements">
+          <demo:OrderRef xmlns:demo="http://demo.intalio.com/base_types">1</demo:OrderRef>
+          <demo:OrderDate xmlns:demo="http://demo.intalio.com/base_types">1/1/2014</demo:OrderDate>
+          <demo:Client xmlns:demo="http://demo.intalio.com/base_types">1</demo:Client>
+          <demo:Items xmlns:demo="http://demo.intalio.com/base_types">
+            <demo:ItemRef xmlns:demo="http://demo.intalio.com/base_types">1</demo:ItemRef>
+            <demo:ProductId xmlns:demo="http://demo.intalio.com/base_types">1</demo:ProductId>
+            <demo:Quantity xmlns:demo="http://demo.intalio.com/base_types">1</demo:Quantity>
+            <demo:ItemDiscount xmlns:demo="http://demo.intalio.com/base_types">0</demo:ItemDiscount>
+          </demo:Items>
+          <demo:GlobalDiscount xmlns:demo="http://demo.intalio.com/base_types">0</demo:GlobalDiscount>
+        </bpms_demo_form_elements:SalesOrder>
+      </SalesOrderForm1:taskOutput>
+    </SalesOrderForm1:initProcessRequest>
+  </root>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_k9zYUZ_DEeOL5aaeRRkT8A" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Convert sales order to details" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:ConvertToOrderDetail-Convert1="http://thisproject/processes/system/ConvertToOrderDetail/Convert">
+  <body>
+    <ConvertToOrderDetail-Convert1:Recieve_conversion_requestResponse>
+      <demo:OrderRef xmlns:demo="http://demo.intalio.com/base_types">1</demo:OrderRef>
+      <demo:OrderDate xmlns:demo="http://demo.intalio.com/base_types">1/1/2014</demo:OrderDate>
+      <demo:Client xmlns:demo="http://demo.intalio.com/base_types">
+        <demo:ClientId xmlns:demo="http://demo.intalio.com/base_types">1</demo:ClientId>
+        <demo:ClientName xmlns:demo="http://demo.intalio.com/base_types">ClientName</demo:ClientName>
+        <demo:ContactName xmlns:demo="http://demo.intalio.com/base_types">ContactName</demo:ContactName>
+        <demo:ContactPhone xmlns:demo="http://demo.intalio.com/base_types">12313123</demo:ContactPhone>
+        <demo:ContactEmail xmlns:demo="http://demo.intalio.com/base_types">no@mail.com</demo:ContactEmail>
+      </demo:Client>
+      <demo:Items xmlns:demo="http://demo.intalio.com/base_types">
+        <demo:ItemRef xmlns:demo="http://demo.intalio.com/base_types">1</demo:ItemRef>
+        <demo:ProductId xmlns:demo="http://demo.intalio.com/base_types">1</demo:ProductId>
+        <demo:ProductFamily xmlns:demo="http://demo.intalio.com/base_types">Electronics</demo:ProductFamily>
+        <demo:ProductName xmlns:demo="http://demo.intalio.com/base_types">ProductName</demo:ProductName>
+        <demo:ProductPrice xmlns:demo="http://demo.intalio.com/base_types">100</demo:ProductPrice>
+        <demo:Quantity xmlns:demo="http://demo.intalio.com/base_types">1</demo:Quantity>
+        <demo:ItemDiscount xmlns:demo="http://demo.intalio.com/base_types">0</demo:ItemDiscount>
+        <demo:ItemPrice xmlns:demo="http://demo.intalio.com/base_types">100</demo:ItemPrice>
+      </demo:Items>
+      <demo:GlobalDiscount xmlns:demo="http://demo.intalio.com/base_types">0</demo:GlobalDiscount>
+      <demo:TotalPrice xmlns:demo="http://demo.intalio.com/base_types">100</demo:TotalPrice>
+    </ConvertToOrderDetail-Convert1:Recieve_conversion_requestResponse>
+  </body>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_gPRRAIUGEeO9zuZHhh9O7w" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Empty_Intermediate_Event" isMyRole="true" hasBreakpoint="true"></sim:activity>
+    <sim:activity ID="_5f5RNpQvEeOKY_BvkoJSPw" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="Evaluate business rule" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:ns="http://approvalmethod.rules.bpms_demo">
+  <parameters>
+    <ns:invokeDecisionTableResponse>
+      <ns:return xmlns:ns="http://approvalmethod.rules.bpms_demo">
+        <ax21:input xmlns:ax21="http://approvalmethod.rules.bpms_demo/xsd">
+          <ax22:customerid xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre"></ax22:customerid>
+          <ax22:globaldiscount xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre"></ax22:globaldiscount>
+          <ax22:itemcount xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre"></ax22:itemcount>
+          <ax22:totalvalue xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre"></ax22:totalvalue>
+        </ax21:input>
+        <ax21:output xmlns:ax21="http://approvalmethod.rules.bpms_demo/xsd">
+          <ax22:reviewtype xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre"></ax22:reviewtype>
+        </ax21:output>
+      </ns:return>
+    </ns:invokeDecisionTableResponse>
+  </parameters>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_oEcMsIrIEeOCjYSbtlPtMA" scopeID="_jo134InHEeOOrKP-9bsdmg" displayName="Notify by email" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:NofityRole-Notify="http://demo.intalio.com/processes/system/NofityRole/Notify">
+  <body>
+    <NofityRole-Notify:Recieve_requestResponse>
+      <demo:ProcessInstance xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProcessInstance>
+      <demo:Timestamp xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Timestamp>
+    </NofityRole-Notify:Recieve_requestResponse>
+  </body>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_3jQqJ4rTEeOCjYSbtlPtMA" scopeID="_3jQqJorTEeOCjYSbtlPtMA" displayName="Request high priority review" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+  <root>
+    <SalesOrderReview:response>
+      <SalesOrderReview:isChainedAfter xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:isChainedAfter>
+      <SalesOrderReview:taskMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+        <SalesOrderReview:taskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskId>
+        <SalesOrderReview:taskState xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskState>
+        <SalesOrderReview:taskType xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskType>
+        <SalesOrderReview:description xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:description>
+        <SalesOrderReview:processId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:processId>
+        <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+        <SalesOrderReview:business xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:processName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:processName>
+          <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+          <SalesOrderReview:stepName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:stepName>
+          <SalesOrderReview:customData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customData>
+        </SalesOrderReview:business>
+        <SalesOrderReview:creationDate xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:creationDate>
+        <SalesOrderReview:userOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:userOwner>
+        <SalesOrderReview:roleOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:roleOwner>
+        <SalesOrderReview:claimAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:claimAction>
+        <SalesOrderReview:revokeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:revokeAction>
+        <SalesOrderReview:saveAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:saveAction>
+        <SalesOrderReview:completeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:completeAction>
+        <SalesOrderReview:formUrl xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:formUrl>
+        <SalesOrderReview:failureCode xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureCode>
+        <SalesOrderReview:failureReason xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureReason>
+        <SalesOrderReview:priority xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:priority>
+        <SalesOrderReview:scheduledActions xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:expiration xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:expiration>
+          <SalesOrderReview:deferActivation xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:deferActivation>
+        </SalesOrderReview:scheduledActions>
+        <SalesOrderReview:attachments xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <attachment>
+            <attachmentMetadata>
+              <mimeType>Required</mimeType>
+              <fileName>Required</fileName>
+              <title>Required</title>
+              <description>Required</description>
+              <creationDate>Required</creationDate>
+            </attachmentMetadata>
+            <payloadUrl>Required</payloadUrl>
+          </attachment>
+        </SalesOrderReview:attachments>
+        <SalesOrderReview:userProcessCompleteSOAPAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessCompleteSOAPAction>
+        <SalesOrderReview:isChainedBefore xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:isChainedBefore>
+        <SalesOrderReview:previousTaskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:previousTaskId>
+        <SalesOrderReview:userProcessEndpoint xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessEndpoint>
+        <SalesOrderReview:userProcessNamespaceURI xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessNamespaceURI>
+        <SalesOrderReview:customMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customMetaData>
+      </SalesOrderReview:taskMetaData>
+      <SalesOrderReview:status xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:status>
+      <SalesOrderReview:errorCode xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:errorCode>
+      <SalesOrderReview:errorReason xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:errorReason>
+    </SalesOrderReview:response>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_3jQqKIrTEeOCjYSbtlPtMA" scopeID="_3jQqJorTEeOCjYSbtlPtMA" displayName="Recieve review results" isMyRole="true" hasBreakpoint="true">
+      <sim:request><![CDATA[<message xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+  <root>
+    <SalesOrderReview:notifyTaskCompletionRequest>
+      <SalesOrderReview:participantToken xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:participantToken>
+      <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:user>
+      <SalesOrderReview:taskMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+        <SalesOrderReview:taskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskId>
+        <SalesOrderReview:taskState xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskState>
+        <SalesOrderReview:taskType xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskType>
+        <SalesOrderReview:description xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:description>
+        <SalesOrderReview:processId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:processId>
+        <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+        <SalesOrderReview:business xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:processName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:processName>
+          <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+          <SalesOrderReview:stepName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:stepName>
+          <SalesOrderReview:customData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customData>
+        </SalesOrderReview:business>
+        <SalesOrderReview:creationDate xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:creationDate>
+        <SalesOrderReview:userOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:userOwner>
+        <SalesOrderReview:roleOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:roleOwner>
+        <SalesOrderReview:claimAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:claimAction>
+        <SalesOrderReview:revokeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:revokeAction>
+        <SalesOrderReview:saveAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:saveAction>
+        <SalesOrderReview:completeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:completeAction>
+        <SalesOrderReview:formUrl xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:formUrl>
+        <SalesOrderReview:failureCode xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureCode>
+        <SalesOrderReview:failureReason xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureReason>
+        <SalesOrderReview:priority xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:priority>
+        <SalesOrderReview:scheduledActions xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:expiration xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:expiration>
+          <SalesOrderReview:deferActivation xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:deferActivation>
+        </SalesOrderReview:scheduledActions>
+        <SalesOrderReview:attachments xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <attachment>
+            <attachmentMetadata>
+              <mimeType>Required</mimeType>
+              <fileName>Required</fileName>
+              <title>Required</title>
+              <description>Required</description>
+              <creationDate>Required</creationDate>
+            </attachmentMetadata>
+            <payloadUrl>Required</payloadUrl>
+          </attachment>
+        </SalesOrderReview:attachments>
+        <SalesOrderReview:userProcessCompleteSOAPAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessCompleteSOAPAction>
+        <SalesOrderReview:isChainedBefore xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:isChainedBefore>
+        <SalesOrderReview:previousTaskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:previousTaskId>
+        <SalesOrderReview:userProcessEndpoint xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessEndpoint>
+        <SalesOrderReview:userProcessNamespaceURI xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessNamespaceURI>
+        <SalesOrderReview:customMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customMetaData>
+      </SalesOrderReview:taskMetaData>
+      <SalesOrderReview:taskOutput xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+        <demo:SalesOrderReview xmlns:demo="http://demo.intalio.com/base_types">
+          <demo:SalesOrder xmlns:demo="http://demo.intalio.com/base_types">
+            <demo:OrderRef xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OrderRef>
+            <demo:OrderDate xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OrderDate>
+            <demo:Client xmlns:demo="http://demo.intalio.com/base_types">
+              <demo:ClientId xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ClientId>
+              <demo:ClientName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ClientName>
+              <demo:ContactName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactName>
+              <demo:ContactPhone xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactPhone>
+              <demo:ContactEmail xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactEmail>
+            </demo:Client>
+            <demo:Items xmlns:demo="http://demo.intalio.com/base_types">
+              <demo:ItemRef xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemRef>
+              <demo:ProductId xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductId>
+              <demo:ProductFamily xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductFamily>
+              <demo:ProductName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductName>
+              <demo:ProductPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductPrice>
+              <demo:Quantity xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Quantity>
+              <demo:ItemDiscount xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemDiscount>
+              <demo:ItemPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemPrice>
+            </demo:Items>
+            <demo:GlobalDiscount xmlns:demo="http://demo.intalio.com/base_types"></demo:GlobalDiscount>
+            <demo:TotalPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:TotalPrice>
+          </demo:SalesOrder>
+          <demo:SalesRepresentative xmlns:demo="http://demo.intalio.com/base_types">Required</demo:SalesRepresentative>
+          <demo:Decision xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Decision>
+        </demo:SalesOrderReview>
+      </SalesOrderReview:taskOutput>
+      <SalesOrderReview:status xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:status>
+    </SalesOrderReview:notifyTaskCompletionRequest>
+  </root>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_S1jPQIrXEeOCjYSbtlPtMA" scopeID="_BWjogInJEeOOrKP-9bsdmg" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_HFfTkItxEeOsMc8Cb1pSSQ" scopeID="_BWjogInJEeOOrKP-9bsdmg" displayName="Login as admin" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:tns="http://tempo.intalio.org/security/tokenService/">
+  <payload>
+    <tns:authenticateUserResponse>
+      <tns:token xmlns:tns="http://tempo.intalio.org/security/tokenService/">Required</tns:token>
+    </tns:authenticateUserResponse>
+  </payload>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_IBY7IItxEeOsMc8Cb1pSSQ" scopeID="_BWjogInJEeOOrKP-9bsdmg" displayName="Delete previous task" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:TaskManagementServices="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/">
+  <okResponse>
+    <TaskManagementServices:okResponse></TaskManagementServices:okResponse>
+  </okResponse>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_IZpNkInFEeOOrKP-9bsdmg" scopeID="_TDRz0InHEeOOrKP-9bsdmg" displayName="Request manager to review order" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+  <root>
+    <SalesOrderReview:response>
+      <SalesOrderReview:isChainedAfter xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:isChainedAfter>
+      <SalesOrderReview:taskMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+        <SalesOrderReview:taskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskId>
+        <SalesOrderReview:taskState xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskState>
+        <SalesOrderReview:taskType xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskType>
+        <SalesOrderReview:description xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:description>
+        <SalesOrderReview:processId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:processId>
+        <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+        <SalesOrderReview:business xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:processName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:processName>
+          <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+          <SalesOrderReview:stepName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:stepName>
+          <SalesOrderReview:customData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customData>
+        </SalesOrderReview:business>
+        <SalesOrderReview:creationDate xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:creationDate>
+        <SalesOrderReview:userOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:userOwner>
+        <SalesOrderReview:roleOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:roleOwner>
+        <SalesOrderReview:claimAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:claimAction>
+        <SalesOrderReview:revokeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:revokeAction>
+        <SalesOrderReview:saveAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:saveAction>
+        <SalesOrderReview:completeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:completeAction>
+        <SalesOrderReview:formUrl xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:formUrl>
+        <SalesOrderReview:failureCode xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureCode>
+        <SalesOrderReview:failureReason xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureReason>
+        <SalesOrderReview:priority xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:priority>
+        <SalesOrderReview:scheduledActions xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:expiration xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:expiration>
+          <SalesOrderReview:deferActivation xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:deferActivation>
+        </SalesOrderReview:scheduledActions>
+        <SalesOrderReview:attachments xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <attachment>
+            <attachmentMetadata>
+              <mimeType>Required</mimeType>
+              <fileName>Required</fileName>
+              <title>Required</title>
+              <description>Required</description>
+              <creationDate>Required</creationDate>
+            </attachmentMetadata>
+            <payloadUrl>Required</payloadUrl>
+          </attachment>
+        </SalesOrderReview:attachments>
+        <SalesOrderReview:userProcessCompleteSOAPAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessCompleteSOAPAction>
+        <SalesOrderReview:isChainedBefore xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:isChainedBefore>
+        <SalesOrderReview:previousTaskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:previousTaskId>
+        <SalesOrderReview:userProcessEndpoint xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessEndpoint>
+        <SalesOrderReview:userProcessNamespaceURI xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessNamespaceURI>
+        <SalesOrderReview:customMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customMetaData>
+      </SalesOrderReview:taskMetaData>
+      <SalesOrderReview:status xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:status>
+      <SalesOrderReview:errorCode xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:errorCode>
+      <SalesOrderReview:errorReason xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:errorReason>
+    </SalesOrderReview:response>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_kQOIoIrSEeOCjYSbtlPtMA" scopeID="_TDRz0InHEeOOrKP-9bsdmg" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_f02TwInFEeOOrKP-9bsdmg" scopeID="_TDRz0InHEeOOrKP-9bsdmg" displayName="Recieves manager review decision" isMyRole="true" hasBreakpoint="true">
+      <sim:request><![CDATA[<message xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+  <root>
+    <SalesOrderReview:notifyTaskCompletionRequest>
+      <SalesOrderReview:participantToken xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:participantToken>
+      <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:user>
+      <SalesOrderReview:taskMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+        <SalesOrderReview:taskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskId>
+        <SalesOrderReview:taskState xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskState>
+        <SalesOrderReview:taskType xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:taskType>
+        <SalesOrderReview:description xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:description>
+        <SalesOrderReview:processId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:processId>
+        <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+        <SalesOrderReview:business xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:processName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:processName>
+          <SalesOrderReview:instanceId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:instanceId>
+          <SalesOrderReview:stepName xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:stepName>
+          <SalesOrderReview:customData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customData>
+        </SalesOrderReview:business>
+        <SalesOrderReview:creationDate xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:creationDate>
+        <SalesOrderReview:userOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:userOwner>
+        <SalesOrderReview:roleOwner xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:roleOwner>
+        <SalesOrderReview:claimAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:claimAction>
+        <SalesOrderReview:revokeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:revokeAction>
+        <SalesOrderReview:saveAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:saveAction>
+        <SalesOrderReview:completeAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:user xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:user>
+          <SalesOrderReview:role xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:role>
+        </SalesOrderReview:completeAction>
+        <SalesOrderReview:formUrl xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:formUrl>
+        <SalesOrderReview:failureCode xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureCode>
+        <SalesOrderReview:failureReason xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:failureReason>
+        <SalesOrderReview:priority xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:priority>
+        <SalesOrderReview:scheduledActions xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <SalesOrderReview:expiration xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:expiration>
+          <SalesOrderReview:deferActivation xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+            <SalesOrderReview:until xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:until>
+            <SalesOrderReview:for xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:for>
+          </SalesOrderReview:deferActivation>
+        </SalesOrderReview:scheduledActions>
+        <SalesOrderReview:attachments xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+          <attachment>
+            <attachmentMetadata>
+              <mimeType>Required</mimeType>
+              <fileName>Required</fileName>
+              <title>Required</title>
+              <description>Required</description>
+              <creationDate>Required</creationDate>
+            </attachmentMetadata>
+            <payloadUrl>Required</payloadUrl>
+          </attachment>
+        </SalesOrderReview:attachments>
+        <SalesOrderReview:userProcessCompleteSOAPAction xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessCompleteSOAPAction>
+        <SalesOrderReview:isChainedBefore xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:isChainedBefore>
+        <SalesOrderReview:previousTaskId xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:previousTaskId>
+        <SalesOrderReview:userProcessEndpoint xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessEndpoint>
+        <SalesOrderReview:userProcessNamespaceURI xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:userProcessNamespaceURI>
+        <SalesOrderReview:customMetaData xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"></SalesOrderReview:customMetaData>
+      </SalesOrderReview:taskMetaData>
+      <SalesOrderReview:taskOutput xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">
+        <demo:SalesOrderReview xmlns:demo="http://demo.intalio.com/base_types">
+          <demo:SalesOrder xmlns:demo="http://demo.intalio.com/base_types">
+            <demo:OrderRef xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OrderRef>
+            <demo:OrderDate xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OrderDate>
+            <demo:Client xmlns:demo="http://demo.intalio.com/base_types">
+              <demo:ClientId xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ClientId>
+              <demo:ClientName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ClientName>
+              <demo:ContactName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactName>
+              <demo:ContactPhone xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactPhone>
+              <demo:ContactEmail xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactEmail>
+            </demo:Client>
+            <demo:Items xmlns:demo="http://demo.intalio.com/base_types">
+              <demo:ItemRef xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemRef>
+              <demo:ProductId xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductId>
+              <demo:ProductFamily xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductFamily>
+              <demo:ProductName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductName>
+              <demo:ProductPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductPrice>
+              <demo:Quantity xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Quantity>
+              <demo:ItemDiscount xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemDiscount>
+              <demo:ItemPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemPrice>
+            </demo:Items>
+            <demo:GlobalDiscount xmlns:demo="http://demo.intalio.com/base_types"></demo:GlobalDiscount>
+            <demo:TotalPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:TotalPrice>
+          </demo:SalesOrder>
+          <demo:SalesRepresentative xmlns:demo="http://demo.intalio.com/base_types">Required</demo:SalesRepresentative>
+          <demo:Decision xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Decision>
+        </demo:SalesOrderReview>
+      </SalesOrderReview:taskOutput>
+      <SalesOrderReview:status xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi">Required</SalesOrderReview:status>
+    </SalesOrderReview:notifyTaskCompletionRequest>
+  </root>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_K4FpcIrXEeOCjYSbtlPtMA" scopeID="_TDRz0InHEeOOrKP-9bsdmg" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_rIfOsIrXEeOCjYSbtlPtMA" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="Process order" isMyRole="true"></sim:activity>
+    <sim:activity ID="_roiAsIrXEeOCjYSbtlPtMA" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="End process" isMyRole="true"></sim:activity>
+    <sim:activity ID="_M2tS0ItGEeOLJOAEXkwHWw" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="Request sales rep to update order" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+  <root>
+    <SalesOrderModificationForm1:response>
+      <SalesOrderModificationForm1:isChainedAfter xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:isChainedAfter>
+      <SalesOrderModificationForm1:taskMetaData xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+        <SalesOrderModificationForm1:taskId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:taskId>
+        <SalesOrderModificationForm1:taskState xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:taskState>
+        <SalesOrderModificationForm1:taskType xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:taskType>
+        <SalesOrderModificationForm1:description xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:description>
+        <SalesOrderModificationForm1:processId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:processId>
+        <SalesOrderModificationForm1:instanceId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:instanceId>
+        <SalesOrderModificationForm1:business xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:processName xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:processName>
+          <SalesOrderModificationForm1:instanceId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:instanceId>
+          <SalesOrderModificationForm1:stepName xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:stepName>
+          <SalesOrderModificationForm1:customData xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:customData>
+        </SalesOrderModificationForm1:business>
+        <SalesOrderModificationForm1:creationDate xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:creationDate>
+        <SalesOrderModificationForm1:userOwner xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:userOwner>
+        <SalesOrderModificationForm1:roleOwner xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:roleOwner>
+        <SalesOrderModificationForm1:claimAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:claimAction>
+        <SalesOrderModificationForm1:revokeAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:revokeAction>
+        <SalesOrderModificationForm1:saveAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:saveAction>
+        <SalesOrderModificationForm1:completeAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:completeAction>
+        <SalesOrderModificationForm1:formUrl xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:formUrl>
+        <SalesOrderModificationForm1:failureCode xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:failureCode>
+        <SalesOrderModificationForm1:failureReason xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:failureReason>
+        <SalesOrderModificationForm1:priority xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:priority>
+        <SalesOrderModificationForm1:scheduledActions xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:expiration xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+            <SalesOrderModificationForm1:until xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:until>
+            <SalesOrderModificationForm1:for xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:for>
+          </SalesOrderModificationForm1:expiration>
+          <SalesOrderModificationForm1:deferActivation xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+            <SalesOrderModificationForm1:until xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:until>
+            <SalesOrderModificationForm1:for xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:for>
+          </SalesOrderModificationForm1:deferActivation>
+        </SalesOrderModificationForm1:scheduledActions>
+        <SalesOrderModificationForm1:attachments xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <attachment>
+            <attachmentMetadata>
+              <mimeType>Required</mimeType>
+              <fileName>Required</fileName>
+              <title>Required</title>
+              <description>Required</description>
+              <creationDate>Required</creationDate>
+            </attachmentMetadata>
+            <payloadUrl>Required</payloadUrl>
+          </attachment>
+        </SalesOrderModificationForm1:attachments>
+        <SalesOrderModificationForm1:userProcessCompleteSOAPAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:userProcessCompleteSOAPAction>
+        <SalesOrderModificationForm1:isChainedBefore xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:isChainedBefore>
+        <SalesOrderModificationForm1:previousTaskId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:previousTaskId>
+        <SalesOrderModificationForm1:userProcessEndpoint xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:userProcessEndpoint>
+        <SalesOrderModificationForm1:userProcessNamespaceURI xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:userProcessNamespaceURI>
+        <SalesOrderModificationForm1:customMetaData xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:customMetaData>
+      </SalesOrderModificationForm1:taskMetaData>
+      <SalesOrderModificationForm1:status xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:status>
+      <SalesOrderModificationForm1:errorCode xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:errorCode>
+      <SalesOrderModificationForm1:errorReason xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:errorReason>
+    </SalesOrderModificationForm1:response>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_w-haQIthEeOugvlF6XJahg" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="Recieve sales order updated" isMyRole="true" hasBreakpoint="true">
+      <sim:request><![CDATA[<message xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+  <root>
+    <SalesOrderModificationForm1:notifyTaskCompletionRequest>
+      <SalesOrderModificationForm1:participantToken xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:participantToken>
+      <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:user>
+      <SalesOrderModificationForm1:taskMetaData xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+        <SalesOrderModificationForm1:taskId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:taskId>
+        <SalesOrderModificationForm1:taskState xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:taskState>
+        <SalesOrderModificationForm1:taskType xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:taskType>
+        <SalesOrderModificationForm1:description xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:description>
+        <SalesOrderModificationForm1:processId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:processId>
+        <SalesOrderModificationForm1:instanceId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:instanceId>
+        <SalesOrderModificationForm1:business xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:processName xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:processName>
+          <SalesOrderModificationForm1:instanceId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:instanceId>
+          <SalesOrderModificationForm1:stepName xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:stepName>
+          <SalesOrderModificationForm1:customData xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:customData>
+        </SalesOrderModificationForm1:business>
+        <SalesOrderModificationForm1:creationDate xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:creationDate>
+        <SalesOrderModificationForm1:userOwner xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:userOwner>
+        <SalesOrderModificationForm1:roleOwner xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:roleOwner>
+        <SalesOrderModificationForm1:claimAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:claimAction>
+        <SalesOrderModificationForm1:revokeAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:revokeAction>
+        <SalesOrderModificationForm1:saveAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:saveAction>
+        <SalesOrderModificationForm1:completeAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:user xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:user>
+          <SalesOrderModificationForm1:role xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:role>
+        </SalesOrderModificationForm1:completeAction>
+        <SalesOrderModificationForm1:formUrl xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:formUrl>
+        <SalesOrderModificationForm1:failureCode xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:failureCode>
+        <SalesOrderModificationForm1:failureReason xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:failureReason>
+        <SalesOrderModificationForm1:priority xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:priority>
+        <SalesOrderModificationForm1:scheduledActions xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <SalesOrderModificationForm1:expiration xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+            <SalesOrderModificationForm1:until xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:until>
+            <SalesOrderModificationForm1:for xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:for>
+          </SalesOrderModificationForm1:expiration>
+          <SalesOrderModificationForm1:deferActivation xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+            <SalesOrderModificationForm1:until xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:until>
+            <SalesOrderModificationForm1:for xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:for>
+          </SalesOrderModificationForm1:deferActivation>
+        </SalesOrderModificationForm1:scheduledActions>
+        <SalesOrderModificationForm1:attachments xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+          <attachment>
+            <attachmentMetadata>
+              <mimeType>Required</mimeType>
+              <fileName>Required</fileName>
+              <title>Required</title>
+              <description>Required</description>
+              <creationDate>Required</creationDate>
+            </attachmentMetadata>
+            <payloadUrl>Required</payloadUrl>
+          </attachment>
+        </SalesOrderModificationForm1:attachments>
+        <SalesOrderModificationForm1:userProcessCompleteSOAPAction xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:userProcessCompleteSOAPAction>
+        <SalesOrderModificationForm1:isChainedBefore xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:isChainedBefore>
+        <SalesOrderModificationForm1:previousTaskId xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:previousTaskId>
+        <SalesOrderModificationForm1:userProcessEndpoint xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:userProcessEndpoint>
+        <SalesOrderModificationForm1:userProcessNamespaceURI xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:userProcessNamespaceURI>
+        <SalesOrderModificationForm1:customMetaData xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"></SalesOrderModificationForm1:customMetaData>
+      </SalesOrderModificationForm1:taskMetaData>
+      <SalesOrderModificationForm1:taskOutput xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">
+        <demo:SalesOrderMod xmlns:demo="http://demo.intalio.com/base_types">
+          <demo:SalesOrder xmlns:demo="http://demo.intalio.com/base_types">
+            <demo:OrderRef xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OrderRef>
+            <demo:OrderDate xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OrderDate>
+            <demo:Client xmlns:demo="http://demo.intalio.com/base_types">
+              <demo:ClientId xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ClientId>
+              <demo:ClientName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ClientName>
+              <demo:ContactName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactName>
+              <demo:ContactPhone xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactPhone>
+              <demo:ContactEmail xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ContactEmail>
+            </demo:Client>
+            <demo:Items xmlns:demo="http://demo.intalio.com/base_types">
+              <demo:ItemRef xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemRef>
+              <demo:ProductId xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductId>
+              <demo:ProductFamily xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductFamily>
+              <demo:ProductName xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductName>
+              <demo:ProductPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProductPrice>
+              <demo:Quantity xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Quantity>
+              <demo:ItemDiscount xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemDiscount>
+              <demo:ItemPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ItemPrice>
+            </demo:Items>
+            <demo:GlobalDiscount xmlns:demo="http://demo.intalio.com/base_types"></demo:GlobalDiscount>
+            <demo:TotalPrice xmlns:demo="http://demo.intalio.com/base_types">Required</demo:TotalPrice>
+          </demo:SalesOrder>
+          <demo:ReviewManager xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ReviewManager>
+        </demo:SalesOrderMod>
+      </SalesOrderModificationForm1:taskOutput>
+      <SalesOrderModificationForm1:status xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi">Required</SalesOrderModificationForm1:status>
+    </SalesOrderModificationForm1:notifyTaskCompletionRequest>
+  </root>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_z1i-0ItuEeOsMc8Cb1pSSQ" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_UxMhkI0REeOm_cpIPo0Ddg" scopeID="_AnxUIItvEeOsMc8Cb1pSSQ" displayName="Empty_End_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_ejT60ItvEeOsMc8Cb1pSSQ" scopeID="_4yH6sI0oEeOm_cpIPo0Ddg" displayName="Split orders" isMyRole="true"></sim:activity>
+    <sim:activity ID="_Vs9u0I0oEeOm_cpIPo0Ddg" scopeID="_4yH6sI0oEeOm_cpIPo0Ddg" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_1SwQ0I0oEeOm_cpIPo0Ddg" scopeID="_aNe3MI0pEeOm_cpIPo0Ddg" displayName="Extract items" isMyRole="true"></sim:activity>
+    <sim:activity ID="_QPgd0ZAsEeOb5MqYwHAi3A" scopeID="_SsjvEJAsEeOb5MqYwHAi3A" displayName="Notify sales rep" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">
+  <root>
+    <SalesOrderProgressNotification1:notifyResponse>
+      <SalesOrderProgressNotification1:status xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">Required</SalesOrderProgressNotification1:status>
+      <SalesOrderProgressNotification1:errorCode xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorCode>
+      <SalesOrderProgressNotification1:errorReason xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorReason>
+    </SalesOrderProgressNotification1:notifyResponse>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_c1CbIItvEeOsMc8Cb1pSSQ" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Empty_End_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_4wz2oI0pEeOm_cpIPo0Ddg" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_1p0jNpAsEeOb5MqYwHAi3A" scopeID="_22RIMJAsEeOb5MqYwHAi3A" displayName="Notify sales rep" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">
+  <root>
+    <SalesOrderProgressNotification1:notifyResponse>
+      <SalesOrderProgressNotification1:status xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">Required</SalesOrderProgressNotification1:status>
+      <SalesOrderProgressNotification1:errorCode xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorCode>
+      <SalesOrderProgressNotification1:errorReason xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorReason>
+    </SalesOrderProgressNotification1:notifyResponse>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_bJmBYIw9EeOFFbIosSS-2A" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Trigger office product provisioning" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:off="http://demo.office.intalio.com/OfficeProvisioningService/">
+  <parameters>
+    <off:OfficeProvisioningOrderResponse>
+      <demo:ProcessInstance xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProcessInstance>
+      <demo:Timestamp xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Timestamp>
+    </off:OfficeProvisioningOrderResponse>
+  </parameters>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_-I2qUIwhEeO8XZduhURGdg" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Recieve office products provisioning results" isMyRole="true" hasBreakpoint="true">
+      <sim:request><![CDATA[<message xmlns:this="http://thisdiagram/OrderManagement">
+  <body>
+    <this:Recieve_office_products_provisioning_resultsRequest>
+      <demo:OfficeOrder xmlns:demo="http://demo.intalio.com/base_types">Required</demo:OfficeOrder>
+    </this:Recieve_office_products_provisioning_resultsRequest>
+  </body>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_bJ3KcI0qEeOm_cpIPo0Ddg" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_e8ZTlpAtEeOb5MqYwHAi3A" scopeID="_gPGRkJAtEeOb5MqYwHAi3A" displayName="Nofity sales rep" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">
+  <root>
+    <SalesOrderProgressNotification1:notifyResponse>
+      <SalesOrderProgressNotification1:status xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">Required</SalesOrderProgressNotification1:status>
+      <SalesOrderProgressNotification1:errorCode xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorCode>
+      <SalesOrderProgressNotification1:errorReason xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorReason>
+    </SalesOrderProgressNotification1:notifyResponse>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_myrRNpQ8EeOChfACVLXveg" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Request electronics provisioning" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:ElectronicsProvisioning-Provisioning="http://thisproject/processes/ElectronicsProvisioning/Provisioning">
+  <body>
+    <ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestResponse>
+      <demo:ProcessInstance xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ProcessInstance>
+      <demo:Timestamp xmlns:demo="http://demo.intalio.com/base_types">Required</demo:Timestamp>
+    </ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestResponse>
+  </body>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_TLu5QI0JEeOq0qC6DFI7Cw" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Recieve electronics provisioning results" isMyRole="true" hasBreakpoint="true">
+      <sim:request><![CDATA[<message xmlns:this="http://thisdiagram/OrderManagement">
+  <body>
+    <this:Recieve_electronics_provisioning_resultsRequest>
+      <demo:ElectronicsOrder xmlns:demo="http://demo.intalio.com/base_types">Required</demo:ElectronicsOrder>
+    </this:Recieve_electronics_provisioning_resultsRequest>
+  </body>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_g8TqMI0qEeOm_cpIPo0Ddg" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Empty_Intermediate_Event" isMyRole="true"></sim:activity>
+    <sim:activity ID="_BF2ghpQxEeOKY_BvkoJSPw" scopeID="_B24U0JQxEeOKY_BvkoJSPw" displayName="Notify sales rep" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">
+  <root>
+    <SalesOrderProgressNotification1:notifyResponse>
+      <SalesOrderProgressNotification1:status xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">Required</SalesOrderProgressNotification1:status>
+      <SalesOrderProgressNotification1:errorCode xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorCode>
+      <SalesOrderProgressNotification1:errorReason xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorReason>
+    </SalesOrderProgressNotification1:notifyResponse>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_P6CRFpQyEeOKY_BvkoJSPw" scopeID="_SnVk0JQyEeOKY_BvkoJSPw" displayName="Notify sales rep" isMyRole="false" hasBreakpoint="true">
+      <sim:response><![CDATA[<message xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">
+  <root>
+    <SalesOrderProgressNotification1:notifyResponse>
+      <SalesOrderProgressNotification1:status xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi">Required</SalesOrderProgressNotification1:status>
+      <SalesOrderProgressNotification1:errorCode xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorCode>
+      <SalesOrderProgressNotification1:errorReason xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"></SalesOrderProgressNotification1:errorReason>
+    </SalesOrderProgressNotification1:notifyResponse>
+  </root>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_kM0bsI0JEeOq0qC6DFI7Cw" scopeID="_ltsq0IHgEeOg9duzhzfyfA" displayName="Empty_End_Event" isMyRole="true"></sim:activity>
+  </sim:activities>
+</sim:process>

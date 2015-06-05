@@ -1,0 +1,31 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Query="http://thisdiagram/Query" xmlns:diag="http://thisdiagram" xmlns:this="http://thisdiagram/consumer" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/consumer">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Query" bpdm:prefix="Query" bpdm:comment="contrib=&apos;partner-pool:///_VKXTBoHuEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_VKXTBoHuEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/consumer" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_VKXTBoHuEeOg9duzhzfyfA" bpdm:label="Query"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="consumer" bpdm:ID="_b75qcJsXEeOwCYydylTGDw">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="consumerAndQueryPlkVar" partnerLinkType="diag:consumerAndQuery" initializePartnerRole="yes" partnerRole="Query_for_consumer" bpdm:invokedService="Query:CanonicServiceForconsumer" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Query/consumer" bpdm:invokedIsDefault="true" bpdm:clientTasks="_b75qcJsXEeOwCYydylTGDw:_dnMHkJsXEeOwCYydylTGDw" bpdm:isManaged="true" bpdm:otherPoolId="_VKXTBoHuEeOg9duzhzfyfA"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="queryRecieve_RequestRequestMsg" messageType="Query:Recieve_RequestRequest" bpdm:id="_id4JsJsXEeOwCYydylTGDw" bpdm:messageIds=" out:_idu_wJsXEeOwCYydylTGDw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="Query:Recieve_RequestRequest" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="queryRecieve_RequestResponseMsg" messageType="Query:Recieve_RequestResponse" bpdm:id="_kJBc5ZsXEeOwCYydylTGDw" bpdm:messageIds="inc:_kIkw8JsXEeOwCYydylTGDw"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Recieve_Request" partnerLink="consumerAndQueryPlkVar" portType="Query:Forconsumer" isMyRole="false" enableSharing="false" bpdm:label="Invoke" bpdm:ID="_dnMHkJsXEeOwCYydylTGDw">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="queryRecieve_RequestRequestMsg" bpdm:msgVarScopeId="_b75qcJsXEeOwCYydylTGDw" bpdm:variableIsManaged="true" bpdm:messageType="Query:Recieve_RequestRequest" bpdm:ID="_idu_wJsXEeOwCYydylTGDw"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="queryRecieve_RequestResponseMsg" bpdm:msgVarScopeId="_b75qcJsXEeOwCYydylTGDw" bpdm:variableIsManaged="true" bpdm:messageType="Query:Recieve_RequestResponse" bpdm:ID="_kIkw8JsXEeOwCYydylTGDw"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

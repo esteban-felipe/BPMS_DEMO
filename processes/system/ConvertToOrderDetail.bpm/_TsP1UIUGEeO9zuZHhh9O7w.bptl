@@ -1,0 +1,16 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<bpt:template xmlns:bpt="http://www.intalio/designer/business-process-data-modeling/template" ID="_TsP1UIUGEeO9zuZHhh9O7w" displayName="ConvertToSalesOrderDetail" ownerPoolId="_ciFIQIQvEeOoEv0kI-gb_A" ownerPoolNcName="client" ownerPoolIsExecutable="false" version="6000089">
+    <bpt:partnerPool ID="_EZ7cg4QvEeOoEv0kI-gb_A" ncName="Convert" isExecutable="true"/>
+    <bpt:container displayName="sequence" containerType="sequence">
+        <bpt:activity ID="_epNz4IQvEeOoEv0kI-gb_A" displayName="Request conversion" activityType="Task" messaging="invokerequestresponsebound">
+            <bpt:generatedOperation providingPoolId="_EZ7cg4QvEeOoEv0kI-gb_A" generatedPartnerLinkTypeLocalName="clientAndConvert" generatedService="CanonicServiceForclient" generatedOperation="Recieve_conversion_request" generatedPort="canonicPort">
+                <bpt:input name="Recieve_conversion_request" generatedMessageTypeLocalName="Recieve_conversion_requestRequest">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}SalesOrderType" generatedElementLocalName="Recieve_conversion_requestRequest"/>
+                </bpt:input>
+                <bpt:output name="Recieve_conversion_requestResponse" generatedMessageTypeLocalName="Recieve_conversion_requestResponse">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}SalesOrderDetailType" generatedElementLocalName="Recieve_conversion_requestResponse"/>
+                </bpt:output>
+            </bpt:generatedOperation>
+        </bpt:activity>
+    </bpt:container>
+</bpt:template>

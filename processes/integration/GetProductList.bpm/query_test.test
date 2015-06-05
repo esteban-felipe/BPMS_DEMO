@@ -1,0 +1,35 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<sim:process xmlns:sim="http://www.intalio.com/bpms/designer/sim" poolID="_Sj_ZgIKlEeObBr1IX2RN-g" poolDisplayName="Query" startingActivitiesIDs="[_Sj_ZgoKlEeObBr1IX2RN-g]" bpdmFile="processes/integration/GetProductList.bpm/_Sj_ZgIKlEeObBr1IX2RN-g.bpdm">
+  <sim:activities>
+    <sim:activity ID="_Sj_ZgoKlEeObBr1IX2RN-g" scopeID="_Sj_ZgIKlEeObBr1IX2RN-g" displayName="Recieve query" isMyRole="true">
+      <sim:request><![CDATA[<message xmlns:this="http://thisdiagram/Query">
+  <body>
+    <this:Recieve_queryRequest></this:Recieve_queryRequest>
+  </body>
+</message>]]></sim:request>
+    </sim:activity>
+    <sim:activity ID="_mOsChoKlEeObBr1IX2RN-g" scopeID="_Sj_ZgIKlEeObBr1IX2RN-g" displayName="Query products" isMyRole="false">
+      <sim:response><![CDATA[<message xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">
+  <parameters>
+    <ns:SelectProductsResultSet>
+      <ns:rows xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">
+        <ns:row xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">
+          <ns:ProductId xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">1</ns:ProductId>
+          <ns:Name xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">Fake product 1</ns:Name>
+          <ns:Family xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">Electronics</ns:Family>
+          <ns:Price xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">10</ns:Price>
+        </ns:row>
+        <ns:row xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">
+          <ns:ProductId xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">2</ns:ProductId>
+          <ns:Name xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">Fake product 2</ns:Name>
+          <ns:Family xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">Electronics</ns:Family>
+          <ns:Price xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice">100</ns:Price>
+        </ns:row>
+      </ns:rows>
+    </ns:SelectProductsResultSet>
+  </parameters>
+</message>]]></sim:response>
+    </sim:activity>
+    <sim:activity ID="_oLaN4IKlEeObBr1IX2RN-g" scopeID="_Sj_ZgIKlEeObBr1IX2RN-g" displayName="Send reply" isMyRole="true" hasBreakpoint="true"></sim:activity>
+  </sim:activities>
+</sim:process>

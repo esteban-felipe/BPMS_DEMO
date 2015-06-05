@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="SalesOrderDetailToSalesOrderByFamily.xsl" xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi" xmlns:SalesOrderModificationForm="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi/attachments" xmlns:TaskManagementServices="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/" xmlns:ConvertToOrderDetail-Convert="http://demo.intalio.com/processes/system/ConvertToOrderDetail/Convert" xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:this="http://demo.intalio.com/processes/OrderManagement/OrderManagement" xmlns:tns="http://tempo.intalio.org/security/tokenService/" xmlns:diag="http://demo.intalio.com/processes/OrderManagement" xmlns:NofityRole-Notify="http://demo.intalio.com/processes/system/NofityRole/Notify" xmlns:Sales_representative="http://demo.intalio.com/processes/OrderManagement/Sales_representative" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi" xmlns:SalesOrderForm="http://www.intalio.com/gi/forms/SalesOrderForm.gi/attachments" xmlns:bpms_demo_form_elements="http://demo.intalio.com/form_elements" xmlns:demo="http://demo.intalio.com/base_types" xmlns:attachments="http://www.intalio.com/gi/forms/SalesOrderReview.gi/attachments">
+  <!--XSL Test sample  generated on Sun Feb 02 10:28:50 EST 2014
+ for F/BPMS_DEMO/processes/OrderManagement.bpm
+   pool:OrderManagement
+   activity: Split orders
+ Complete doXslTransform: bpel:doXslTransform("SalesOrderDetailToSalesOrderByFamily.xsl", $SalesManagement/demo:SalesOrder)
+ Input document as defined in the mapper: $SalesManagement/demo:SalesOrder-->
+  <test:input>
+    <demo:SalesOrder>
+      <demo:OrderRef>1234</demo:OrderRef>
+      <demo:OrderDate>2014-01-01</demo:OrderDate>
+      <demo:Client>
+        <demo:ClientId>1</demo:ClientId>
+        <demo:ClientName>Intalio</demo:ClientName>
+        <demo:ContactName>Esteban</demo:ContactName>
+        <demo:ContactPhone>123123123123</demo:ContactPhone>
+        <demo:ContactEmail>felipe@intalio.com</demo:ContactEmail>
+      </demo:Client>
+      <demo:Items>
+        <demo:ItemRef>jsx_1</demo:ItemRef>
+        <demo:ProductId>1</demo:ProductId>
+        <demo:ProductFamily>Office</demo:ProductFamily>
+        <demo:ProductName>asdasd</demo:ProductName>
+        <demo:ProductPrice>1234</demo:ProductPrice>
+        <demo:Quantity>1</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+        <demo:ItemPrice>123</demo:ItemPrice>
+      </demo:Items>
+      <demo:Items>
+        <demo:ItemRef>jsx_2</demo:ItemRef>
+        <demo:ProductId>2</demo:ProductId>
+        <demo:ProductFamily>Office</demo:ProductFamily>
+        <demo:ProductName>asdasd</demo:ProductName>
+        <demo:ProductPrice>1234</demo:ProductPrice>
+        <demo:Quantity>1</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+        <demo:ItemPrice>123</demo:ItemPrice>
+      </demo:Items>
+      <demo:Items>
+        <demo:ItemRef>jsx_3</demo:ItemRef>
+        <demo:ProductId>3</demo:ProductId>
+        <demo:ProductFamily>Furniture</demo:ProductFamily>
+        <demo:ProductName>asdasd</demo:ProductName>
+        <demo:ProductPrice>1234</demo:ProductPrice>
+        <demo:Quantity>1</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+        <demo:ItemPrice>123</demo:ItemPrice>
+      </demo:Items>
+      <demo:Items>
+        <demo:ItemRef>jsx_4</demo:ItemRef>
+        <demo:ProductId>4</demo:ProductId>
+        <demo:ProductFamily>Furniture</demo:ProductFamily>
+        <demo:ProductName>asdasd</demo:ProductName>
+        <demo:ProductPrice>1234</demo:ProductPrice>
+        <demo:Quantity>1</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+        <demo:ItemPrice>123</demo:ItemPrice>
+      </demo:Items>
+      <demo:Items>
+        <demo:ItemRef>jsx_5</demo:ItemRef>
+        <demo:ProductId>5</demo:ProductId>
+        <demo:ProductFamily>Electronics</demo:ProductFamily>
+        <demo:ProductName>asdasd</demo:ProductName>
+        <demo:ProductPrice>1234</demo:ProductPrice>
+        <demo:Quantity>1</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+        <demo:ItemPrice>123</demo:ItemPrice>
+      </demo:Items>
+      <demo:Items>
+        <demo:ItemRef>jsx_6</demo:ItemRef>
+        <demo:ProductId>6</demo:ProductId>
+        <demo:ProductFamily>Electronics</demo:ProductFamily>
+        <demo:ProductName>asdasd</demo:ProductName>
+        <demo:ProductPrice>1234</demo:ProductPrice>
+        <demo:Quantity>1</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+        <demo:ItemPrice>123</demo:ItemPrice>
+      </demo:Items>
+      <demo:GlobalDiscount>0</demo:GlobalDiscount>
+      <demo:TotalPrice>100</demo:TotalPrice>
+    </demo:SalesOrder>
+  </test:input>
+  <!--No parameters are currently passed to doXslTransform.-->
+</test:testxsl>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="SelectClientToClientType.xsl" xmlns:SelectContact="urn:intalio.com:connectors:database:bpms_demo:selectcontactservice" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:demo="http://demo.intalio.com/integration_elements" xmlns:QueryimplicitPartner="http://demo.intalio.com/processes/integration/GetClientList/QueryimplicitPartner" xmlns:this="http://demo.intalio.com/processes/integration/GetClientList/Query" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:diag="http://demo.intalio.com/processes/integration/GetClientList" xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectclientservice">
+  <!--XSL Test sample  generated on Mon Jan 20 13:37:53 EST 2014
+ for F/BPMS_DEMO/processes/integration/GetClientList.bpm
+   pool:Query
+   activity: ExtractClient
+ Complete doXslTransform: bpel:doXslTransform("../../transformations/SelectClientToClientType.xsl", $nsSelectClientResponseMsg.parameters/ns:rows, "position", $emptyCounter)
+ Input document as defined in the mapper: $nsSelectClientResponseMsg.parameters/ns:rows-->
+  <test:input>
+    <ns:rows>
+      <ns:row>
+        <ns:client_id>1</ns:client_id>
+        <ns:client_name>Intalio</ns:client_name>
+      </ns:row>
+      <ns:row>
+        <ns:client_id>2</ns:client_id>
+        <ns:client_name>Intalio2</ns:client_name>
+      </ns:row>    </ns:rows>
+  </test:input>
+  <test:param name="position">2</test:param>
+</test:testxsl>

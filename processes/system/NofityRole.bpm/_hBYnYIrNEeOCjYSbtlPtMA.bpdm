@@ -1,0 +1,191 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:client="http://thisdiagram/client" xmlns:ns0="http://bpms.intalio.com/tools/webservices/email" xmlns:this="http://thisdiagram/Notify" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempo.intalio.org/security/RBACQueryService/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:NotifyimplicitPartner="http://thisdiagram/NotifyimplicitPartner" xmlns:demo="http://demo.intalio.com/base_types" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Notify">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/client" bpdm:prefix="client" bpdm:comment="contrib=&apos;partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://bpms.intalio.com/tools/webservices/email" bpdm:prefix="ns0" bpdm:comment="contrib=&apos;project:///services/EmailWS.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Notify" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://tempo.intalio.org/security/RBACQueryService/" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///services/RBACQueryService.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/NotifyimplicitPartner" bpdm:prefix="NotifyimplicitPartner" bpdm:comment="contrib=&apos;partner-pool:///_hBYnYIrNEeOCjYSbtlPtMAimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/base_types" bpdm:prefix="demo" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_base_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_hBYnYIrNEeOCjYSbtlPtMAimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="Forclient">
+                <wsdl:operation name="Recieve_request" bpdm:source="partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ">
+                    <wsdl:input message="this:Recieve_requestRequest" name="Recieve_request"/>
+                    <wsdl:output message="this:Recieve_requestResponse" name="Recieve_requestResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <bpel:binding name="CanonicBindingForclient" type="this:Forclient" bpdm:isSynchronized="true"/>
+            <xs:element name="Recieve_requestRequest" type="demo:NotificationType" bpdm:source="partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ"/>
+            <wsdl:message name="Recieve_requestRequest" bpdm:source="partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ">
+                <wsdl:part name="body" element="this:Recieve_requestRequest"/>
+            </wsdl:message>
+            <xs:element name="Recieve_requestResponse" type="demo:AcknowledgeType" bpdm:source="partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ"/>
+            <wsdl:message name="Recieve_requestResponse" bpdm:source="partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ">
+                <wsdl:part name="body" element="this:Recieve_requestResponse"/>
+            </wsdl:message>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_iEl9wAVtEeWdZ5JPyJjDsQ" bpdm:label="client"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_hBYnYIrNEeOCjYSbtlPtMAimplicitPartner" bpdm:label="NotifyimplicitPartner"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_base_types.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/RBACQueryService.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/EmailWS.wsdl"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Notify" bpdm:ID="_hBYnYIrNEeOCjYSbtlPtMA">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="notifyimplicitPartnerAndNotifyForEmailWSSOAP11port_httpPlkVar" partnerLinkType="diag:NotifyimplicitPartnerAndNotifyForEmailWSSOAP11port_httpPlk" initializePartnerRole="yes" partnerRole="NotifyimplicitPartner_for_Notify" bpdm:invokedService="ns0:EmailWS" bpdm:invokedPort="EmailWSSOAP11port_http" bpdm:invokedSOAPAddress="http://bpms.local:8080/intalio/ode/processes/EmailWS.EmailWSSOAP11port_http/" bpdm:invokedIsDefault="true" bpdm:clientTasks="_z3yFoIrNEeOCjYSbtlPtMA:_nR4NsIrQEeOCjYSbtlPtMA" bpdm:isManaged="true" bpdm:otherPoolId="_hBYnYIrNEeOCjYSbtlPtMAimplicitPartner"/>
+            <bpel:partnerLink name="clientAndNotifyPlkVar" partnerLinkType="diag:clientAndNotify" myRole="Notify_for_client" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForclient" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Notify/client" bpdm:providedIsDefault="true" bpdm:clientTasks="_hBYnYIrNEeOCjYSbtlPtMA:_lKAPgAVtEeWdZ5JPyJjDsQ" bpdm:isManaged="true" bpdm:otherPoolId="_iEl9wAVtEeWdZ5JPyJjDsQ"/>
+            <bpel:partnerLink name="notifyimplicitPartnerAndNotifyForPortRBACServicePlkVar" partnerLinkType="diag:NotifyimplicitPartnerAndNotifyForPortRBACServicePlk" initializePartnerRole="yes" partnerRole="NotifyimplicitPartner_for_Notify" bpdm:invokedService="tns:RBACQueryService" bpdm:invokedPort="RBACService" bpdm:invokedSOAPAddress="http://bpms.local:8080/intalio/ode/processes/RBACQueryService.RBACService/" bpdm:invokedIsDefault="true" bpdm:clientTasks="_hBYnYIrNEeOCjYSbtlPtMA:_ck1UAAVuEeWdZ5JPyJjDsQ, _z3yFoIrNEeOCjYSbtlPtMA:_pD3VoAVwEeWdZ5JPyJjDsQ" bpdm:isManaged="true" bpdm:otherPoolId="_hBYnYIrNEeOCjYSbtlPtMAimplicitPartner"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisRecieve_requestRequestMsg" messageType="this:Recieve_requestRequest" bpdm:id="_x6dqQAVtEeWdZ5JPyJjDsQ" bpdm:messageIds="inc:_x6HsAAVtEeWdZ5JPyJjDsQ"/>
+            <bpel:variable name="thisRecieve_requestResponseMsg" messageType="this:Recieve_requestResponse" bpdm:id="_zYgVkAVtEeWdZ5JPyJjDsQ" bpdm:messageIds=" out:_zYRsEAVtEeWdZ5JPyJjDsQ">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Recieve_requestResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="tnsGetAssignedUsersResponseMsg" messageType="tns:getAssignedUsersResponse" binding="tns:RBACQuerySOAP" operation="getAssignedUsers" opMsgType="1" bpdm:messageIds="inc:_ck1UAAVuEeWdZ5JPyJjDsQIncoming"/>
+            <bpel:variable name="tnsGetAssignedUsersRequestMsg" messageType="tns:getAssignedUsersRequest" binding="tns:RBACQuerySOAP" operation="getAssignedUsers" opMsgType="0" bpdm:messageIds=" out:_ck1UAAVuEeWdZ5JPyJjDsQOutgoing">
+                <bpel:from bpdm:toPart="payload">
+                    <bpel:literal bpdm:linkedMessageType="tns:getAssignedUsersRequest" bpdm:linkedPart="payload" bpdm:binding="tns:RBACQuerySOAP" bpdm:opMsgType="0" bpdm:operation="getAssignedUsers"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Recieve_request" partnerLink="clientAndNotifyPlkVar" portType="this:Forclient" isMyRole="true" enableSharing="false" bpdm:label="Recieve request" bpdm:ID="_lKAPgAVtEeWdZ5JPyJjDsQ">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisRecieve_requestRequestMsg" bpdm:msgVarScopeId="_hBYnYIrNEeOCjYSbtlPtMA" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_requestRequest" bpdm:ID="_x6HsAAVtEeWdZ5JPyJjDsQ"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$ode:pid</bpel:from>
+                        <bpel:to>$thisRecieve_requestResponseMsg.body/demo:ProcessInstance</bpel:to><mapper:mapperLink><mapper:vertice id="435710620" targetPath="$thisRecieve_requestResponseMsg.body/demo:ProcessInstance" targetedBy="2127988946-arg0"></mapper:vertice><mapper:vertice id="2127988946" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>current-dateTime()</bpel:from>
+                        <bpel:to>$thisRecieve_requestResponseMsg.body/demo:Timestamp</bpel:to><mapper:mapperLink><mapper:vertice id="393841329" targetPath="$thisRecieve_requestResponseMsg.body/demo:Timestamp" targetedBy="1515357420-arg0"></mapper:vertice><mapper:vertice id="1515357420" dimension="109x24" location="482,104"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_requestResponseMsg" bpdm:msgVarScopeId="_hBYnYIrNEeOCjYSbtlPtMA" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_requestResponse" bpdm:ID="_zYRsEAVtEeWdZ5JPyJjDsQ"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="getAssignedUsers" partnerLink="notifyimplicitPartnerAndNotifyForPortRBACServicePlkVar" portType="tns:RBACQueryServicePortType" isMyRole="false" enableSharing="false" bpdm:label="getAssignedUsers" bpdm:ID="_ck1UAAVuEeWdZ5JPyJjDsQ">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$thisRecieve_requestRequestMsg.body/demo:Role</bpel:from>
+                        <bpel:to>$tnsGetAssignedUsersRequestMsg.payload/tns:role</bpel:to><mapper:mapperLink><mapper:vertice id="1884045936" targetPath="$tnsGetAssignedUsersRequestMsg.payload/tns:role" targetedBy="941237731-arg0"></mapper:vertice><mapper:vertice id="941237731" sourcePath="$thisRecieve_requestRequestMsg.body/demo:Role"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>ode:get-property-value("rbac_endpoint")</bpel:from>
+                        <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="972424967" targetPath="$endpoint" targetedBy="124291834-arg1"></mapper:vertice><mapper:vertice id="124291834" dimension="139x24" location="410,102"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="774071571" dimension="94x24" location="206,98" targetedBy="124291834-arg0"><mapper:value>"rbac_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="tnsGetAssignedUsersRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="tns:getAssignedUsersRequest" bpdm:binding="tns:RBACQuerySOAP" bpdm:ID="_ck1UAAVuEeWdZ5JPyJjDsQOutgoing"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="tnsGetAssignedUsersResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="tns:getAssignedUsersResponse" bpdm:binding="tns:RBACQuerySOAP" bpdm:ID="_ck1UAAVuEeWdZ5JPyJjDsQIncoming"></bpdm:linkset>
+                <bpdm:thrownFault msgFaultNcName="RBACFault" msgFaultTypeQname="tns:RBACFault"/>
+                <bpdm:thrownFault msgFaultNcName="RemoteFault" msgFaultTypeQname="tns:RemoteFault"/>
+                <bpdm:thrownFault msgFaultNcName="IllegalArgumentFault" msgFaultTypeQname="tns:IllegalArgumentFault"/>
+                <bpdm:thrownFault msgFaultNcName="RoleNotFoundFault" msgFaultTypeQname="tns:RoleNotFoundFault"/>
+            </bpdm:messagingtask>
+            <bpel:scope bpdm:label="Parallel email sending routine" bpdm:ID="_z3yFoIrNEeOCjYSbtlPtMA">
+                <bpdm:linkset bpdm:type="loop" bpdm:loopType="forEach" parallel="yes" counterName="Parallel_email_sending_routineCounter">
+                    <bpel:condition bpdm:loopType="forEachStartCounter">1<mapper:mapperLink><mapper:vertice id="1941692078" targetPath="$Start counter" targetedBy="187886751-arg0"></mapper:vertice><mapper:vertice id="187886751" dimension="175x25" location="280,52"><mapper:value>1</mapper:value></mapper:vertice></mapper:mapperLink></bpel:condition>
+                    <bpel:condition bpdm:loopType="forEachFinalCounter">count($tnsGetAssignedUsersResponseMsg.payload/tns:user)
+<mapper:mapperLink>
+  <mapper:vertice id="534465228" targetPath="$Final counter" targetedBy="598247675-arg0"></mapper:vertice>
+  <mapper:vertice id="598247675" dimension="175x25" location="274,122">
+    <mapper:value>count()</mapper:value>
+  </mapper:vertice>
+  <mapper:vertice id="891945499" sourcePath="$tnsGetAssignedUsersResponseMsg.payload/tns:user" targetedBy="598247675-arg1"></mapper:vertice>
+</mapper:mapperLink></bpel:condition>
+                </bpdm:linkset>
+                <bpel:variables>
+                    <bpel:variable name="UserData" element="demo:UserData" bpdm:id="_i9QBsIrOEeOCjYSbtlPtMA">
+                        <bpel:from>
+                            <bpel:literal bpdm:linkedElement="demo:UserData"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                    <bpel:variable name="Username" element="demo:Username" bpdm:id="_c8rJ5orPEeOCjYSbtlPtMA">
+                        <bpel:from>
+                            <bpel:literal bpdm:linkedElement="demo:Username"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                    <bpel:variable name="ns0SendEmailWithTextBodyResponseMsg" messageType="ns0:sendResponse" binding="ns0:EmailWSSOAP11Binding" operation="sendEmailWithTextBody" opMsgType="1" bpdm:messageIds="inc:_nR4NsIrQEeOCjYSbtlPtMAIncoming"/>
+                    <bpel:variable name="ns0SendEmailWithTextBodyRequestMsg" messageType="ns0:sendEmailWithTextBody" binding="ns0:EmailWSSOAP11Binding" operation="sendEmailWithTextBody" opMsgType="0" bpdm:messageIds=" out:_nR4NsIrQEeOCjYSbtlPtMAOutgoing">
+                        <bpel:from bpdm:toPart="InputParameters">
+                            <bpel:literal bpdm:linkedMessageType="ns0:sendEmailWithTextBody" bpdm:linkedPart="InputParameters" bpdm:binding="ns0:EmailWSSOAP11Binding" bpdm:opMsgType="0" bpdm:operation="sendEmailWithTextBody"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                    <bpel:variable name="tnsGetUserPropertiesResponseMsg" messageType="tns:getUserPropertiesResponse" binding="tns:RBACQuerySOAP" operation="getUserProperties" opMsgType="1" bpdm:messageIds="inc:_pD3VoAVwEeWdZ5JPyJjDsQIncoming"/>
+                    <bpel:variable name="tnsGetUserPropertiesRequestMsg" messageType="tns:getUserPropertiesRequest" binding="tns:RBACQuerySOAP" operation="getUserProperties" opMsgType="0" bpdm:messageIds=" out:_pD3VoAVwEeWdZ5JPyJjDsQOutgoing">
+                        <bpel:from bpdm:toPart="payload">
+                            <bpel:literal bpdm:linkedMessageType="tns:getUserPropertiesRequest" bpdm:linkedPart="payload" bpdm:binding="tns:RBACQuerySOAP" bpdm:opMsgType="0" bpdm:operation="getUserProperties"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                </bpel:variables>
+                <bpel:sequence>
+                    <bpdm:messagingtask bpdm:label="ExtractUsername" bpdm:ID="_ws-9kIrNEeOCjYSbtlPtMA">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>bpel:doXslTransform("../../transformations/AssignedUserToUsername.xsl", $tnsGetAssignedUsersResponseMsg.payload, "index", $Parallel_email_sending_routineCounter)</bpel:from>
+                                <bpel:to>$Username</bpel:to><mapper:mapperLink><mapper:vertice id="136852763" targetPath="$Username" targetedBy="1787238531-arg4"></mapper:vertice><mapper:vertice id="1787238531" dimension="175x25" location="252,72"><mapper:value>bpel:doXslTransform()</mapper:value></mapper:vertice><mapper:vertice id="997998924" dimension="175x25" location="28,38" targetedBy="1787238531-arg0"><mapper:value>"../../transformations/AssignedUserToUsername.xsl"</mapper:value></mapper:vertice><mapper:vertice id="69191639" sourcePath="$tnsGetAssignedUsersResponseMsg.payload" targetedBy="1787238531-arg1"></mapper:vertice><mapper:vertice id="326547306" dimension="175x25" location="24,108" targetedBy="1787238531-arg2"><mapper:value>"index"</mapper:value></mapper:vertice><mapper:vertice id="763107624" sourcePath="$Parallel_email_sending_routineCounter" targetedBy="1787238531-arg3"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                    <bpdm:messagingtask operation="getUserProperties" partnerLink="notifyimplicitPartnerAndNotifyForPortRBACServicePlkVar" portType="tns:RBACQueryServicePortType" isMyRole="false" enableSharing="false" bpdm:label="getUserProperties" bpdm:ID="_pD3VoAVwEeWdZ5JPyJjDsQ">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>ode:get-property-value("rbac_endpoint")</bpel:from>
+                                <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="1584552711" targetPath="$endpoint" targetedBy="900963223-arg1"></mapper:vertice><mapper:vertice id="900963223" dimension="139x24" location="346,121"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="1754984018" dimension="94x24" location="117,126" targetedBy="900963223-arg0"><mapper:value>"rbac_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$Username</bpel:from>
+                                <bpel:to>$tnsGetUserPropertiesRequestMsg.payload/tns:user</bpel:to><mapper:mapperLink><mapper:vertice id="941773873" targetPath="$tnsGetUserPropertiesRequestMsg.payload/tns:user" targetedBy="1495864655-arg0"></mapper:vertice><mapper:vertice id="1495864655" sourcePath="$Username"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="tnsGetUserPropertiesRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="tns:getUserPropertiesRequest" bpdm:binding="tns:RBACQuerySOAP" bpdm:ID="_pD3VoAVwEeWdZ5JPyJjDsQOutgoing"></bpdm:linkset>
+                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="tnsGetUserPropertiesResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="tns:getUserPropertiesResponse" bpdm:binding="tns:RBACQuerySOAP" bpdm:ID="_pD3VoAVwEeWdZ5JPyJjDsQIncoming"></bpdm:linkset>
+                        <bpdm:thrownFault msgFaultNcName="RBACFault" msgFaultTypeQname="tns:RBACFault"/>
+                        <bpdm:thrownFault msgFaultNcName="RemoteFault" msgFaultTypeQname="tns:RemoteFault"/>
+                        <bpdm:thrownFault msgFaultNcName="UserNotFoundFault" msgFaultTypeQname="tns:UserNotFoundFault"/>
+                        <bpdm:thrownFault msgFaultNcName="IllegalArgumentFault" msgFaultTypeQname="tns:IllegalArgumentFault"/>
+                    </bpdm:messagingtask>
+                    <bpdm:messagingtask bpdm:label="Extract details" bpdm:ID="_ltb_cIrQEeOCjYSbtlPtMA">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>bpel:doXslTransform("../../transformations/UserPropertiesToUserData.xsl", $tnsGetUserPropertiesResponseMsg.payload)</bpel:from>
+                                <bpel:to>$UserData</bpel:to><mapper:mapperLink><mapper:vertice id="1210290668" targetPath="$UserData" targetedBy="2016682710-arg2"></mapper:vertice><mapper:vertice id="2016682710" dimension="175x25" location="252,84"><mapper:value>bpel:doXslTransform()</mapper:value></mapper:vertice><mapper:vertice id="1163727571" dimension="175x25" location="34,32" targetedBy="2016682710-arg0"><mapper:value>"../../transformations/UserPropertiesToUserData.xsl"</mapper:value></mapper:vertice><mapper:vertice id="717699628" sourcePath="$tnsGetUserPropertiesResponseMsg.payload" targetedBy="2016682710-arg1"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                    <bpdm:messagingtask operation="sendEmailWithTextBody" partnerLink="notifyimplicitPartnerAndNotifyForEmailWSSOAP11port_httpPlkVar" portType="ns0:EmailWSPortType" isMyRole="false" enableSharing="false" bpdm:label="Send email" bpdm:ID="_nR4NsIrQEeOCjYSbtlPtMA">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$UserData/demo:Email</bpel:from>
+                                <bpel:to>$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:To</bpel:to><mapper:mapperLink><mapper:vertice id="1909344115" targetPath="$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:To" targetedBy="551193575-arg0"></mapper:vertice><mapper:vertice id="551193575" sourcePath="$UserData/demo:Email"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>ode:get-property-value("email_from")</bpel:from>
+                                <bpel:to>$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:From</bpel:to><mapper:mapperLink><mapper:vertice id="277480437" targetPath="$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:From" targetedBy="2002306900-arg0"></mapper:vertice><mapper:vertice id="2002306900" dimension="139x24" location="399,26"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="686307950" dimension="79x24" location="155,29" targetedBy="2002306900-arg1"><mapper:value>"email_from"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$thisRecieve_requestRequestMsg.body/demo:Subject</bpel:from>
+                                <bpel:to>$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:Subject</bpel:to><mapper:mapperLink><mapper:vertice id="2003403604" targetPath="$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:Subject" targetedBy="358363532-arg0"></mapper:vertice><mapper:vertice id="358363532" sourcePath="$thisRecieve_requestRequestMsg.body/demo:Subject"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>concat($UserData/demo:Name, ", the task ", $thisRecieve_requestRequestMsg.body/demo:TaskId, " requires your attention")</bpel:from>
+                                <bpel:to>$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:Body</bpel:to><mapper:mapperLink><mapper:vertice id="1754133834" targetPath="$ns0SendEmailWithTextBodyRequestMsg.InputParameters/ns0:Body" targetedBy="2098926983-arg4"></mapper:vertice><mapper:vertice id="2098926983" dimension="175x102" location="392,199"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="21544206" sourcePath="$UserData/demo:Name" targetedBy="2098926983-arg0"></mapper:vertice><mapper:vertice id="1845256107" dimension="175x25" location="120,216" targetedBy="2098926983-arg1"><mapper:value>", the task "</mapper:value></mapper:vertice><mapper:vertice id="1353160009" sourcePath="$thisRecieve_requestRequestMsg.body/demo:TaskId" targetedBy="2098926983-arg2"></mapper:vertice><mapper:vertice id="1061972537" dimension="175x25" location="120,288" targetedBy="2098926983-arg3"><mapper:value>" requires your attention"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>ode:get-property-value("emailws_endpoint")</bpel:from>
+                                <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="1414618312" targetPath="$endpoint" targetedBy="465125176-arg1"></mapper:vertice><mapper:vertice id="465125176" dimension="139x24" location="552,372"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="603556064" dimension="114x24" location="235,400" targetedBy="465125176-arg0"><mapper:value>"emailws_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="ns0SendEmailWithTextBodyRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="ns0:sendEmailWithTextBody" bpdm:binding="ns0:EmailWSSOAP11Binding" bpdm:ID="_nR4NsIrQEeOCjYSbtlPtMAOutgoing"></bpdm:linkset>
+                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="ns0SendEmailWithTextBodyResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="ns0:sendResponse" bpdm:binding="ns0:EmailWSSOAP11Binding" bpdm:ID="_nR4NsIrQEeOCjYSbtlPtMAIncoming"></bpdm:linkset>
+                        <bpdm:thrownFault msgFaultNcName="emailFault" msgFaultTypeQname="ns0:emailFault"/>
+                    </bpdm:messagingtask>
+                </bpel:sequence>
+            </bpel:scope>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

@@ -1,0 +1,621 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://tempo.intalio.org/security/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempo.intalio.org/security/RBACQueryService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempo.intalio.org/security/RBACQueryService/">
+   <wsdl:documentation>
+<imported:imported xmlns:imported="http://www.intalio.com/designer/remote-services-import" imported:importTime="2015-05-28T15:18:08-0400" imported:sourceURI="http://bpms.local:8080/intalio/ode/processes/RBACQueryService?wsdl" imported:baseImportDir="BPMS_DEMO/services" imported:isRootImport="true" imported:isIndented="true"/>RBACQueryService</wsdl:documentation>
+   <wsdl:types>
+      <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tempo.intalio.org/security/RBACQueryService/">
+         <xsd:complexType name="PropertyType">
+            <xsd:sequence>
+               <xsd:element name="name" type="xsd:string"/>
+               <xsd:element name="value" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="PropertiesType">
+            <xsd:sequence>
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:PropertyType"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="role">
+            <xsd:sequence>
+               <xsd:element name="role" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="roles">
+            <xsd:sequence>
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="role" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="user">
+            <xsd:sequence>
+               <xsd:element name="user" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="users">
+            <xsd:sequence>
+               <xsd:element maxOccurs="unbounded" minOccurs="0" name="user" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:element name="getAssignedUsersRequest">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="role" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getAssignedUsersResponse" type="tns:users"/>
+         <xsd:element name="getAssignedRolesRequest" type="tns:user"/>
+         <xsd:element name="getAssignedRolesResponse" type="tns:roles"/>
+         <xsd:element name="getRoleOperationsOnObjectRequest">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="role" type="xsd:string"/>
+                  <xsd:element name="object" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getRoleOperationsOnObjectResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="operation" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getUserOperationsOnObjectRequest">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="user" type="xsd:string"/>
+                  <xsd:element name="object" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getUserOperationsOnObjectResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="operation" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getAuthorizedUsersRequest" type="tns:role"/>
+         <xsd:element name="getAuthorizedUsersResponse" type="tns:users"/>
+         <xsd:element name="getAuthorizedRolesRequest" type="tns:user"/>
+         <xsd:element name="getAuthorizedRolesResponse" type="tns:roles"/>
+         <xsd:element name="getTopRolesRequest">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="realm" type="xsd:string"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="getTopRolesResponse" type="tns:roles"/>
+         <xsd:element name="getAscendantRolesRequest" type="tns:role"/>
+         <xsd:element name="getAscendantRolesResponse" type="tns:roles"/>
+         <xsd:element name="getDescendantRolesRequest" type="tns:role"/>
+         <xsd:element name="getDescendantRolesResponse" type="tns:roles"/>
+         <xsd:element name="getUserDescendantRolesRequest" type="tns:user"/>
+         <xsd:element name="getUserDescendantRolesResponse" type="tns:roles"/>
+         <xsd:element name="getUserPropertiesRequest" type="tns:user"/>
+         <xsd:element name="getUserPropertiesResponse" type="tns:PropertiesType"/>
+         <xsd:element name="getRolePropertiesRequest" type="tns:role"/>
+         <xsd:element name="getRolePropertiesResponse" type="tns:PropertiesType"/>
+         <xsd:element name="getRolesAndUsersRequest"/>
+         <xsd:element name="getRolesAndUsersResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" minOccurs="0" name="role">
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element maxOccurs="unbounded" minOccurs="0" name="name" type="xsd:string"/>
+                           <xsd:element maxOccurs="unbounded" minOccurs="0" name="user">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="name" type="xsd:string"/>
+                                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:PropertyType"/>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="UserNotFoundFault" type="xsd:string"/>
+         <xsd:element name="RoleNotFoundFault" type="xsd:string"/>
+         <xsd:element name="ObjectNotFoundFault" type="xsd:string"/>
+         <xsd:element name="RemoteFault" type="xsd:string"/>
+         <xsd:element name="RBACFault" type="xsd:string"/>
+         <xsd:element name="IllegalArgumentFault" type="xsd:string"/>
+         <xsd:element name="AuthenticationFault" type="xsd:string"/>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="getRolePropertiesRequest">
+      <wsdl:part name="payload" element="tns:getRolePropertiesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getRolePropertiesResponse">
+      <wsdl:part name="payload" element="tns:getRolePropertiesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="RBACFault">
+      <wsdl:part name="payload" element="tns:RBACFault"/>
+   </wsdl:message>
+   <wsdl:message name="RemoteFault">
+      <wsdl:part name="payload" element="tns:RemoteFault"/>
+   </wsdl:message>
+   <wsdl:message name="IllegalArgumentFault">
+      <wsdl:part name="payload" element="tns:IllegalArgumentFault"/>
+   </wsdl:message>
+   <wsdl:message name="RoleNotFoundFault">
+      <wsdl:part name="payload" element="tns:RoleNotFoundFault"/>
+   </wsdl:message>
+   <wsdl:message name="getUserOperationsOnObjectRequest">
+      <wsdl:part name="payload" element="tns:getUserOperationsOnObjectRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getUserOperationsOnObjectResponse">
+      <wsdl:part name="payload" element="tns:getUserOperationsOnObjectResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ObjectNotFoundFault">
+      <wsdl:part name="payload" element="tns:ObjectNotFoundFault"/>
+   </wsdl:message>
+   <wsdl:message name="UserNotFoundFault">
+      <wsdl:part name="payload" element="tns:UserNotFoundFault"/>
+   </wsdl:message>
+   <wsdl:message name="getTopRolesRequest">
+      <wsdl:part name="payload" element="tns:getTopRolesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getTopRolesResponse">
+      <wsdl:part name="payload" element="tns:getTopRolesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getAscendantRolesRequest">
+      <wsdl:part name="payload" element="tns:getAscendantRolesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getAscendantRolesResponse">
+      <wsdl:part name="payload" element="tns:getAscendantRolesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getDescendantRolesRequest">
+      <wsdl:part name="payload" element="tns:getDescendantRolesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getDescendantRolesResponse">
+      <wsdl:part name="payload" element="tns:getDescendantRolesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getAuthorizedRolesRequest">
+      <wsdl:part name="payload" element="tns:getAuthorizedRolesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getAuthorizedRolesResponse">
+      <wsdl:part name="payload" element="tns:getAuthorizedRolesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getAssignedRolesRequest">
+      <wsdl:part name="payload" element="tns:getAssignedRolesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getAssignedRolesResponse">
+      <wsdl:part name="payload" element="tns:getAssignedRolesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getAuthorizedUsersRequest">
+      <wsdl:part name="payload" element="tns:getAuthorizedUsersRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getAuthorizedUsersResponse">
+      <wsdl:part name="payload" element="tns:getAuthorizedUsersResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getRoleOperationsOnObjectRequest">
+      <wsdl:part name="payload" element="tns:getRoleOperationsOnObjectRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getRoleOperationsOnObjectResponse">
+      <wsdl:part name="payload" element="tns:getRoleOperationsOnObjectResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getUserPropertiesRequest">
+      <wsdl:part name="payload" element="tns:getUserPropertiesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getUserPropertiesResponse">
+      <wsdl:part name="payload" element="tns:getUserPropertiesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getUserDescendantRolesRequest">
+      <wsdl:part name="payload" element="tns:getUserDescendantRolesRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getUserDescendantRolesResponse">
+      <wsdl:part name="payload" element="tns:getUserDescendantRolesResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getAssignedUsersRequest">
+      <wsdl:part name="payload" element="tns:getAssignedUsersRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getAssignedUsersResponse">
+      <wsdl:part name="payload" element="tns:getAssignedUsersResponse"/>
+   </wsdl:message>
+   <wsdl:message name="getRolesAndUsersRequest">
+      <wsdl:part name="payload" element="tns:getRolesAndUsersRequest"/>
+   </wsdl:message>
+   <wsdl:message name="getRolesAndUsersResponse">
+      <wsdl:part name="payload" element="tns:getRolesAndUsersResponse"/>
+   </wsdl:message>
+   <wsdl:message name="AuthenticationFault">
+      <wsdl:part name="payload" element="tns:AuthenticationFault"/>
+   </wsdl:message>
+   <wsdl:portType name="RBACQueryServicePortType">
+      <wsdl:operation name="getRoleProperties">
+         <wsdl:input message="tns:getRolePropertiesRequest" wsaw:Action="getRoleProperties"/>
+         <wsdl:output message="tns:getRolePropertiesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRolePropertiesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleProperties/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleProperties/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleProperties/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleProperties/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getUserOperationsOnObject">
+         <wsdl:input message="tns:getUserOperationsOnObjectRequest" wsaw:Action="getUserOperationsOnObject"/>
+         <wsdl:output message="tns:getUserOperationsOnObjectResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserOperationsOnObjectResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserOperationsOnObject/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserOperationsOnObject/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:ObjectNotFoundFault" name="ObjectNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserOperationsOnObject/Fault/ObjectNotFoundFault"/>
+         <wsdl:fault message="tns:UserNotFoundFault" name="UserNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserOperationsOnObject/Fault/UserNotFoundFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserOperationsOnObject/Fault/IllegalArgumentFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getTopRoles">
+         <wsdl:input message="tns:getTopRolesRequest" wsaw:Action="getTopRoles"/>
+         <wsdl:output message="tns:getTopRolesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getTopRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getTopRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getTopRoles/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getTopRoles/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getTopRoles/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getAscendantRoles">
+         <wsdl:input message="tns:getAscendantRolesRequest" wsaw:Action="getAscendantRoles"/>
+         <wsdl:output message="tns:getAscendantRolesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAscendantRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAscendantRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAscendantRoles/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAscendantRoles/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAscendantRoles/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getDescendantRoles">
+         <wsdl:input message="tns:getDescendantRolesRequest" wsaw:Action="getDescendantRoles"/>
+         <wsdl:output message="tns:getDescendantRolesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getDescendantRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getDescendantRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getDescendantRoles/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getDescendantRoles/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getDescendantRoles/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getAuthorizedRoles">
+         <wsdl:input message="tns:getAuthorizedRolesRequest" wsaw:Action="getAuthorizedRoles"/>
+         <wsdl:output message="tns:getAuthorizedRolesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedRoles/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:UserNotFoundFault" name="UserNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedRoles/Fault/UserNotFoundFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedRoles/Fault/IllegalArgumentFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getAssignedRoles">
+         <wsdl:input message="tns:getAssignedRolesRequest" wsaw:Action="getAssignedRoles"/>
+         <wsdl:output message="tns:getAssignedRolesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedRoles/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:UserNotFoundFault" name="UserNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedRoles/Fault/UserNotFoundFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedRoles/Fault/IllegalArgumentFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getAuthorizedUsers">
+         <wsdl:input message="tns:getAuthorizedUsersRequest" wsaw:Action="getAuthorizedUsers"/>
+         <wsdl:output message="tns:getAuthorizedUsersResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedUsersResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedUsers/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedUsers/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedUsers/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAuthorizedUsers/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getRoleOperationsOnObject">
+         <wsdl:input message="tns:getRoleOperationsOnObjectRequest" wsaw:Action="getRoleOperationsOnObject"/>
+         <wsdl:output message="tns:getRoleOperationsOnObjectResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleOperationsOnObjectResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleOperationsOnObject/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleOperationsOnObject/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:ObjectNotFoundFault" name="ObjectNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleOperationsOnObject/Fault/ObjectNotFoundFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleOperationsOnObject/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoleOperationsOnObject/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getUserProperties">
+         <wsdl:input message="tns:getUserPropertiesRequest" wsaw:Action="getUserProperties"/>
+         <wsdl:output message="tns:getUserPropertiesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserPropertiesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserProperties/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserProperties/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:UserNotFoundFault" name="UserNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserProperties/Fault/UserNotFoundFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserProperties/Fault/IllegalArgumentFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getUserDescendantRoles">
+         <wsdl:input message="tns:getUserDescendantRolesRequest" wsaw:Action="getUserDescendantRoles"/>
+         <wsdl:output message="tns:getUserDescendantRolesResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserDescendantRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserDescendantRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserDescendantRoles/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserDescendantRoles/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getUserDescendantRoles/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getAssignedUsers">
+         <wsdl:input message="tns:getAssignedUsersRequest" wsaw:Action="getAssignedUsers"/>
+         <wsdl:output message="tns:getAssignedUsersResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedUsersResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedUsers/Fault/RBACFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedUsers/Fault/RemoteFault"/>
+         <wsdl:fault message="tns:IllegalArgumentFault" name="IllegalArgumentFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedUsers/Fault/IllegalArgumentFault"/>
+         <wsdl:fault message="tns:RoleNotFoundFault" name="RoleNotFoundFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getAssignedUsers/Fault/RoleNotFoundFault"/>
+      </wsdl:operation>
+      <wsdl:operation name="getRoles">
+         <wsdl:input message="tns:getRolesAndUsersRequest" wsaw:Action="getRoles"/>
+         <wsdl:output message="tns:getRolesAndUsersResponse" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRolesResponse"/>
+         <wsdl:fault message="tns:RBACFault" name="RBACFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoles/Fault/RBACFault"/>
+         <wsdl:fault message="tns:AuthenticationFault" name="AuthenticationFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoles/Fault/AuthenticationFault"/>
+         <wsdl:fault message="tns:RemoteFault" name="RemoteFault" wsaw:Action="http://tempo.intalio.org/security/RBACQueryService/RBACQueryPortType/getRoles/Fault/RemoteFault"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="RBACQuerySOAP" type="tns:RBACQueryServicePortType">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+      <wsdl:operation name="getRoleProperties">
+         <soap:operation soapAction="getRoleProperties" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getUserOperationsOnObject">
+         <soap:operation soapAction="getUserOperationsOnObject" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="ObjectNotFoundFault">
+            <soap:fault use="literal" name="ObjectNotFoundFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="UserNotFoundFault">
+            <soap:fault use="literal" name="UserNotFoundFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getTopRoles">
+         <soap:operation soapAction="getTopRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getAscendantRoles">
+         <soap:operation soapAction="getAscendantRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getDescendantRoles">
+         <soap:operation soapAction="getDescendantRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getAuthorizedRoles">
+         <soap:operation soapAction="getAuthorizedRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="UserNotFoundFault">
+            <soap:fault use="literal" name="UserNotFoundFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getAssignedRoles">
+         <soap:operation soapAction="getAssignedRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="UserNotFoundFault">
+            <soap:fault use="literal" name="UserNotFoundFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getAuthorizedUsers">
+         <soap:operation soapAction="getAuthorizedUsers" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getRoleOperationsOnObject">
+         <soap:operation soapAction="getRoleOperationsOnObject" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="ObjectNotFoundFault">
+            <soap:fault use="literal" name="ObjectNotFoundFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getUserProperties">
+         <soap:operation soapAction="getUserProperties" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="UserNotFoundFault">
+            <soap:fault use="literal" name="UserNotFoundFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getUserDescendantRoles">
+         <soap:operation soapAction="getUserDescendantRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getAssignedUsers">
+         <soap:operation soapAction="getAssignedUsers" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="IllegalArgumentFault">
+            <soap:fault use="literal" name="IllegalArgumentFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RoleNotFoundFault">
+            <soap:fault use="literal" name="RoleNotFoundFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getRoles">
+         <soap:operation soapAction="getRoles" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="RBACFault">
+            <soap:fault use="literal" name="RBACFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="RemoteFault">
+            <soap:fault use="literal" name="RemoteFault"/>
+         </wsdl:fault>
+         <wsdl:fault name="AuthenticationFault">
+            <soap:fault use="literal" name="AuthenticationFault"/>
+         </wsdl:fault>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="RBACQueryService">
+      <wsdl:port name="RBACService" binding="tns:RBACQuerySOAP">
+         <soap:address location="http://bpms.local:8080/intalio/ode/processes/RBACQueryService.RBACService/"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

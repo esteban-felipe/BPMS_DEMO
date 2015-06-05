@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://demo.intalio.com/integration_elements" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://demo.intalio.com/base_types" xmlns:demo="http://demo.intalio.com/integration_elements">
+
+    <import schemaLocation="bpms_demo_base_types.xsd" namespace="http://demo.intalio.com/base_types"></import>
+    <element name="ClientList" type="demo:ClientListType"></element>
+    
+    <complexType name="ClientListType">
+    	<sequence>
+    		<element name="Client" type="Q1:ClientType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="Client" type="Q1:ClientType"></element>
+
+    <element name="ProductList" type="demo:ProductListType"></element>
+    
+    <complexType name="ProductListType">
+    	<sequence>
+    		<element name="Product" type="Q1:ProductType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

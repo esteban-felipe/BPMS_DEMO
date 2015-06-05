@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="SelectProductsQueryToProductList.xsl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:products_db="__project:///schemas/products_db.xsd" xmlns:demo="http://demo.intalio.com/integration_elements" xmlns:QueryimplicitPartner="http://demo.intalio.com/processes/integration/GetProductList/QueryimplicitPartner" xmlns:this="http://demo.intalio.com/processes/integration/GetProductList/Query" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:consumer="http://demo.intalio.com/processes/integration/GetProductList/consumer" xmlns:diag="http://demo.intalio.com/processes/integration/GetProductList" xmlns:read_all_products="http://demo.intalio.com/services/read_all_products.rest">
+  <!--XSL Test sample  generated on Fri Apr 17 21:23:39 EDT 2015
+ for F/BPMS_DEMO/processes/integration/GetProductList.bpm
+   pool:Query
+   activity: Send reply
+ Complete doXslTransform: bpel:doXslTransform("../../transformations/SelectProductsQueryToProductList.xsl", $read_all_productsRead_all_productsResponseMsg.response)
+ Input document as defined in the mapper: $read_all_productsRead_all_productsResponseMsg.response-->
+  <test:input>
+    <iob_response_root>
+      <iob_element>
+        <__object>dev_product</__object>
+        <dev_family>
+          <raw>104970d8-d817-4491-9484-24b5d43fc950=office=Office</raw>
+          <uuid>104970d8-d817-4491-9484-24b5d43fc950</uuid>
+          <identifier>office</identifier>
+          <name>Office</name>
+        </dev_family>
+        <dev_product_id>
+          <raw>PRO-0001</raw>
+        </dev_product_id>
+        <dev_name>
+          <raw>Pack of 10 pens</raw>
+        </dev_name>
+        <io_uuid>
+          <raw>9e10a92a-6e47-4cfa-99ca-7c28d09b7f10</raw>
+        </io_uuid>
+        <dev_price>
+          <raw>30 6313ba56-bc48-11e0-beec-001ec950a80f</raw>
+          <value>30</value>
+          <symbol>$</symbol>
+          <position>string</position>
+          <precision>5e64c122-e4ec-4913-8606-a8ac4c65f6de=before_amount=Before Amount</precision>
+          <alphabetic_code>USD</alphabetic_code>
+        </dev_price>
+      </iob_element>
+      <iob_element>
+        <__object>dev_product</__object>
+        <dev_family>
+          <raw>104970d8-d817-4491-9484-24b5d43fc950=office=Office</raw>
+          <uuid>104970d8-d817-4491-9484-24b5d43fc950</uuid>
+          <identifier>office</identifier>
+          <name>Office</name>
+        </dev_family>
+        <dev_product_id>
+          <raw>PRO-0002</raw>
+        </dev_product_id>
+        <dev_name>
+          <raw>Pack of 10 pens2</raw>
+        </dev_name>
+        <io_uuid>
+          <raw>9e10a92a-6e47-4cfa-99ca-7c28d09b7f10</raw>
+        </io_uuid>
+        <dev_price>
+          <raw>30 6313ba56-bc48-11e0-beec-001ec950a80f</raw>
+          <value>320</value>
+          <symbol>$</symbol>
+          <position>string</position>
+          <precision>5e64c122-e4ec-4913-8606-a8ac4c65f6de=before_amount=Before Amount</precision>
+          <alphabetic_code>USD</alphabetic_code>
+        </dev_price>
+      </iob_element>    
+      <iob_element>
+        <__object>dev_product</__object>
+        <dev_family>
+          <raw>104970d8-d817-4491-9484-24b5d43fc950=office=Office</raw>
+          <uuid>104970d8-d817-4491-9484-24b5d43fc950</uuid>
+          <identifier>electronic</identifier>
+          <name>Electronic</name>
+        </dev_family>
+        <dev_product_id>
+          <raw>PRO-0003</raw>
+        </dev_product_id>
+        <dev_name>
+          <raw>Pack of 10 pens23</raw>
+        </dev_name>
+        <io_uuid>
+          <raw>9e10a92a-6e47-4cfa-99ca-7c28d09b7f10</raw>
+        </io_uuid>
+        <dev_price>
+          <raw>30 6313ba56-bc48-11e0-beec-001ec950a80f</raw>
+          <value>3230</value>
+          <symbol>$</symbol>
+          <position>string</position>
+          <precision>5e64c122-e4ec-4913-8606-a8ac4c65f6de=before_amount=Before Amount</precision>
+          <alphabetic_code>USD</alphabetic_code>
+        </dev_price>
+      </iob_element>    
+  	</iob_response_root>
+  </test:input>
+  <!--No parameters are currently passed to doXslTransform.-->
+</test:testxsl>

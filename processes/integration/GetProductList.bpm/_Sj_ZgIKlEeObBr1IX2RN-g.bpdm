@@ -1,0 +1,78 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:products_db="__project:///schemas/products_db.xsd" xmlns:demo="http://demo.intalio.com/integration_elements" xmlns:QueryimplicitPartner="http://thisdiagram/QueryimplicitPartner" xmlns:this="http://thisdiagram/Query" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:consumer="http://thisdiagram/consumer" xmlns:diag="http://thisdiagram" xmlns:read_all_products="http://demo.intalio.com/services/read_all_products.rest" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Query">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="__project:///schemas/products_db.xsd" bpdm:prefix="products_db" bpdm:comment="contrib=&apos;project:///schemas/products_db.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/integration_elements" bpdm:prefix="demo" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_integration_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/QueryimplicitPartner" bpdm:prefix="QueryimplicitPartner" bpdm:comment="contrib=&apos;partner-pool:///_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Query" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/base_types" bpdm:prefix="bpms_demo_base_types" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_base_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/consumer" bpdm:prefix="consumer" bpdm:comment="contrib=&apos;partner-pool:///_9hdjcJslEeOwCYydylTGDw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/services/read_all_products.rest" bpdm:prefix="read_all_products" bpdm:comment="contrib=&apos;project:///services/read_all_products.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="Forconsumer">
+                <wsdl:operation name="Recieve_query" bpdm:source="partner-pool:///_9hdjcJslEeOwCYydylTGDw">
+                    <wsdl:input message="this:Recieve_queryRequest" name="Recieve_query"/>
+                    <wsdl:output message="this:Recieve_queryResponse" name="Recieve_queryResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <bpel:binding name="CanonicBindingForconsumer" type="this:Forconsumer" bpdm:isSynchronized="true"/>
+            <xs:element name="Recieve_queryRequest" type="xs:string" bpdm:source="partner-pool:///_9hdjcJslEeOwCYydylTGDw"/>
+            <wsdl:message name="Recieve_queryRequest" bpdm:source="partner-pool:///_9hdjcJslEeOwCYydylTGDw">
+                <wsdl:part name="body" element="this:Recieve_queryRequest"/>
+            </wsdl:message>
+            <xs:element name="Recieve_queryResponse" type="demo:ProductListType" bpdm:source="partner-pool:///_9hdjcJslEeOwCYydylTGDw"/>
+            <wsdl:message name="Recieve_queryResponse" bpdm:source="partner-pool:///_9hdjcJslEeOwCYydylTGDw">
+                <wsdl:part name="body" element="this:Recieve_queryResponse"/>
+            </wsdl:message>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_9hdjcJslEeOwCYydylTGDw" bpdm:label="consumer"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner" bpdm:label="QueryimplicitPartner"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_integration_types.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/read_all_products.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/products_db.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_base_types.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Query" bpdm:ID="_Sj_ZgIKlEeObBr1IX2RN-g">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="queryAndConsumerPlkVar" partnerLinkType="diag:QueryAndConsumer" myRole="Query_for_consumer" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForconsumer" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Query/consumer" bpdm:providedIsDefault="true" bpdm:clientTasks="_Sj_ZgIKlEeObBr1IX2RN-g:_oLaN4IKlEeObBr1IX2RN-g, _Sj_ZgIKlEeObBr1IX2RN-g:_Sj_ZgoKlEeObBr1IX2RN-g" bpdm:isManaged="true" bpdm:otherPoolId="_9hdjcJslEeOwCYydylTGDw"/>
+            <bpel:partnerLink name="queryimplicitPartnerAndQueryForHttpPortPlkVar" partnerLinkType="diag:QueryimplicitPartnerAndQueryForHttpPortPlk" initializePartnerRole="yes" partnerRole="QueryimplicitPartner_for_Query" bpdm:invokedService="read_all_products:restService" bpdm:invokedPort="httpPort" bpdm:invokedSOAPAddress="http://intalio.local/api/rest/v1/dev_product?fields=io_uuid,dev_product_id,dev_name,dev_family,dev_price" bpdm:invokedIsDefault="true" bpdm:clientTasks="_Sj_ZgIKlEeObBr1IX2RN-g:_gWys4OVoEeSFK_5F_cfiyA" bpdm:isManaged="true" bpdm:otherPoolId="_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisRecieve_queryRequestMsg" messageType="this:Recieve_queryRequest" bpdm:id="_j40_ppspEeOwCYydylTGDw" bpdm:messageIds="inc:_j4rOkJspEeOwCYydylTGDw"/>
+            <bpel:variable name="thisRecieve_queryResponseMsg" messageType="this:Recieve_queryResponse" bpdm:id="_kRQtsJspEeOwCYydylTGDw" bpdm:messageIds=" out:_kRG8sJspEeOwCYydylTGDw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Recieve_queryResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="read_all_productsRead_all_productsResponseMsg" messageType="read_all_products:read_all_products_output" binding="read_all_products:restBinding" operation="read_all_products" opMsgType="1" bpdm:messageIds="inc:_gWys4OVoEeSFK_5F_cfiyAIncoming"/>
+            <bpel:variable name="read_all_productsRead_all_productsRequestMsg" messageType="read_all_products:read_all_products_input" binding="read_all_products:restBinding" operation="read_all_products" opMsgType="0" bpdm:messageIds=" out:_gWys4OVoEeSFK_5F_cfiyAOutgoing"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Recieve_query" partnerLink="queryAndConsumerPlkVar" portType="this:Forconsumer" isMyRole="true" enableSharing="false" bpdm:label="Recieve query" bpdm:ID="_Sj_ZgoKlEeObBr1IX2RN-g">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisRecieve_queryRequestMsg" bpdm:msgVarScopeId="_Sj_ZgIKlEeObBr1IX2RN-g" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_queryRequest" bpdm:ID="_j4rOkJspEeOwCYydylTGDw"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="read_all_products" partnerLink="queryimplicitPartnerAndQueryForHttpPortPlkVar" portType="read_all_products:restInterface" isMyRole="false" enableSharing="false" bpdm:label="read_all_products" bpdm:ID="_gWys4OVoEeSFK_5F_cfiyA">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>ode:get-property-value("products_query_endpoint")</bpel:from>
+                        <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="738519290" targetPath="$endpoint" targetedBy="2029859251-arg1"></mapper:vertice><mapper:vertice id="2029859251" dimension="139x24" location="492,168"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="1411317164" dimension="153x24" location="155,170" targetedBy="2029859251-arg0"><mapper:value>"products_query_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="read_all_productsRead_all_productsRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="read_all_products:read_all_products_input" bpdm:binding="read_all_products:restBinding" bpdm:ID="_gWys4OVoEeSFK_5F_cfiyAOutgoing"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="read_all_productsRead_all_productsResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="read_all_products:read_all_products_output" bpdm:binding="read_all_products:restBinding" bpdm:ID="_gWys4OVoEeSFK_5F_cfiyAIncoming"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="Recieve_query" partnerLink="queryAndConsumerPlkVar" portType="this:Forconsumer" isMyRole="true" enableSharing="false" bpdm:label="Send reply" bpdm:ID="_oLaN4IKlEeObBr1IX2RN-g">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>bpel:doXslTransform("../../transformations/SelectProductsQueryToProductList.xsl", $read_all_productsRead_all_productsResponseMsg.response)</bpel:from>
+                        <bpel:to>$thisRecieve_queryResponseMsg.body</bpel:to><mapper:mapperLink><mapper:vertice id="1653712734" targetPath="$thisRecieve_queryResponseMsg.body" targetedBy="146600992-arg1"></mapper:vertice><mapper:vertice id="146600992" dimension="175x25" location="332,94"><mapper:value>bpel:doXslTransform()</mapper:value></mapper:vertice><mapper:vertice id="546638161" dimension="329x24" location="24,12" targetedBy="146600992-arg0"><mapper:value>"../../transformations/SelectProductsQueryToProductList.xsl"</mapper:value></mapper:vertice><mapper:vertice id="28152399" sourcePath="$read_all_productsRead_all_productsResponseMsg.response" targetedBy="146600992-arg2"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_queryResponseMsg" bpdm:msgVarScopeId="_Sj_ZgIKlEeObBr1IX2RN-g" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_queryResponse" bpdm:ID="_kRG8sJspEeOwCYydylTGDw"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

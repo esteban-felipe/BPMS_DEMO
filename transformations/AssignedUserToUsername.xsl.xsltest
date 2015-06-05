@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="AssignedUserToUsername.xsl" xmlns:this="http://demo.intalio.com/processes/system/NofityRole/Notify" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rbac="http://tempo.intalio.org/security/RBACQueryService/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:NotifyimplicitPartner="http://demo.intalio.com/processes/system/NofityRole/NotifyimplicitPartner" xmlns:demo="http://demo.intalio.com/base_types" xmlns:diag="http://demo.intalio.com/processes/system/NofityRole">
+  <!--XSL Test sample  generated on Fri Jan 31 18:30:26 EST 2014
+ for F/BPMS_DEMO/processes/system/NofityRole.bpm
+   pool:Notify
+   activity: ExtractUsername
+ Complete doXslTransform: bpel:doXslTransform("../../transformations/AssignedUserToUsername.xsl", $tnsGetAssignedUsersResponseMsg.payload, "index", $emptyCounter)
+ Input document as defined in the mapper: $tnsGetAssignedUsersResponseMsg.payload-->
+  <test:input>
+    <rbac:getAssignedUsersResponse>
+         <rbac:user>examples\msmith</rbac:user>
+         <rbac:user>examples\jlee</rbac:user>
+         <rbac:user>examples\ewilliams</rbac:user>
+         <rbac:user>examples\bjones</rbac:user>
+    </rbac:getAssignedUsersResponse>
+  </test:input>
+  <test:param name="index">2</test:param>
+</test:testxsl>

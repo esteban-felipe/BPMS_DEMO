@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:products_db="__project:///schemas/products_db.xsd" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:demo="http://demo.intalio.com/integration_elements" xmlns:read_all_products="http://demo.intalio.com/services/read_all_products.rest" xmlns:diag="http://thisdiagram" xmlns:Query="http://thisdiagram/Query" xmlns:QueryimplicitPartner="http://thisdiagram/QueryimplicitPartner" xmlns:consumer="http://thisdiagram/consumer" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" targetNamespace="http://thisdiagram" bpdm:version="6000089" bpdm:canid="_SipVsIKlEeObBr1IX2RN-g" bpdm:displayName="diag">
+  <pnlk:partnerLinkType name="QueryAndConsumer" bpdm:poolOneId="_Sj_ZgIKlEeObBr1IX2RN-g" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="Query" bpdm:poolTwoId="_9hdjcJslEeOwCYydylTGDw" bpdm:poolTwoIsExecutable="false" bpdm:poolTwoName="consumer">
+    <pnlk:role name="Query_for_consumer" portType="Query:Forconsumer" bpdm:thisPoolId="_Sj_ZgIKlEeObBr1IX2RN-g">
+      <wsdl:portType name="Forconsumer">
+        <wsdl:operation name="Recieve_query" bpdm:canid="_Sj_ZgoKlEeObBr1IX2RN-g.__vUiIJslEeOwCYydylTGDw._oLaN4IKlEeObBr1IX2RN-g.">
+          <wsdl:input message="Query:Recieve_queryRequest" name="Recieve_query" bpdm:canid="_j4rOkJspEeOwCYydylTGDw" bpdm:senderId="__vUiIJslEeOwCYydylTGDw" bpdm:receiverId="_Sj_ZgoKlEeObBr1IX2RN-g" bpdm:senderName="Invoke" bpdm:receiverName="Recieve query" bpdm:receiverPoolId="_Sj_ZgIKlEeObBr1IX2RN-g" bpdm:bodyPartElemName="Recieve_queryRequest" bpdm:bodyPartElemType="xs:string"></wsdl:input>
+          <wsdl:output message="Query:Recieve_queryResponse" name="Recieve_queryResponse" bpdm:canid="_kRG8sJspEeOwCYydylTGDw" bpdm:senderId="_oLaN4IKlEeObBr1IX2RN-g" bpdm:receiverId="__vUiIJslEeOwCYydylTGDw" bpdm:senderName="Send reply" bpdm:receiverName="Invoke" bpdm:receiverPoolId="_9hdjcJslEeOwCYydylTGDw" bpdm:dataobjectPointer="project:///schemas/bpms_demo_integration_types.xsd?xsdtype={http://demo.intalio.com/integration_elements}ProductListType" bpdm:bodyPartElemName="Recieve_queryResponse" bpdm:bodyPartElemType="{http://demo.intalio.com/integration_elements}ProductListType"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="QueryimplicitPartnerAndQuery" bpdm:poolOneId="_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner" bpdm:poolOneIsExecutable="false" bpdm:poolOneName="QueryimplicitPartner" bpdm:poolTwoId="_Sj_ZgIKlEeObBr1IX2RN-g" bpdm:poolTwoIsExecutable="true" bpdm:poolTwoName="Query">
+    <pnlk:role name="QueryimplicitPartner_for_Query" portType="QueryimplicitPartner:ForQuery" bpdm:thisPoolId="_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner">
+      <wsdl:portType name="ForQuery">
+        <wsdl:operation name="read_all_products-implicitTask" bpdm:canid="_gWys4OVoEeSFK_5F_cfiyA._gWys4OVoEeSFK_5F_cfiyAimplicitTask." bpdm:dataobjectPointer="project:///services/read_all_products.wsdl?wsdloperationbound={http://demo.intalio.com/services/read_all_products.rest}restService/httpPort/read_all_products">
+          <wsdl:input message="read_all_products:read_all_productsRequest" name="read_all_products-implicitTask" bpdm:canid="_gWys4OVoEeSFK_5F_cfiyAOutgoing" bpdm:senderId="_gWys4OVoEeSFK_5F_cfiyA" bpdm:receiverId="_gWys4OVoEeSFK_5F_cfiyAimplicitTask" bpdm:senderName="read_all_products" bpdm:receiverName="read_all_products-implicitTask" bpdm:receiverPoolId="_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner" bpdm:dataobjectPointer="project:///services/read_all_products.wsdl?messageForBoundOperation={http://demo.intalio.com/services/read_all_products.rest}restService/httpPort/read_all_products/input/read_all_productsRequest"></wsdl:input>
+          <wsdl:output message="read_all_products:read_all_productsResponse" name="read_all_products-implicitTaskResponse" bpdm:canid="_gWys4OVoEeSFK_5F_cfiyAIncoming" bpdm:senderId="_gWys4OVoEeSFK_5F_cfiyAimplicitTask" bpdm:receiverId="_gWys4OVoEeSFK_5F_cfiyA" bpdm:senderName="read_all_products-implicitTask" bpdm:receiverName="read_all_products" bpdm:receiverPoolId="_Sj_ZgIKlEeObBr1IX2RN-g" bpdm:dataobjectPointer="project:///services/read_all_products.wsdl?messageForBoundOperation={http://demo.intalio.com/services/read_all_products.rest}restService/httpPort/read_all_products/output/read_all_productsResponse"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+  <pnlk:partnerLinkType name="QueryimplicitPartnerAndQueryForHttpPortPlk" bpdm:canPlkId="_Sj_ZgIKlEeObBr1IX2RN-gimplicitPartner-_Sj_ZgIKlEeObBr1IX2RN-g">
+    <pnlk:role name="QueryimplicitPartner_for_Query" portType="read_all_products:restInterface"></pnlk:role>
+  </pnlk:partnerLinkType>
+</wsdl:definitions>

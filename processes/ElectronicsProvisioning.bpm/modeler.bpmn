@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_2T_48Y0IEeOq0qC6DFI7Cw" iD="_2T_48I0IEeOq0qC6DFI7Cw">
+  <pools xmi:type="bpmn:Pool" xmi:id="_2UqAQY0IEeOq0qC6DFI7Cw" iD="_2UqAQI0IEeOq0qC6DFI7Cw" name="Provisioning">
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_7WBoYY0IEeOq0qC6DFI7Cw" iD="_7WBoYI0IEeOq0qC6DFI7Cw" name="thisRecieve_provisioning_requestRequestMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7WBoYo0IEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7WBoY40IEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7WBobI0IEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="thisRecieve_provisioning_requestRequestMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7WBocI0IEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/Provisioning}Recieve_provisioning_requestRequest"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_7WBobY0IEeOq0qC6DFI7Cw" direction="From">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7WBobo0IEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7WBob40IEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="incomingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_9Sjmio0IEeOq0qC6DFI7Cw" iD="_9SjmiY0IEeOq0qC6DFI7Cw" name="thisRecieve_provisioning_requestResponseMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9Sjmi40IEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9SjmjI0IEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9SpGEo0IEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="thisRecieve_provisioning_requestResponseMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9SpGFo0IEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/Provisioning}Recieve_provisioning_requestResponse"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_9SpGE40IEeOq0qC6DFI7Cw" direction="To">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9SpGFI0IEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9SpGFY0IEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="outgoingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_IeuukY0KEeOq0qC6DFI7Cw" iD="_IeuukI0KEeOq0qC6DFI7Cw" name="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ieuuko0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ieuuk40KEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IeuunI0KEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9YEo0KEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://demo.intalio.com/processes/OrderManagement/OrderManagement}Recieve_electronics_provisioning_resultsRequest"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_IeuunY0KEeOq0qC6DFI7Cw" direction="To">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ie9YEI0KEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9YEY0KEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="outgoingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_JI-lcY0KEeOq0qC6DFI7Cw" iD="_JI-lcI0KEeOq0qC6DFI7Cw" name="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsResponseMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JI-lco0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JI-lc40KEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JI-lfI0KEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsResponseMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JJMn4Y0KEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://demo.intalio.com/processes/OrderManagement/OrderManagement}Recieve_electronics_provisioning_resultsResponse"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_JI-lfY0KEeOq0qC6DFI7Cw" direction="From">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JI-lfo0KEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JJMn4I0KEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="incomingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_2UqAQ40IEeOq0qC6DFI7Cw" iD="_2UqAQo0IEeOq0qC6DFI7Cw" associations="_7WBobY0IEeOq0qC6DFI7Cw _9SpGE40IEeOq0qC6DFI7Cw" outgoingEdges="_Jx_Cwo2lEeOkXdq2wVPX-w" name="Recieve provisioning request" lanes="_6MD2wY2kEeOkXdq2wVPX-w _BJAawY2lEeOkXdq2wVPX-w" activityType="Task">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_7VmxoY0IEeOq0qC6DFI7Cw"/>
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_9SeG8Y0IEeOq0qC6DFI7Cw"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_-jlwkY0IEeOq0qC6DFI7Cw" iD="_-jlwkI0IEeOq0qC6DFI7Cw" outgoingEdges="_Hn-Fuo0KEeOq0qC6DFI7Cw" incomingEdges="_sKcgsY2lEeOkXdq2wVPX-w" lanes="_6MD2wY2kEeOkXdq2wVPX-w" activityType="EventIntermediateTimer"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_Hn-FsY0KEeOq0qC6DFI7Cw" iD="_Hn-FsI0KEeOq0qC6DFI7Cw" associations="_IeuunY0KEeOq0qC6DFI7Cw _JI-lfY0KEeOq0qC6DFI7Cw" incomingEdges="_Hn-Fuo0KEeOq0qC6DFI7Cw" name="Send results" lanes="_6MD2wY2kEeOkXdq2wVPX-w" activityType="EventEndMessage" looping="false">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_Id19wY0KEeOq0qC6DFI7Cw"/>
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_JHohoY0KEeOq0qC6DFI7Cw"/>
+    </vertices>
+    <vertices xmi:type="bpmn:ActivityService" xmi:id="_JxiW0Y2lEeOkXdq2wVPX-w" iD="_JxiW0I2lEeOkXdq2wVPX-w" outgoingEdges="_Rq-_Uo2lEeOkXdq2wVPX-w" incomingEdges="_Jx_Cwo2lEeOkXdq2wVPX-w" name="Stock required products" lanes="_8k8ZsY2kEeOkXdq2wVPX-w" activityType="ServiceTask"/>
+    <vertices xmi:type="bpmn:ActivityManual" xmi:id="_Rq11YY2lEeOkXdq2wVPX-w" iD="_Rq11YI2lEeOkXdq2wVPX-w" outgoingEdges="_WCiOaI2lEeOkXdq2wVPX-w" incomingEdges="_Rq-_Uo2lEeOkXdq2wVPX-w" name="Create shipping label" lanes="_BJAawY2lEeOkXdq2wVPX-w" activityType="ManualTask"/>
+    <vertices xmi:type="bpmn:ActivityManual" xmi:id="_WCYdYY2lEeOkXdq2wVPX-w" iD="_WCYdYI2lEeOkXdq2wVPX-w" outgoingEdges="_YZCLsY2lEeOkXdq2wVPX-w" incomingEdges="_WCiOaI2lEeOkXdq2wVPX-w" name="Pack products" lanes="_BJAawY2lEeOkXdq2wVPX-w" activityType="ManualTask"/>
+    <vertices xmi:type="bpmn:ActivityUser" xmi:id="_YY4asY2lEeOkXdq2wVPX-w" iD="_YY4asI2lEeOkXdq2wVPX-w" outgoingEdges="_gVBK2I2lEeOkXdq2wVPX-w" incomingEdges="_YZCLsY2lEeOkXdq2wVPX-w" name="Verify products order" lanes="_6MD2wY2kEeOkXdq2wVPX-w _BJAawY2lEeOkXdq2wVPX-w" activityType="UserTask"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_gU3Z0Y2lEeOkXdq2wVPX-w" iD="_gU3Z0I2lEeOkXdq2wVPX-w" outgoingEdges="_n3qc4Y2lEeOkXdq2wVPX-w _sKcgsY2lEeOkXdq2wVPX-w" incomingEdges="_gVBK2I2lEeOkXdq2wVPX-w" lanes="_6MD2wY2kEeOkXdq2wVPX-w _BJAawY2lEeOkXdq2wVPX-w" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:ActivityUser" xmi:id="_n3gr4Y2lEeOkXdq2wVPX-w" iD="_n3gr4I2lEeOkXdq2wVPX-w" outgoingEdges="_radOMY2lEeOkXdq2wVPX-w" incomingEdges="_n3qc4Y2lEeOkXdq2wVPX-w" name="Deliver products" lanes="_BJAawY2lEeOkXdq2wVPX-w" activityType="UserTask"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_raKTQY2lEeOkXdq2wVPX-w" iD="_raKTQI2lEeOkXdq2wVPX-w" incomingEdges="_radOMY2lEeOkXdq2wVPX-w" lanes="_BJAawY2lEeOkXdq2wVPX-w" activityType="EventEndEmpty"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_Hn-Fuo0KEeOq0qC6DFI7Cw" iD="_Hn-FuY0KEeOq0qC6DFI7Cw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_Jx_Cwo2lEeOkXdq2wVPX-w" iD="_Jx_CwY2lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_Rq-_Uo2lEeOkXdq2wVPX-w" iD="_Rq-_UY2lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_WCiOaI2lEeOkXdq2wVPX-w" iD="_WCiOZ42lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_YZCLsY2lEeOkXdq2wVPX-w" iD="_YZCLsI2lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_gVBK2I2lEeOkXdq2wVPX-w" iD="_gVBK142lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_n3qc4Y2lEeOkXdq2wVPX-w" iD="_n3qc4I2lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_radOMY2lEeOkXdq2wVPX-w" iD="_radOMI2lEeOkXdq2wVPX-w"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_sKcgsY2lEeOkXdq2wVPX-w" iD="_sKcgsI2lEeOkXdq2wVPX-w"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_6MD2wY2kEeOkXdq2wVPX-w" iD="_6MD2wI2kEeOkXdq2wVPX-w" name="Provisioning system" activities="_Hn-FsY0KEeOq0qC6DFI7Cw _2UqAQ40IEeOq0qC6DFI7Cw _-jlwkY0IEeOq0qC6DFI7Cw _YY4asY2lEeOkXdq2wVPX-w _gU3Z0Y2lEeOkXdq2wVPX-w"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_8k8ZsY2kEeOkXdq2wVPX-w" iD="_8k8ZsI2kEeOkXdq2wVPX-w" name="Inventory system" activities="_JxiW0Y2lEeOkXdq2wVPX-w"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_BJAawY2lEeOkXdq2wVPX-w" iD="_BJAawI2lEeOkXdq2wVPX-w" name="Shipping system" activities="_2UqAQ40IEeOq0qC6DFI7Cw _Rq11YY2lEeOkXdq2wVPX-w _WCYdYY2lEeOkXdq2wVPX-w _YY4asY2lEeOkXdq2wVPX-w _gU3Z0Y2lEeOkXdq2wVPX-w _n3gr4Y2lEeOkXdq2wVPX-w _raKTQY2lEeOkXdq2wVPX-w"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_3vGlAY0IEeOq0qC6DFI7Cw" iD="_3vGlAI0IEeOq0qC6DFI7Cw" name="Order management">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4cRNAI0IEeOq0qC6DFI7Cw" source="executablepool">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4cRNAY0IEeOq0qC6DFI7Cw" key="poolIsExecutable" value="false"/>
+    </eAnnotations>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_7V0NAY0IEeOq0qC6DFI7Cw" iD="_7V0NAI0IEeOq0qC6DFI7Cw" name="provisioningRecieve_provisioning_requestRequestMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7V0NAo0IEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7V0NA40IEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7V0NDI0IEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="provisioningRecieve_provisioning_requestRequestMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7V66s40IEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/Provisioning}Recieve_provisioning_requestRequest"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_7V66sI0IEeOq0qC6DFI7Cw" direction="To">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7V66sY0IEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7V66so0IEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="outgoingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_9SuloY0IEeOq0qC6DFI7Cw" iD="_9SuloI0IEeOq0qC6DFI7Cw" name="provisioningRecieve_provisioning_requestResponseMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9Suloo0IEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9Sulo40IEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9SulrI0IEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="provisioningRecieve_provisioning_requestResponseMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9SulsI0IEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://thisdiagram/Provisioning}Recieve_provisioning_requestResponse"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_9SulrY0IEeOq0qC6DFI7Cw" direction="From">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9Sulro0IEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9Sulr40IEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="incomingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_Ie9YGY0KEeOq0qC6DFI7Cw" iD="_Ie9YGI0KEeOq0qC6DFI7Cw" name="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ie9YGo0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ie9YG40KEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IfLaiI0KEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IfLajI0KEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://demo.intalio.com/processes/OrderManagement/OrderManagement}Recieve_electronics_provisioning_resultsRequest"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_IfLaiY0KEeOq0qC6DFI7Cw" direction="From">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IfLaio0KEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IfLai40KEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="incomingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_JIh5gY0KEeOq0qC6DFI7Cw" iD="_JIh5gI0KEeOq0qC6DFI7Cw" name="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsResponseMsg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JIh5go0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JIh5g40KEeOq0qC6DFI7Cw" key="isBpelDeclaration" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JIh5jI0KEeOq0qC6DFI7Cw" key="defaultDeclarationName" value="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsResponseMsg"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JIwjAo0KEeOq0qC6DFI7Cw" key="douri2" value="builtin:///diagram?wsdlmessage={http://demo.intalio.com/processes/OrderManagement/OrderManagement}Recieve_electronics_provisioning_resultsResponse"/>
+      </eAnnotations>
+      <associations xmi:type="bpmn:Association" xmi:id="_JIh5jY0KEeOq0qC6DFI7Cw" direction="To">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JIwjAI0KEeOq0qC6DFI7Cw" source="dataObjectAssociationTypeSource">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JIwjAY0KEeOq0qC6DFI7Cw" key="dataObjectAssociationTypeValue" value="outgoingMesssageVariable"/>
+        </eAnnotations>
+      </associations>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_46jrgY0IEeOq0qC6DFI7Cw" iD="_46jrgI0IEeOq0qC6DFI7Cw" associations="_7V66sI0IEeOq0qC6DFI7Cw _9SulrY0IEeOq0qC6DFI7Cw" outgoingEdges="_GZijsY0KEeOq0qC6DFI7Cw" incomingEdges="_wqTMoY2kEeOkXdq2wVPX-w" name="Request electronics provisioning" activityType="Task">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GP_bkI0JEeOq0qC6DFI7Cw" source="process_template">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GP_bkY0JEeOq0qC6DFI7Cw" key="_FuEaQI0JEeOq0qC6DFI7Cw" value="ElectronicsTemplate"/>
+      </eAnnotations>
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_7VmxoY0IEeOq0qC6DFI7Cw"/>
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_9SeG8Y0IEeOq0qC6DFI7Cw"/>
+    </vertices>
+    <vertices xmi:type="bpmn:ActivityService" xmi:id="_CWK04I0KEeOq0qC6DFI7Cw" iD="_CV02po0KEeOq0qC6DFI7Cw" associations="_IfLaiY0KEeOq0qC6DFI7Cw _JIh5jY0KEeOq0qC6DFI7Cw" incomingEdges="_GZijsY0KEeOq0qC6DFI7Cw" name="Recieve electronics provisioning results" activityType="ServiceTask">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CWK04Y0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CWK04o0KEeOq0qC6DFI7Cw" key="douri" value="project:///services/OrderManagement-OrderManagement.wsdl?wsdloperationbound={http://demo.intalio.com/processes/OrderManagement/OrderManagement}CanonicServiceForOrderManagementimplicitPartner/canonicPort/Recieve_electronics_provisioning_results"/>
+      </eAnnotations>
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_Id19wY0KEeOq0qC6DFI7Cw"/>
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_JHohoY0KEeOq0qC6DFI7Cw"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_wSAocY2kEeOkXdq2wVPX-w" iD="_wSAocI2kEeOkXdq2wVPX-w" outgoingEdges="_wqTMoY2kEeOkXdq2wVPX-w" activityType="EventStartEmpty"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_GZijsY0KEeOq0qC6DFI7Cw" iD="_GZijsI0KEeOq0qC6DFI7Cw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_wqTMoY2kEeOkXdq2wVPX-w" iD="_wqTMoI2kEeOkXdq2wVPX-w"/>
+  </pools>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_7VmxoY0IEeOq0qC6DFI7Cw" iD="_7VmxoI0IEeOq0qC6DFI7Cw" source="_46jrgY0IEeOq0qC6DFI7Cw" target="_2UqAQ40IEeOq0qC6DFI7Cw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_87ZqwI0IEeOq0qC6DFI7Cw" source="attachedDataobject">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_87ZqwY0IEeOq0qC6DFI7Cw" key="douri" value="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}ElectronicsRequestType"/>
+    </eAnnotations>
+  </messages>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_9SeG8Y0IEeOq0qC6DFI7Cw" iD="_9SeG8I0IEeOq0qC6DFI7Cw" source="_2UqAQ40IEeOq0qC6DFI7Cw" target="_46jrgY0IEeOq0qC6DFI7Cw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-A4sII0IEeOq0qC6DFI7Cw" source="attachedDataobject">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-A4sIY0IEeOq0qC6DFI7Cw" key="douri" value="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}AcknowledgeType"/>
+    </eAnnotations>
+  </messages>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_Id19wY0KEeOq0qC6DFI7Cw" iD="_Id19wI0KEeOq0qC6DFI7Cw" source="_Hn-FsY0KEeOq0qC6DFI7Cw" target="_CWK04I0KEeOq0qC6DFI7Cw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IeEAMI0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IeEAMY0KEeOq0qC6DFI7Cw" key="douri" value="project:///services/OrderManagement-OrderManagement.wsdl?messageForBoundOperation={http://demo.intalio.com/processes/OrderManagement/OrderManagement}CanonicServiceForOrderManagementimplicitPartner/canonicPort/Recieve_electronics_provisioning_results/input/Recieve_electronics_provisioning_results"/>
+    </eAnnotations>
+  </messages>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_JHohoY0KEeOq0qC6DFI7Cw" iD="_JHohoI0KEeOq0qC6DFI7Cw" source="_CWK04I0KEeOq0qC6DFI7Cw" target="_Hn-FsY0KEeOq0qC6DFI7Cw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JH3LII0KEeOq0qC6DFI7Cw" source="attachedDataobject">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JH3LIY0KEeOq0qC6DFI7Cw" key="douri" value="project:///services/OrderManagement-OrderManagement.wsdl?messageForBoundOperation={http://demo.intalio.com/processes/OrderManagement/OrderManagement}CanonicServiceForOrderManagementimplicitPartner/canonicPort/Recieve_electronics_provisioning_results/output/Recieve_electronics_provisioning_resultsResponse"/>
+    </eAnnotations>
+  </messages>
+</bpmn:BpmnDiagram>

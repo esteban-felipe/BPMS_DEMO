@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl 
+	xmlns:test="http://intalio.com/xsltestcase" 
+	xsl="SalesOrderToOrderDetail.xsl" 
+	xmlns:bpms_demo_process_types="http://demo.intalio.com/process_types" 
+	xmlns:this="http://demo.intalio.com/processes/system/ConvertToOrderDetail/Convert" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:bpms_demo_integration_types="http://demo.intalio.com/integration_elements" 
+	xmlns:ConvertimplicitPartner="http://demo.intalio.com/processes/system/ConvertToOrderDetail/ConvertimplicitPartner" 
+	xmlns:demo="http://demo.intalio.com/base_types" 
+	xmlns:GetClientList-Query="http://demo.intalio.com/processes/integration/GetClientList/Query"
+	xmlns:diag="http://demo.intalio.com/processes/system/ConvertToOrderDetail" 
+	xmlns:GetProductList-Query="http://demo.intalio.com/processes/integration/GetProductList/Query">
+  <test:input>
+  	<this:Recieve_conversion_requestRequest>
+      <demo:OrderRef>123123</demo:OrderRef>
+      <demo:OrderDate>2014-01-23</demo:OrderDate>
+      <demo:Client>2</demo:Client>
+      <demo:Items>
+        <demo:ItemRef>1</demo:ItemRef>
+        <demo:ProductId>1</demo:ProductId>
+        <demo:Quantity>2</demo:Quantity>
+        <demo:ItemDiscount>0.2</demo:ItemDiscount>
+      </demo:Items>
+      <demo:Items>
+        <demo:ItemRef>2</demo:ItemRef>
+        <demo:ProductId>2</demo:ProductId>
+        <demo:Quantity>2</demo:Quantity>
+        <demo:ItemDiscount>0</demo:ItemDiscount>
+      </demo:Items>
+      <demo:GlobalDiscount>0.1</demo:GlobalDiscount>
+    </this:Recieve_conversion_requestRequest>
+  </test:input>
+  <test:param name="clients">
+<bpms_demo_integration_types:ClientList>
+  <bpms_demo_integration_types:Client>
+    <demo:ClientId>1</demo:ClientId>
+    <demo:ClientName>Intalio</demo:ClientName>
+    <demo:Contact>
+      <demo:ContactName>Esteban Felipe</demo:ContactName>
+      <demo:ContactPhone>3057675141</demo:ContactPhone>
+      <demo:ContactEmail>felipe@intalio.com</demo:ContactEmail>
+    </demo:Contact>
+  </bpms_demo_integration_types:Client>
+  <bpms_demo_integration_types:Client>
+    <demo:ClientId>2</demo:ClientId>
+    <demo:ClientName>ACME</demo:ClientName>
+  <demo:Contact>
+      <demo:ContactName>Sofia Felipe</demo:ContactName>
+      <demo:ContactPhone>1231232</demo:ContactPhone>
+      <demo:ContactEmail>sofia@sofiaf.com</demo:ContactEmail>
+    </demo:Contact>
+  </bpms_demo_integration_types:Client>
+  <bpms_demo_integration_types:Client>
+    <demo:ClientId>3</demo:ClientId>
+    <demo:ClientName>Another Acme</demo:ClientName>
+    <demo:Contact>
+      <demo:ContactName>Milvia Cruz</demo:ContactName>
+      <demo:ContactPhone>123123123</demo:ContactPhone>
+      <demo:ContactEmail>milvia@gmail.com</demo:ContactEmail>
+    </demo:Contact>
+  </bpms_demo_integration_types:Client>
+</bpms_demo_integration_types:ClientList>
+  </test:param>
+  <test:param name="products">
+<bpms_demo_integration_types:ProductList>
+  <bpms_demo_integration_types:Product>
+    <demo:ProductId>1</demo:ProductId>
+    <demo:ProductFamily>Electronics</demo:ProductFamily>
+    <demo:ProductName>Laptop</demo:ProductName>
+    <demo:ProductPrice>1500.0</demo:ProductPrice>
+  </bpms_demo_integration_types:Product>
+  <bpms_demo_integration_types:Product>
+    <demo:ProductId>2</demo:ProductId>
+    <demo:ProductFamily>Electronics</demo:ProductFamily>
+    <demo:ProductName>Monitor</demo:ProductName>
+    <demo:ProductPrice>800.0</demo:ProductPrice>
+  </bpms_demo_integration_types:Product>
+</bpms_demo_integration_types:ProductList>
+	</test:param>  
+ </test:testxsl>
+    

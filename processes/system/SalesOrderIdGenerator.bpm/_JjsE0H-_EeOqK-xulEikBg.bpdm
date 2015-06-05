@@ -1,0 +1,55 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:this="http://thisdiagram/ID_Generator" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ID_GeneratorimplicitPartner="http://thisdiagram/ID_GeneratorimplicitPartner" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/ID_Generator">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/ID_Generator" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/ID_GeneratorimplicitPartner" bpdm:prefix="ID_GeneratorimplicitPartner" bpdm:comment="contrib=&apos;partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="ForID_GeneratorimplicitPartner">
+                <wsdl:operation name="Generate_ID" bpdm:source="partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner">
+                    <wsdl:input message="this:Generate_IDRequest" name="Generate_ID"/>
+                    <wsdl:output message="this:Generate_IDResponse" name="Generate_IDResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <xs:element name="Generate_IDRequest" type="xs:string" bpdm:source="partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner"/>
+            <wsdl:message name="Generate_IDRequest" bpdm:source="partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner">
+                <wsdl:part name="body" element="this:Generate_IDRequest"/>
+            </wsdl:message>
+            <xs:element name="Generate_IDResponse" type="xs:string" bpdm:source="partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner"/>
+            <wsdl:message name="Generate_IDResponse" bpdm:source="partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner">
+                <wsdl:part name="body" element="this:Generate_IDResponse"/>
+            </wsdl:message>
+            <bpel:binding name="CanonicBindingForID_GeneratorimplicitPartner" type="this:ForID_GeneratorimplicitPartner" bpdm:isSynchronized="true"/>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_JjsE0H-_EeOqK-xulEikBgimplicitPartner" bpdm:label="ID GeneratorimplicitPartner"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="ID Generator" bpdm:ID="_JjsE0H-_EeOqK-xulEikBg">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="iD_GeneratorimplicitPartnerAndID_GeneratorVar" partnerLinkType="diag:ID_GeneratorimplicitPartnerAndID_Generator" myRole="ID_Generator_for_ID_GeneratorimplicitPartner" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForID_GeneratorimplicitPartner" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/ID_Generator/ID_GeneratorimplicitPartner" bpdm:providedIsDefault="true" bpdm:clientTasks="_JjsE0H-_EeOqK-xulEikBg:_NOFS8H-_EeOqK-xulEikBg, _JjsE0H-_EeOqK-xulEikBg:_Jj-_wH-_EeOqK-xulEikBg" bpdm:isManaged="true" bpdm:otherPoolId="_JjsE0H-_EeOqK-xulEikBgimplicitPartner"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisGenerate_IDRequestMsg" messageType="this:Generate_IDRequest" bpdm:messageIds="inc:_Jj-_wH-_EeOqK-xulEikBgIncoming"/>
+            <bpel:variable name="thisGenerate_IDResponseMsg" messageType="this:Generate_IDResponse" bpdm:messageIds=" out:_NOFS8H-_EeOqK-xulEikBgOutgoing">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Generate_IDResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Generate_ID" partnerLink="iD_GeneratorimplicitPartnerAndID_GeneratorVar" portType="this:ForID_GeneratorimplicitPartner" isMyRole="true" enableSharing="false" bpdm:label="Generate ID" bpdm:ID="_Jj-_wH-_EeOqK-xulEikBg">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisGenerate_IDRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="this:Generate_IDRequest" bpdm:ID="_Jj-_wH-_EeOqK-xulEikBgIncoming"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="Generate_ID" partnerLink="iD_GeneratorimplicitPartnerAndID_GeneratorVar" portType="this:ForID_GeneratorimplicitPartner" isMyRole="true" enableSharing="false" bpdm:label="Send ID" bpdm:ID="_NOFS8H-_EeOqK-xulEikBg">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$ode:pid</bpel:from>
+                        <bpel:to>$thisGenerate_IDResponseMsg.body</bpel:to><mapper:mapperLink><mapper:vertice id="19926845" targetPath="$thisGenerate_IDResponseMsg.body" targetedBy="10196868-arg0"></mapper:vertice><mapper:vertice id="10196868" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisGenerate_IDResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="this:Generate_IDResponse" bpdm:ID="_NOFS8H-_EeOqK-xulEikBgOutgoing"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="SelectContactToClientType.xsl" xmlns:SelectContact="urn:intalio.com:connectors:database:bpms_demo:selectcontactservice" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:demo="http://demo.intalio.com/integration_elements" xmlns:QueryimplicitPartner="http://demo.intalio.com/processes/integration/GetClientList/QueryimplicitPartner" xmlns:this="http://demo.intalio.com/processes/integration/GetClientList/Query" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:diag="http://demo.intalio.com/processes/integration/GetClientList" xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectclientservice">
+  <!--XSL Test sample  generated on Mon Jan 20 13:46:35 EST 2014
+ for F/BPMS_DEMO/processes/integration/GetClientList.bpm
+   pool:Query
+   activity: Extract contact
+ Complete doXslTransform: bpel:doXslTransform("../../transformations/SelectContactToClientType.xsl", $selectContactSelectContactResponseMsg.parameters/SelectContact:rows, "client_id", $Client/bpms_demo_base_types:ClientId, "client_name", $Client/bpms_demo_base_types:ClientName)
+ Input document as defined in the mapper: $selectContactSelectContactResponseMsg.parameters/SelectContact:rows-->
+  <test:input>
+    <SelectContact:rows>
+      <SelectContact:row>
+        <SelectContact:ContactId>1</SelectContact:ContactId>
+        <SelectContact:Name>Esteban</SelectContact:Name>
+        <SelectContact:Email>felipe@intalio.com</SelectContact:Email>
+        <SelectContact:Phone>1234</SelectContact:Phone>
+      </SelectContact:row>
+      <SelectContact:row>
+        <SelectContact:ContactId>2</SelectContact:ContactId>
+        <SelectContact:Name>Esteban2</SelectContact:Name>
+        <SelectContact:Email>felipe@intalio.com2</SelectContact:Email>
+        <SelectContact:Phone>12342</SelectContact:Phone>
+      </SelectContact:row>
+    </SelectContact:rows>
+  </test:input>
+  <test:param name="client_id">
+    <bpms_demo_base_types:ClientId>1</bpms_demo_base_types:ClientId>
+  </test:param>
+  <test:param name="client_name">
+    <bpms_demo_base_types:ClientName>Intalio</bpms_demo_base_types:ClientName>
+  </test:param>
+</test:testxsl>

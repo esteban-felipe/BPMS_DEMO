@@ -1,0 +1,170 @@
+/* fieldset */
+fieldset {
+  margin: 0px;
+  border:0px;
+}
+
+/* padding inside fieldset (IE bug workaround) */
+div.fieldset-padding {
+  margin: 15px 10px;
+}
+
+div.fieldset, span.fieldset {
+  width: 100%;
+}
+
+legend {
+  font-size: 1.5em;
+  font-weight: bolder;
+  color: #444;
+}
+
+/* field */
+label {
+  font-weight: bolder;
+  vertical-align: top;
+}
+
+div.field, span.field {
+  margin: 0.5em 0em;
+  width: 100%;
+}
+
+table.field {
+  empty-cells: show;   
+  font-size: 1em;
+}
+
+td.label-column {
+  width: 20em;
+  text-align: right;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+td.required-column {
+  width: 2em;
+  text-align: center;
+  vertical-align: top;
+}
+
+td.input-column {
+  width: auto;
+  vertical-align: top;
+}
+
+span.required {
+  color: red;
+}
+
+img.error, img.help {
+  margin-right: 1em;
+  vertical-align: middle;
+}
+
+span.nowrap {
+  white-space: nowrap;
+}
+
+span.horizontal-layout,
+span.vertical-layout,
+span.error {
+  margin-bottom: 0.5em;
+}
+
+span.horizontal-layout {
+  display: inline-block;
+  margin-right: 1em;
+  vertical-align: top;
+}    
+
+span.vertical-layout {
+  display: block;
+}
+
+span.error {
+  display: block;
+  margin-top: -0.5em;
+  color: red;
+}
+
+span.value {
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+  color: FireBrick;
+}
+.inner-title {
+  font-size: 28px;
+  font-weight: 600;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing: -1px;
+  color: #333;
+}
+div.horizontal-rule, span.horizontal-rule {
+  width: 100%;
+}
+
+/* h1, h2, h3, etc... title */
+div.title, span.title {
+  width: 100%;
+}
+#JSX span.jsx30block, #JSX div.jsx30block, #JSX label.jsx30block, #JSX fieldset.jsx30block, #JSX legend.jsx30block {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;  
+  font-size: 13px;
+}
+/* form header */
+#JSX div.form-title, #JSX span.form-title {
+  margin-bottom: 15px;
+  /*border-bottom: #DDD 2px solid;*/
+  font-size: 24px;
+  font-weight: 700;
+  /*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;  */
+  letter-spacing: 1px;
+}
+
+/* override the default GI CSS */
+#JSX .jsx30block {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;  
+  color: #333;
+
+}
+
+#JSX input.jsx30textbox {
+  height: 1.8em;
+  width: 25em;
+}
+
+#JSX textarea.jsx30textbox {
+  height: 6em;
+  width: 25em;
+}
+
+legend {
+  font-size: 18px;
+  font-weight: 600;  
+}
+td.label-column {
+  width: 8em;
+}
+td.required-column {
+  width:1em;
+}
+label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+.backimage {
+float:right;
+z-index:-1;
+position:fixed;
+margin-left:600;
+}
+.backimage img {
+   height:auto; 
+   width:auto; 
+   max-width:200px; 
+   max-height:200px;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}

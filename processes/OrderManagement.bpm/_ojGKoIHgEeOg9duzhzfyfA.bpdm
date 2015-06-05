@@ -1,0 +1,69 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:this="http://thisdiagram/Sales_representative" xmlns:SalesOrderModificationForm="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi/attachments" xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OrderManagement="http://thisdiagram/OrderManagement" xmlns:SalesOrderForm="http://www.intalio.com/gi/forms/SalesOrderForm.gi" xmlns:attachments="http://www.intalio.com/gi/forms/SalesOrderForm.gi/attachments" xmlns:demo="http://demo.intalio.com/form_elements" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Sales_representative">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Sales_representative" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi/attachments" bpdm:prefix="SalesOrderModificationForm" bpdm:comment="contrib=&apos;project:///forms/SalesOrderModificationForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi" bpdm:prefix="SalesOrderModificationForm1" bpdm:comment="contrib=&apos;project:///forms/SalesOrderModificationForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/OrderManagement" bpdm:prefix="OrderManagement" bpdm:comment="contrib=&apos;partner-pool:///_ltsq0IHgEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderForm.gi" bpdm:prefix="SalesOrderForm" bpdm:comment="contrib=&apos;project:///forms/SalesOrderForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderForm.gi/attachments" bpdm:prefix="attachments" bpdm:comment="contrib=&apos;project:///forms/SalesOrderForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/form_elements" bpdm:prefix="demo" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_form_elements.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/base_types" bpdm:prefix="bpms_demo_base_types" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_base_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_ltsq0IHgEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_ltsq0IHgEeOg9duzhzfyfA" bpdm:label="OrderManagement"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderForm.gi.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderModificationForm.gi.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_base_types.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_form_elements.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Sales representative" bpdm:ID="_ojGKoIHgEeOg9duzhzfyfA">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="sales_representativeAndOrderManagementForPortTypeProcessPlkVar" partnerLinkType="diag:Sales_representativeAndOrderManagementForPortTypeProcessPlk" initializePartnerRole="yes" partnerRole="OrderManagement_for_Sales_representative" bpdm:invokedService="OrderManagement:Sales_representativeAndOrderManagementForPortTypeProcessPlkService" bpdm:invokedPort="OrderManagement_for_Sales_representativePort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_representative/Sales_representativeAndOrderManagementForPortTypeProcessPlk" bpdm:invokedIsDefault="true" bpdm:clientTasks="_ojGKoIHgEeOg9duzhzfyfA:_u16zkYHgEeOg9duzhzfyfA" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfA"/>
+            <bpel:partnerLink name="wFmagic_bj4BIYtiEeOugvlF6XJahgPlkVar" partnerLinkType="diag:WFmagic_bj4BIYtiEeOugvlF6XJahg" initializePartnerRole="no" myRole="Sales_representative_for_OrderManagementForSalesOrderModificationFormPort" bpdm:enableSharing="false" bpdm:providedService="SalesOrderModificationForm1:WorkflowSoapService" bpdm:providedPort="SalesOrderModificationFormPort" bpdm:provideSOAPAddress="http://bpms.local:8080/fds/workflow/SalesOrderModificationForm" bpdm:providedIsDefault="true" partnerRole="OrderManagement_for_Sales_representativeForThePortTypeProcess" bpdm:invokedService="OrderManagement:WFmagic_bj4BIYtiEeOugvlF6XJahgService" bpdm:invokedPort="OrderManagement_for_Sales_representativeForThePortTypeProcessPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_representative/WFmagic_bj4BIYtiEeOugvlF6XJahg" bpdm:invokedIsDefault="true" bpdm:clientTasks="_ojGKoIHgEeOg9duzhzfyfA:_bj4BIYtiEeOugvlF6XJahg, _ojGKoIHgEeOg9duzhzfyfA:_bj52UItiEeOugvlF6XJahg" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfA"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="salesOrderFormInitProcessResponseMsg" messageType="SalesOrderForm:initProcessResponse"/>
+            <bpel:variable name="salesOrderFormInitProcessRequestMsg" messageType="SalesOrderForm:initProcessRequest">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="SalesOrderForm:initProcessRequest" bpdm:linkedPart="root"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="salesOrderFormInitProcessResponseMsg" messageType="SalesOrderForm:initProcessResponse" bpdm:id="_ItqYN4HiEeOg9duzhzfyfA" bpdm:messageIds="inc:_IsxAUIHiEeOg9duzhzfyfA"/>
+            <bpel:variable name="salesOrderFormInitProcessRequestMsg" messageType="SalesOrderForm:initProcessRequest" bpdm:id="_IVUwsIHiEeOg9duzhzfyfA" bpdm:messageIds=" out:_IUhfcIHiEeOg9duzhzfyfA">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="SalesOrderForm:initProcessRequest" bpdm:linkedPart="root"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="salesOrderModificationForm1CreateTaskRequestMsg" messageType="SalesOrderModificationForm1:createTaskRequest" binding="SalesOrderModificationForm1:WorkflowSoapBinding" operation="createTask" opMsgType="0" bpdm:id="_b9y9AItiEeOugvlF6XJahg" bpdm:messageIds="inc:_b8hxsItiEeOugvlF6XJahg"/>
+            <bpel:variable name="salesOrderModificationForm1CreateTaskResponseMsg" messageType="SalesOrderModificationForm1:createTaskResponse" binding="SalesOrderModificationForm1:WorkflowSoapBinding" operation="createTask" opMsgType="1" bpdm:id="_cS_w8ItiEeOugvlF6XJahg" bpdm:messageIds=" out:_cSYs8ItiEeOugvlF6XJahg">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="SalesOrderModificationForm1:createTaskResponse" bpdm:linkedPart="root" bpdm:binding="SalesOrderModificationForm1:WorkflowSoapBinding" bpdm:opMsgType="1" bpdm:operation="createTask"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="salesOrderModificationForm1NotifyTaskCompletionRequestMsg" messageType="SalesOrderModificationForm1:notifyTaskCompletionRequest" bpdm:id="_co5IcItiEeOugvlF6XJahg" bpdm:messageIds=" out:_coe4wItiEeOugvlF6XJahg">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="SalesOrderModificationForm1:notifyTaskCompletionRequest" bpdm:linkedPart="root"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="salesOrderModificationForm1NotifyTaskCompletionResponseMsg" messageType="SalesOrderModificationForm1:notifyTaskCompletionResponse" bpdm:id="_c7FEoItiEeOugvlF6XJahg" bpdm:messageIds="inc:_c5phQItiEeOugvlF6XJahg"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask eventType="start: empty" bpdm:label="Empty_Start_Event" bpdm:ID="_wXzdEIHgEeOg9duzhzfyfA"></bpdm:messagingtask>
+            <bpdm:messagingtask operation="initProcess" partnerLink="sales_representativeAndOrderManagementForPortTypeProcessPlkVar" portType="SalesOrderForm:Process" isMyRole="false" enableSharing="false" bpdm:label="Send sales order" bpdm:ID="_u16zkYHgEeOg9duzhzfyfA">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderFormInitProcessRequestMsg" bpdm:msgVarScopeId="_ojGKoIHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderForm:initProcessRequest" bpdm:ID="_IUhfcIHiEeOg9duzhzfyfA"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderFormInitProcessResponseMsg" bpdm:msgVarScopeId="_ojGKoIHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderForm:initProcessResponse" bpdm:ID="_IsxAUIHiEeOg9duzhzfyfA"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="createTask" partnerLink="wFmagic_bj4BIYtiEeOugvlF6XJahgPlkVar" portType="SalesOrderModificationForm1:Workflow" isMyRole="true" enableSharing="false" bpdm:label="SalesOrderModificationForm-create" bpdm:ID="_bj4BIYtiEeOugvlF6XJahg">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="salesOrderModificationForm1CreateTaskRequestMsg" bpdm:msgVarScopeId="_ojGKoIHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:createTaskRequest" bpdm:binding="SalesOrderModificationForm1:WorkflowSoapBinding" bpdm:ID="_b8hxsItiEeOugvlF6XJahg"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="salesOrderModificationForm1CreateTaskResponseMsg" bpdm:msgVarScopeId="_ojGKoIHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:createTaskResponse" bpdm:binding="SalesOrderModificationForm1:WorkflowSoapBinding" bpdm:ID="_cSYs8ItiEeOugvlF6XJahg"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="notifyTaskCompletion" partnerLink="wFmagic_bj4BIYtiEeOugvlF6XJahgPlkVar" portType="SalesOrderModificationForm1:Process" isMyRole="false" enableSharing="false" bpdm:label="SalesOrderModificationForm-complete" bpdm:ID="_bj52UItiEeOugvlF6XJahg">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderModificationForm1NotifyTaskCompletionRequestMsg" bpdm:msgVarScopeId="_ojGKoIHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:notifyTaskCompletionRequest" bpdm:ID="_coe4wItiEeOugvlF6XJahg"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderModificationForm1NotifyTaskCompletionResponseMsg" bpdm:msgVarScopeId="_ojGKoIHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:notifyTaskCompletionResponse" bpdm:ID="_c5phQItiEeOugvlF6XJahg"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_Jiys8n-_EeOqK-xulEikBg" iD="_Jiys8X-_EeOqK-xulEikBg">
+  <pools xmi:type="bpmn:Pool" xmi:id="_JjsE0X-_EeOqK-xulEikBg" iD="_JjsE0H-_EeOqK-xulEikBg" name="ID Generator">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lSkmsH-_EeOqK-xulEikBg" source="inMemoryProcess">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lSkmsX-_EeOqK-xulEikBg" key="InMemoryProcess" value="false"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ltr1YH-_EeOqK-xulEikBg" source="ode_cleanup_source">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ltr1YX-_EeOqK-xulEikBg" key="ode_cleanup_type" value="never"/>
+    </eAnnotations>
+    <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_5vLRAY2lEeOkXdq2wVPX-w" iD="_5vLRAI2lEeOkXdq2wVPX-w" name="Automatic order id generator. Creates an unique identifier per order">
+      <associations xmi:type="bpmn:Association" xmi:id="_5vVCAI2lEeOkXdq2wVPX-w"/>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_Jj-_wX-_EeOqK-xulEikBg" iD="_Jj-_wH-_EeOqK-xulEikBg" outgoingEdges="_NOFS-n-_EeOqK-xulEikBg" name="Generate ID" activityType="Task">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RvUCcH-_EeOqK-xulEikBg" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RvdzcH-_EeOqK-xulEikBg" key="canonic_request_type" value="builtin:///xsd?xsdtype={http://www.w3.org/2001/XMLSchema}string"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RvdzcX-_EeOqK-xulEikBg" key="request_response_different_shape" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Rvdzcn-_EeOqK-xulEikBg" key="canonic_response_type" value="builtin:///xsd?xsdtype={http://www.w3.org/2001/XMLSchema}string"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Rvdzc3-_EeOqK-xulEikBg" key="blackbox" value="true"/>
+      </eAnnotations>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_NOFS8X-_EeOqK-xulEikBg" iD="_NOFS8H-_EeOqK-xulEikBg" associations="_5vVCAI2lEeOkXdq2wVPX-w" incomingEdges="_NOFS-n-_EeOqK-xulEikBg" name="Send ID" activityType="Task">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SaOnsH-_EeOqK-xulEikBg" source="attachedDataobject">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SaYYsH-_EeOqK-xulEikBg" key="blackbox" value="true"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SaYYsX-_EeOqK-xulEikBg" key="request_shape" value="_Jj-_wH-_EeOqK-xulEikBg"/>
+      </eAnnotations>
+    </vertices>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_NOFS-n-_EeOqK-xulEikBg" iD="_NOFS-X-_EeOqK-xulEikBg"/>
+  </pools>
+</bpmn:BpmnDiagram>

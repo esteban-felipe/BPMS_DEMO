@@ -1,0 +1,112 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:demo="http://demo.intalio.com/base_types"
+	xmlns:ns="http://approvalmethod.rules.bpms_demo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ax21="http://approvalmethod.rules.bpms_demo/xsd"
+	xmlns:SalesOrderForm="http://www.intalio.com/gi/forms/SalesOrderForm.gi/attachments"
+	xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre"
+	xmlns:Sales_representative="http://demo.intalio.com/processes/OrderManagement/Sales_representative"
+	xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+	xmlns:diag="http://demo.intalio.com/processes/OrderManagement"
+	xmlns:metrics="http://test.com/xvar/example"
+	xmlns:SalesOrderModificationForm="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi/attachments"
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+	xmlns:attachments="http://www.intalio.com/gi/forms/SalesOrderReview.gi/attachments"
+	xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi"
+	xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:ConvertToOrderDetail-Convert1="http://demo.intalio.com/processes/system/ConvertToOrderDetail/Convert"
+	xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:SalesOrderProgressNotification="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi/attachments"
+	xmlns:SalesOrderReview="http://www.intalio.com/gi/forms/SalesOrderReview.gi"
+	xmlns:tns="http://tempo.intalio.org/security/tokenService/"
+	xmlns:Sales_manager="http://demo.intalio.com/processes/OrderManagement/Sales_manager"
+	xmlns:NofityRole-Notify="http://demo.intalio.com/processes/system/NofityRole/Notify"
+	xmlns:off="http://demo.office.intalio.com/OfficeProvisioningService/"
+	xmlns:bpms_demo_form_elements="http://demo.intalio.com/form_elements"
+	xmlns:ElectronicsProvisioning-Provisioning="http://demo.intalio.com/processes/ElectronicsProvisioning/Provisioning"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:this="http://demo.intalio.com/processes/OrderManagement/OrderManagement"
+	xmlns:OrderManagementimplicitPartner="http://demo.intalio.com/processes/OrderManagement/OrderManagementimplicitPartner"
+	xmlns:TaskManagementServices="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	targetNamespace="http://demo.intalio.com/processes/OrderManagement/OrderManagement">
+	<wsdl:types>
+		<xs:schema elementFormDefault="qualified"
+			targetNamespace="http://demo.intalio.com/processes/OrderManagement/OrderManagement">
+			<xs:import namespace="http://demo.intalio.com/base_types"
+				schemaLocation="../schemas/bpms_demo_base_types.xsd" />
+			<xs:element name="Recieve_electronics_provisioning_resultsRequest"
+				type="demo:ElectronicsOrderProvisioned" />
+			<xs:element name="Recieve_electronics_provisioning_resultsResponse"
+				type="demo:AcknowledgeType" />
+			<xs:element name="Recieve_office_products_provisioning_resultsRequest"
+				type="demo:OfficeOrderProvisioned" />
+			<xs:element name="Recieve_office_products_provisioning_resultsResponse"
+				type="demo:AcknowledgeType" />
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="Recieve_electronics_provisioning_resultsRequest">
+		<wsdl:part name="body"
+			element="this:Recieve_electronics_provisioning_resultsRequest" />
+	</wsdl:message>
+	<wsdl:message name="Recieve_electronics_provisioning_resultsResponse">
+		<wsdl:part name="body"
+			element="this:Recieve_electronics_provisioning_resultsResponse" />
+	</wsdl:message>
+	<wsdl:message name="Recieve_office_products_provisioning_resultsRequest">
+		<wsdl:part name="body"
+			element="this:Recieve_office_products_provisioning_resultsRequest" />
+	</wsdl:message>
+	<wsdl:message name="Recieve_office_products_provisioning_resultsResponse">
+		<wsdl:part name="body"
+			element="this:Recieve_office_products_provisioning_resultsResponse" />
+	</wsdl:message>
+	<wsdl:portType name="ForOrderManagementimplicitPartner">
+		<wsdl:operation name="Recieve_electronics_provisioning_results">
+			<wsdl:input message="this:Recieve_electronics_provisioning_resultsRequest"
+				name="Recieve_electronics_provisioning_results" />
+			<wsdl:output message="this:Recieve_electronics_provisioning_resultsResponse"
+				name="Recieve_electronics_provisioning_resultsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="Recieve_office_products_provisioning_results">
+			<wsdl:input
+				message="this:Recieve_office_products_provisioning_resultsRequest"
+				name="Recieve_office_products_provisioning_results" />
+			<wsdl:output
+				message="this:Recieve_office_products_provisioning_resultsResponse"
+				name="Recieve_office_products_provisioning_resultsResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CanonicBindingForOrderManagementimplicitPartner"
+		type="this:ForOrderManagementimplicitPartner">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Recieve_office_products_provisioning_results">
+			<soap:operation style="document"
+				soapAction="http://demo.intalio.com/processes/OrderManagement/OrderManagement/ForOrderManagementimplicitPartner/Recieve_office_products_provisioning_results" />
+			<wsdl:input name="Recieve_office_products_provisioning_results">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="Recieve_office_products_provisioning_resultsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Recieve_electronics_provisioning_results">
+			<soap:operation style="document"
+				soapAction="http://demo.intalio.com/processes/OrderManagement/OrderManagement/ForOrderManagementimplicitPartner/Recieve_electronics_provisioning_results" />
+			<wsdl:input name="Recieve_electronics_provisioning_results">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="Recieve_electronics_provisioning_resultsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>	<wsdl:service name="CanonicServiceForOrderManagementimplicitPartner">
+		<wsdl:port name="canonicPort"
+			binding="this:CanonicBindingForOrderManagementimplicitPartner">
+			<soap:address
+				location="http://bpms.local:8080/intalio/ode/processes/BPMS_DEMO/processes/OrderManagement/OrderManagement/OrderManagementimplicitPartner" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

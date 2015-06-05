@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="UserPropertiesToUserData.xsl" xmlns:this="http://demo.intalio.com/processes/system/NofityRole/Notify" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rbac="http://tempo.intalio.org/security/RBACQueryService/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:NotifyimplicitPartner="http://demo.intalio.com/processes/system/NofityRole/NotifyimplicitPartner" xmlns:demo="http://demo.intalio.com/base_types" xmlns:diag="http://demo.intalio.com/processes/system/NofityRole">
+  <!--XSL Test sample  generated on Fri Jan 31 18:39:08 EST 2014
+ for F/BPMS_DEMO/processes/system/NofityRole.bpm
+   pool:Notify
+   activity: Extract details
+ Complete doXslTransform: bpel:doXslTransform("../../transformations/UserPropertiesToUserData.xsl", $tnsGetUserPropertiesResponseMsg.payload)
+ Input document as defined in the mapper: $tnsGetUserPropertiesResponseMsg.payload-->
+  <test:input>
+    <rbac:getUserPropertiesResponse>
+         <rbac:property>
+            <rbac:name>uid</rbac:name>
+            <rbac:value>examples\msmith</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>streetaddress</rbac:name>
+            <rbac:value>Foster City</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>title</rbac:name>
+            <rbac:value>Clerk 2</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>ou</rbac:name>
+            <rbac:value>People</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>manager</rbac:name>
+            <rbac:value>cn=ewilliams,ou=People,dc=examples,dc=com</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>email</rbac:name>
+            <rbac:value>msmith@intalio.org</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>cn</rbac:name>
+            <rbac:value>msmith</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>department</rbac:name>
+            <rbac:value>101</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>lastname</rbac:name>
+            <rbac:value>Smith</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>firstname</rbac:name>
+            <rbac:value>Mark</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>displayName</rbac:name>
+            <rbac:value>Mark Smith</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>roomnumber</rbac:name>
+            <rbac:value>2248-B12</rbac:value>
+         </rbac:property>
+         <rbac:property>
+            <rbac:name>objectclass</rbac:name>
+            <rbac:value>organizationalPerson,person,inetOrgPerson,top</rbac:value>
+         </rbac:property>
+
+    </rbac:getUserPropertiesResponse>
+  </test:input>
+  <!--No parameters are currently passed to doXslTransform.-->
+</test:testxsl>

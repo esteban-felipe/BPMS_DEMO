@@ -1,0 +1,13 @@
+﻿<bpel:literal xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:SelectContact="urn:intalio.com:connectors:database:bpms_demo:selectcontactservice"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:demo="http://demo.intalio.com/integration_elements"
+    xmlns:this="http://thisdiagram/Query"
+    xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types"
+    xmlns:consumer="http://thisdiagram/consumer"
+    xmlns:diag="http://thisdiagram"
+    xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectclientservice"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace">
+<this:Recieve_RequestResponse />
+</bpel:literal>

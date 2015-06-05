@@ -1,0 +1,16 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<bpt:template xmlns:bpt="http://www.intalio/designer/business-process-data-modeling/template" ID="_6a1JsJslEeOwCYydylTGDw" displayName="GetClient" ownerPoolId="_b75qcJsXEeOwCYydylTGDw" ownerPoolNcName="consumer" ownerPoolIsExecutable="false" version="6000089">
+    <bpt:partnerPool ID="_VKXTBoHuEeOg9duzhzfyfA" ncName="Query" isExecutable="true"/>
+    <bpt:container displayName="sequence" containerType="sequence">
+        <bpt:activity ID="_dnMHkJsXEeOwCYydylTGDw" displayName="Invoke" activityType="Task" messaging="invokerequestresponsebound">
+            <bpt:generatedOperation providingPoolId="_VKXTBoHuEeOg9duzhzfyfA" generatedPartnerLinkTypeLocalName="consumerAndQuery" generatedService="CanonicServiceForconsumer" generatedOperation="Recieve_Request" generatedPort="canonicPort">
+                <bpt:input name="Recieve_Request" generatedMessageTypeLocalName="Recieve_RequestRequest">
+                    <bpt:part name="body" generatedElementLocalName="Recieve_RequestRequest"/>
+                </bpt:input>
+                <bpt:output name="Recieve_RequestResponse" generatedMessageTypeLocalName="Recieve_RequestResponse">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_integration_types.xsd?xsdtype={http://demo.intalio.com/integration_elements}ClientListType" generatedElementLocalName="Recieve_RequestResponse"/>
+                </bpt:output>
+            </bpt:generatedOperation>
+        </bpt:activity>
+    </bpt:container>
+</bpt:template>

@@ -1,0 +1,48 @@
+﻿<xbpms:descriptor targetNamespace="http://test.com/xvar/example" xmlns:xbpms="http://bpms.intalio.com/externalVariables" xmlns:tns="http://test.com/xvar/example" xmlns:xjdbc="http://ode.apache.org/externalVariables/jdbc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xvar="http://ode.apache.org/externalVariables">
+  <xbpms:import namespace="http://test.com/xvar/example" schemaLocation="${currentFileName}.xsd"/>
+  <xbpms:externalVariable name="SalesOrder">
+    <xbpms:description>default description</xbpms:description>
+    <xbpms:binding>
+      <xjdbc:jdbc>
+        <xjdbc:datasource-jndi>${defaultBpmsJndiDataSource}</xjdbc:datasource-jndi>
+        <xjdbc:table xbpms:isDefault="true">SalesOrder</xjdbc:table>
+        <xjdbc:column key="yes" name="SalesOrderRef" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="ClientId" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"/>
+        <xjdbc:column key="no" name="ClientName" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="SalesDate" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="TotalAmount" sql-type="NUMERIC" xbpms:ddl-precision="15" xbpms:ddl-scale="2" xbpms:type-label="numeric" xsd-type="xs:decimal"/>
+        <xjdbc:column key="no" name="SalesRep" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="ReviewManager" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="Status" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="RecievedDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="ReviewedDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="ApprovedDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="RejectedDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="ElectronicsProvisionedDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="OfficeProvisionedDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="DeliveredDate" sql-type="TIMESTAMP" xbpms:type-label="timestamp" xsd-type="xs:dateTime"/>
+        <xjdbc:column key="no" name="ItemsCount" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"/>
+        <xjdbc:column key="no" name="OfficeCount" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"/>
+        <xjdbc:column key="no" name="ElectronicsCount" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"/>
+        <xjdbc:column key="no" name="Discount" sql-type="FLOAT" xbpms:type-label="float" xsd-type="xs:float"/>
+        <xjdbc:init mode="update-insert"/>
+      </xjdbc:jdbc>
+    </xbpms:binding>
+  </xbpms:externalVariable>
+  <xbpms:externalVariable name="SalesItem">
+    <xbpms:description>default description</xbpms:description>
+    <xbpms:binding>
+      <xjdbc:jdbc>
+        <xjdbc:datasource-jndi>${defaultBpmsJndiDataSource}</xjdbc:datasource-jndi>
+        <xjdbc:table xbpms:isDefault="true">SalesItem</xjdbc:table>
+        <xjdbc:column key="yes" name="ItemRef" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="yes" name="SalesOrderRef" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="ProductName" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="ProductFamily" sql-type="VARCHAR" xbpms:ddl-size="250" xbpms:type-label="string" xsd-type="xs:string"/>
+        <xjdbc:column key="no" name="Quantity" sql-type="INTEGER" xbpms:type-label="integer" xsd-type="xs:integer"/>
+        <xjdbc:column key="no" name="Price" sql-type="FLOAT" xbpms:type-label="float" xsd-type="xs:float"/>
+        <xjdbc:init mode="update-insert"/>
+      </xjdbc:jdbc>
+    </xbpms:binding>
+  </xbpms:externalVariable>
+</xbpms:descriptor>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<test:testxsl xmlns:test="http://intalio.com/xsltestcase" xsl="SelectProductsToProductList.xsl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:demo="http://demo.intalio.com/integration_elements" xmlns:QueryimplicitPartner="http://demo.intalio.com/processes/integration/GetProductList/QueryimplicitPartner" xmlns:this="http://demo.intalio.com/processes/integration/GetProductList/Query" xmlns:ns="urn:intalio.com:connectors:database:bpms_demo:selectproductsservice" xmlns:bpms_demo_base_types="http://demo.intalio.com/base_types" xmlns:diag="http://demo.intalio.com/processes/integration/GetProductList">
+  <!--XSL Test sample  generated on Tue Jan 21 09:15:14 EST 2014
+ for F/BPMS_DEMO/processes/integration/GetProductList.bpm
+   pool:Query
+   activity: Send reply
+ Complete doXslTransform: bpel:doXslTransform("../../transformations/SelectProductsToProductList.xsl", $nsSelectProductsResponseMsg.parameters/ns:rows)
+ Input document as defined in the mapper: $nsSelectProductsResponseMsg.parameters/ns:rows-->
+  <test:input>
+    <ns:rows>
+      <ns:row>
+        <ns:ProductId>1</ns:ProductId>
+        <ns:Name>Product A</ns:Name>
+        <ns:Family>A</ns:Family>
+        <ns:Price>10</ns:Price>
+      </ns:row>
+      <ns:row>
+        <ns:ProductId>2</ns:ProductId>
+        <ns:Name>Product B</ns:Name>
+        <ns:Family>A</ns:Family>
+        <ns:Price>11</ns:Price>
+      </ns:row>
+      <ns:row>
+        <ns:ProductId>3</ns:ProductId>
+        <ns:Name>Product C</ns:Name>
+        <ns:Family>B</ns:Family>
+        <ns:Price>12</ns:Price>
+      </ns:row>
+      <ns:row>
+        <ns:ProductId>4</ns:ProductId>
+        <ns:Name>Product Z</ns:Name>
+        <ns:Family>C</ns:Family>
+        <ns:Price>11</ns:Price>
+      </ns:row>
+    </ns:rows>
+  </test:input>
+  <!--No parameters are currently passed to doXslTransform.-->
+</test:testxsl>

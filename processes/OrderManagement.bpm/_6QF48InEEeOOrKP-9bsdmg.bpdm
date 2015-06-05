@@ -1,0 +1,54 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OrderManagement="http://thisdiagram/OrderManagement" xmlns:SalesOrderReview1="http://demo.intalio.com/custom_forms/attachments" xmlns:demo="http://demo.intalio.com/base_types" xmlns:tns="http://demo.intalio.com/custom_forms" xmlns:diag="http://thisdiagram" xmlns:this="http://thisdiagram/Sales_manager" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Sales_manager">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/OrderManagement" bpdm:prefix="OrderManagement" bpdm:comment="contrib=&apos;partner-pool:///_ltsq0IHgEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/custom_forms/attachments" bpdm:prefix="SalesOrderReview1" bpdm:comment="contrib=&apos;project:///forms/SalesOrderReview.sampleform.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/base_types" bpdm:prefix="demo" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_base_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/custom_forms" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///forms/SalesOrderReview.sampleform.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_ltsq0IHgEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Sales_manager" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types"></bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_ltsq0IHgEeOg9duzhzfyfA" bpdm:label="OrderManagement"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderReview.sampleform.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_base_types.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Sales manager" bpdm:ID="_6QF48InEEeOOrKP-9bsdmg">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="wFmagic_dQiAMOLvEeSyUMDSxrz6XwPlkVar" partnerLinkType="diag:WFmagic_dQiAMOLvEeSyUMDSxrz6Xw" initializePartnerRole="no" myRole="Sales_manager_for_OrderManagementForTnsPort" bpdm:enableSharing="false" bpdm:providedService="tns:WorkflowSoapService" bpdm:providedPort="tnsPort" bpdm:provideSOAPAddress="http://bpms.local:8080/fds/workflow/tns" bpdm:providedIsDefault="true" partnerRole="OrderManagement_for_Sales_managerForThePortTypeProcess" bpdm:invokedService="OrderManagement:WFmagic_dQiAMOLvEeSyUMDSxrz6XwService" bpdm:invokedPort="OrderManagement_for_Sales_managerForThePortTypeProcessPort" bpdm:invokedSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_manager/WFmagic_dQiAMOLvEeSyUMDSxrz6Xw" bpdm:invokedIsDefault="true" bpdm:clientTasks="_6QF48InEEeOOrKP-9bsdmg:_dQiAMOLvEeSyUMDSxrz6Xw, _6QF48InEEeOOrKP-9bsdmg:_dQm4sOLvEeSyUMDSxrz6Xw" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfA"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="salesOrderReviewNotifyTaskCompletionResponseMsg" messageType="SalesOrderReview:notifyTaskCompletionResponse"/>
+            <bpel:variable name="salesOrderReviewCreateTaskResponseMsg" messageType="SalesOrderReview:createTaskResponse" binding="SalesOrderReview:WorkflowSoapBinding" operation="createTask" opMsgType="1">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="SalesOrderReview:createTaskResponse" bpdm:linkedPart="root" bpdm:binding="SalesOrderReview:WorkflowSoapBinding" bpdm:opMsgType="1" bpdm:operation="createTask"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="thisManager_recieves_order_for_reviewRequestMsg" messageType="SalesOrderReview:createTaskRequest" binding="SalesOrderReview:WorkflowSoapBinding" operation="createTask" opMsgType="0"/>
+            <bpel:variable name="tnsCreateTaskRequestMsg" messageType="tns:createTaskRequest" binding="tns:WorkflowSoapBinding" operation="createTask" opMsgType="0" bpdm:id="_xDhpkOLvEeSyUMDSxrz6Xw" bpdm:messageIds="inc:_xCjZMOLvEeSyUMDSxrz6Xw"/>
+            <bpel:variable name="tnsCreateTaskResponseMsg" messageType="tns:createTaskResponse" binding="tns:WorkflowSoapBinding" operation="createTask" opMsgType="1" bpdm:id="_xZboIOLvEeSyUMDSxrz6Xw" bpdm:messageIds=" out:_xYwSsOLvEeSyUMDSxrz6Xw">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="tns:createTaskResponse" bpdm:linkedPart="root" bpdm:binding="tns:WorkflowSoapBinding" bpdm:opMsgType="1" bpdm:operation="createTask"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="tnsNotifyTaskCompletionRequestMsg" messageType="tns:notifyTaskCompletionRequest" bpdm:id="_VNm10Ok1EeSqaPLQlngM5g" bpdm:messageIds=" out:_VM0LoOk1EeSqaPLQlngM5g">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="tns:notifyTaskCompletionRequest" bpdm:linkedPart="root"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="tnsNotifyTaskCompletionResponseMsg" messageType="tns:notifyTaskCompletionResponse" bpdm:id="_WUm6IOk1EeSqaPLQlngM5g" bpdm:messageIds="inc:_WSsOkOk1EeSqaPLQlngM5g"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="createTask" partnerLink="wFmagic_dQiAMOLvEeSyUMDSxrz6XwPlkVar" portType="tns:Workflow" isMyRole="true" enableSharing="false" bpdm:label="Manager recieves order for review" bpdm:ID="_dQiAMOLvEeSyUMDSxrz6Xw">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="tnsCreateTaskRequestMsg" bpdm:msgVarScopeId="_6QF48InEEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="tns:createTaskRequest" bpdm:binding="tns:WorkflowSoapBinding" bpdm:ID="_xCjZMOLvEeSyUMDSxrz6Xw"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="tnsCreateTaskResponseMsg" bpdm:msgVarScopeId="_6QF48InEEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="tns:createTaskResponse" bpdm:binding="tns:WorkflowSoapBinding" bpdm:ID="_xYwSsOLvEeSyUMDSxrz6Xw"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask bpdm:label="Manager reviews order" bpdm:ID="_hlR9IOk1EeSqaPLQlngM5g"></bpdm:messagingtask>
+            <bpdm:messagingtask operation="notifyTaskCompletion" partnerLink="wFmagic_dQiAMOLvEeSyUMDSxrz6XwPlkVar" portType="tns:Process" isMyRole="false" enableSharing="false" bpdm:label="Manager sends review outcome" bpdm:ID="_dQm4sOLvEeSyUMDSxrz6Xw">
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="tnsNotifyTaskCompletionRequestMsg" bpdm:msgVarScopeId="_6QF48InEEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="tns:notifyTaskCompletionRequest" bpdm:ID="_VM0LoOk1EeSqaPLQlngM5g"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="tnsNotifyTaskCompletionResponseMsg" bpdm:msgVarScopeId="_6QF48InEEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="tns:notifyTaskCompletionResponse" bpdm:ID="_WSsOkOk1EeSqaPLQlngM5g"></bpdm:linkset>
+            </bpdm:messagingtask>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

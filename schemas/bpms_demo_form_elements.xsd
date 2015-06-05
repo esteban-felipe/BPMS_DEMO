@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://demo.intalio.com/form_elements"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:demo="http://demo.intalio.com/form_elements" xmlns:dem="http://demo.intalio.com/base_types" xmlns:Q1="http://demo.intalio.com/process_types">
+
+
+    <import schemaLocation="bpms_demo_base_types.xsd" namespace="http://demo.intalio.com/base_types"></import>
+
+
+    <element name="SalesOrder" type="dem:SalesOrderType"></element>
+
+
+
+
+</schema>

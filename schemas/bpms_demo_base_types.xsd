@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://demo.intalio.com/base_types"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:demo="http://demo.intalio.com/base_types">
+
+    <complexType name="ClientType">
+    	<sequence>
+    		<element name="ClientId" type="int" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="ClientName" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="Contact" type="demo:ContactType" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ContactType">
+    	<sequence>
+    		<element name="ContactName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ContactPhone" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ContactEmail" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ProductType">
+    	<sequence>
+    		<element name="ProductId" type="int" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ProductFamily"
+    			type="demo:ProductFamilyType" maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="ProductName" maxOccurs="1" minOccurs="1">
+    			<simpleType>
+    				<restriction base="string">
+    					<minLength value="3"></minLength>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    		<element name="ProductPrice" maxOccurs="1" minOccurs="1">
+    			<simpleType>
+    				<restriction base="double">
+    					<minExclusive value="0"></minExclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="ProductFamilyType">
+    	<restriction base="string">
+    		<enumeration value="Electronics"></enumeration>
+    		<enumeration value="Furniture"></enumeration>
+    		<enumeration value="Office"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="ProductOrderType">
+    	<sequence>
+            <element name="ItemRef" maxOccurs="1" minOccurs="1">
+            	<simpleType>
+            		<restriction base="string">
+            			<minLength value="1"></minLength>
+            		</restriction>
+            	</simpleType>
+            </element>
+            <element name="ProductId" type="int"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="Quantity" type="int"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="ItemDiscount" maxOccurs="1" minOccurs="0">
+    			<simpleType>
+    				<restriction base="double">
+    					<minExclusive value="0"></minExclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="SalesOrderType">
+    	<sequence>
+    		<element name="OrderRef" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="OrderDate" type="date" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="Client" type="int" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="Items" type="demo:ProductOrderType" maxOccurs="unbounded" minOccurs="1"></element>
+            <element name="GlobalDiscount" type="double" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    	</sequence>
+    </complexType>
+    <complexType name="SalesOrderReviewType">
+    	<sequence>
+    		<element name="SalesOrder" type="demo:SalesOrderDetailType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="SalesRepresentative" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="Decision" type="demo:ReviewType" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="SalesOrderReview" type="demo:SalesOrderReviewType"></element>
+    <complexType name="SalesManagementType">
+    	<sequence>
+    		<element name="SalesOrder" type="demo:SalesOrderDetailType"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="SalesRep" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="RevieweManager" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+            <element name="ReviewDecision" type="demo:ReviewType" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+
+    <element name="SalesManagement" type="demo:SalesManagementType"></element>
+
+    <simpleType name="ReviewType">
+    	<restriction base="string">
+    		<enumeration value="Approve"></enumeration>
+    		<enumeration value="Return"></enumeration>
+    		<enumeration value="Reject"></enumeration>
+    	</restriction>
+    </simpleType>
+
+
+
+    
+
+    <complexType name="ProductOrderDetailType">
+    			<sequence>
+    				<element name="ItemRef" type="string" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="ProductId" type="string"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="ProductFamily"
+    					type="demo:ProductFamilyType" maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="ProductName" type="string"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="ProductPrice" type="double"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="Quantity" type="int" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="ItemDiscount" type="double"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="ItemPrice" type="double" maxOccurs="1" minOccurs="1"></element>
+    			</sequence>
+    </complexType>
+
+    <complexType name="SalesOrderDetailType">
+    	<sequence>
+    		<element name="OrderRef" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="OrderDate" type="date" maxOccurs="1" minOccurs="1"></element>
+    		<element name="Client" type="demo:ClientDetailType" maxOccurs="1" minOccurs="1"></element>
+    		<element name="Items" type="demo:ProductOrderDetailType" maxOccurs="unbounded" minOccurs="1"></element>
+    		<element name="GlobalDiscount" type="double" maxOccurs="1" minOccurs="0"></element>
+    		<element name="TotalPrice" type="double" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="SalesOrderDetail" type="demo:SalesOrderDetailType"></element>
+
+
+    <element name="SalesOrder" type="demo:SalesOrderType"></element>
+
+
+    <complexType name="ClientDetailType">
+    	<sequence>
+    		<element name="ClientId" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ClientName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ContactName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ContactPhone" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="ContactEmail" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AcknowledgeType">
+    	<sequence>
+    		<element name="ProcessInstance" type="string"></element>
+    		<element name="Timestamp" type="dateTime"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="UserDataType">
+    	<sequence>
+    		<element name="Name" type="string"></element>
+    		<element name="Email" type="string"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="NotificationType">
+    	<sequence>
+    		<element name="Role" type="string"></element>
+    		<element name="Subject" type="string"></element>
+    		<element name="TaskId" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="UserData" type="demo:UserDataType"></element>
+
+    <element name="Username" type="string"></element>
+
+    <complexType name="SalesOrderModType">
+    	<sequence>
+    		<element name="SalesOrder"
+    			type="demo:SalesOrderDetailType" maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="ReviewManager" type="string" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="SalesOrderMod" type="demo:SalesOrderModType"></element>
+
+    <complexType name="SalesOrderSplitType">
+    	<sequence>
+    		<element name="OrderRef" type="string"></element>
+    		<element name="OrderDate" type="date"></element>
+    		<element name="ClientId" type="int"></element>
+    		<element name="Items" type="demo:ProductOrderDetailType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="SalesOrderByFamilyType">
+    	<sequence>
+    		<element name="Office" type="demo:SalesOrderSplitType"></element>
+    		<element name="Furniture" type="demo:SalesOrderSplitType"></element>
+    		<element name="Electronics" type="demo:SalesOrderSplitType"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="SalesOrderByFamily"
+    	type="demo:SalesOrderByFamilyType">
+    </element>
+
+    <complexType name="OfficeRequestType">
+    	<sequence>
+    		<element name="OfficeOrder" type="demo:SalesOrderSplitType"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="FurnitureRequestType">
+    	<sequence>
+    		<element name="FurnitureOrder" type="demo:SalesOrderSplitType"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ElectronicsRequestType">
+    	<sequence>
+    		<element name="ElectronicsOrder" type="demo:SalesOrderSplitType"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="OfficeRequest" type="demo:OfficeRequestType"></element>
+
+    <element name="Acknowledge" type="demo:AcknowledgeType"></element>
+
+
+    <complexType name="OfficeOrderProvisioned">
+    	<sequence>
+    		<element name="OfficeOrder" type="string"></element>
+    	</sequence>
+    </complexType>
+    <complexType name="ElectronicsOrderProvisioned">
+    	<sequence>
+    		<element name="ElectronicsOrder" type="string"></element>
+    	</sequence>
+    </complexType>
+    <complexType name="FurnitureOrderProvisioned">
+    	<sequence>
+    		<element name="FurnitureOrder" type="string"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="SalesOrderProgressType">
+    	<sequence>
+    		<element name="SalesOrderRef" type="string"></element>
+    		<element name="ClientId" type="string"></element>
+    		<element name="ClientName" type="string"></element>
+    		<element name="Status" type="string"></element>
+    		<element name="LastUpdate" type="dateTime"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="SalesOrderProgress"
+    	type="demo:SalesOrderProgressType">
+    </element>
+</schema>

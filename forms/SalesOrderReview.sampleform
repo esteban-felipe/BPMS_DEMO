@@ -1,0 +1,6 @@
+deployed.url=/forms/SalesOrderReview/index.html
+wsdl.namespace=http://demo.intalio.com/custom_forms
+schema.namespace=http://demo.intalio.com/base_types
+input.name=SalesOrderReview
+output.name=SalesOrderReview
+schema.project.relative.path=./schemas/bpms_demo_base_types.xsd

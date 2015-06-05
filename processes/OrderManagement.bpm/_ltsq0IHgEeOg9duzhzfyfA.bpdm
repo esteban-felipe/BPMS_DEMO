@@ -1,0 +1,1157 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:metrics="http://test.com/xvar/example" xmlns:NofityRole-Notify1="http://thisproject/processes/system/NofityRole/Notify" xmlns:SalesOrderProgressNotification="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi/attachments" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://tempo.intalio.org/security/tokenService/" xmlns:this="http://thisdiagram/OrderManagement" xmlns:ax22="http://approvalmethod.rules.bpms_demo/bre" xmlns:ns="http://approvalmethod.rules.bpms_demo" xmlns:SalesOrderForm="http://www.intalio.com/gi/forms/SalesOrderForm.gi/attachments" xmlns:SalesOrderForm1="http://www.intalio.com/gi/forms/SalesOrderForm.gi" xmlns:off="http://demo.office.intalio.com/OfficeProvisioningService/" xmlns:bpms_demo_form_elements="http://demo.intalio.com/form_elements" xmlns:demo="http://demo.intalio.com/base_types" xmlns:SalesOrderProgressNotification1="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:ConvertToOrderDetail-Convert1="http://thisproject/processes/system/ConvertToOrderDetail/Convert" xmlns:ElectronicsProvisioning-Provisioning="http://thisproject/processes/ElectronicsProvisioning/Provisioning" xmlns:SalesOrderModificationForm="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi/attachments" xmlns:SalesOrderModificationForm1="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi" xmlns:TaskManagementServices="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/" xmlns:SalesOrderReview1="http://demo.intalio.com/custom_forms/attachments" xmlns:diag="http://thisdiagram" xmlns:ax21="http://approvalmethod.rules.bpms_demo/xsd" xmlns:Sales_representative="http://thisdiagram/Sales_representative" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SalesOrderReview2="http://demo.intalio.com/custom_forms" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/OrderManagement">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://test.com/xvar/example" bpdm:prefix="metrics" bpdm:comment="contrib=&apos;project:///metrics/metrics.xvar"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisproject/processes/system/NofityRole/Notify" bpdm:prefix="NofityRole-Notify1" bpdm:comment="contrib=&apos;project:///processes/system/NofityRole-Notify.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi/attachments" bpdm:prefix="SalesOrderProgressNotification" bpdm:comment="contrib=&apos;project:///forms/SalesOrderProgressNotification.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://tempo.intalio.org/security/tokenService/" bpdm:prefix="tns" bpdm:comment="contrib=&apos;project:///services/TokenService.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/OrderManagement" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://approvalmethod.rules.bpms_demo/bre" bpdm:prefix="ax22" bpdm:comment="contrib=&apos;project:///rules/ApprovalMethod.bre/dtws_bpms_demo_rules_approvalmethod/META-INF/dtws_bpms_demo_rules_approvalmethod.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://approvalmethod.rules.bpms_demo" bpdm:prefix="ns" bpdm:comment="contrib=&apos;project:///rules/ApprovalMethod.bre/dtws_bpms_demo_rules_approvalmethod/META-INF/dtws_bpms_demo_rules_approvalmethod.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderForm.gi/attachments" bpdm:prefix="SalesOrderForm" bpdm:comment="contrib=&apos;project:///forms/SalesOrderForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderForm.gi" bpdm:prefix="SalesOrderForm1" bpdm:comment="contrib=&apos;project:///forms/SalesOrderForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.office.intalio.com/OfficeProvisioningService/" bpdm:prefix="off" bpdm:comment="contrib=&apos;project:///services/OfficeProvisioningService.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/form_elements" bpdm:prefix="bpms_demo_form_elements" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_form_elements.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/base_types" bpdm:prefix="demo" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_base_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderProgressNotification.gi" bpdm:prefix="SalesOrderProgressNotification1" bpdm:comment="contrib=&apos;project:///forms/SalesOrderProgressNotification.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisproject/processes/system/ConvertToOrderDetail/Convert" bpdm:prefix="ConvertToOrderDetail-Convert1" bpdm:comment="contrib=&apos;project:///processes/system/ConvertToOrderDetail-Convert.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisproject/processes/ElectronicsProvisioning/Provisioning" bpdm:prefix="ElectronicsProvisioning-Provisioning" bpdm:comment="contrib=&apos;project:///processes/ElectronicsProvisioning-Provisioning.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi/attachments" bpdm:prefix="SalesOrderModificationForm" bpdm:comment="contrib=&apos;project:///forms/SalesOrderModificationForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/gi/forms/SalesOrderModificationForm.gi" bpdm:prefix="SalesOrderModificationForm1" bpdm:comment="contrib=&apos;project:///forms/SalesOrderModificationForm.gi.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/" bpdm:prefix="TaskManagementServices" bpdm:comment="contrib=&apos;project:///services/TaskManagementServices.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/custom_forms/attachments" bpdm:prefix="SalesOrderReview1" bpdm:comment="contrib=&apos;project:///forms/SalesOrderReview.sampleform.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://approvalmethod.rules.bpms_demo/xsd" bpdm:prefix="ax21" bpdm:comment="contrib=&apos;project:///rules/ApprovalMethod.bre/dtws_bpms_demo_rules_approvalmethod/META-INF/dtws_bpms_demo_rules_approvalmethod.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Sales_representative" bpdm:prefix="Sales_representative" bpdm:comment="contrib=&apos;partner-pool:///_ojGKoIHgEeOg9duzhzfyfA"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/custom_forms" bpdm:prefix="SalesOrderReview2" bpdm:comment="contrib=&apos;project:///forms/SalesOrderReview.sampleform.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <vprop:property name="orderRef" type="xs:string"/>
+            <wsdl:service name="WFmagic_y4F30OksEeStA5LG34ZtIwService">
+                <wsdl:port name="OrderManagement_for_OrderManagementimplicitPartnerForThePortTypeProcessPort" binding="this:WFmagic_y4F30OksEeStA5LG34ZtIwServiceBinding">
+                    <address location="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/OrderManagementimplicitPartner/WFmagic_y4F30OksEeStA5LG34ZtIw"/>
+                </wsdl:port>
+            </wsdl:service>
+            <bpel:binding name="WFmagic_y4F30OksEeStA5LG34ZtIwServiceBinding" type="SalesOrderReview2:Process" bpdm:isSynchronized="true"/>
+            <wsdl:portType name="ForOrderManagementimplicitPartner">
+                <wsdl:operation name="Recieve_electronics_provisioning_results" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner">
+                    <wsdl:input message="this:Recieve_electronics_provisioning_resultsRequest" name="Recieve_electronics_provisioning_results"/>
+                    <wsdl:output message="this:Recieve_electronics_provisioning_resultsResponse" name="Recieve_electronics_provisioning_resultsResponse"/>
+                </wsdl:operation>
+                <wsdl:operation name="Recieve_office_products_provisioning_results" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner">
+                    <wsdl:input message="this:Recieve_office_products_provisioning_resultsRequest" name="Recieve_office_products_provisioning_results"/>
+                    <wsdl:output message="this:Recieve_office_products_provisioning_resultsResponse" name="Recieve_office_products_provisioning_resultsResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <xs:element name="Recieve_office_products_provisioning_resultsRequest" type="demo:OfficeOrderProvisioned" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <wsdl:message name="Recieve_office_products_provisioning_resultsRequest" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner">
+                <wsdl:part name="body" element="this:Recieve_office_products_provisioning_resultsRequest"/>
+            </wsdl:message>
+            <xs:element name="Recieve_office_products_provisioning_resultsResponse" type="demo:AcknowledgeType" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <wsdl:message name="Recieve_office_products_provisioning_resultsResponse" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner">
+                <wsdl:part name="body" element="this:Recieve_office_products_provisioning_resultsResponse"/>
+            </wsdl:message>
+            <xs:element name="Recieve_electronics_provisioning_resultsRequest" type="demo:ElectronicsOrderProvisioned" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <wsdl:message name="Recieve_electronics_provisioning_resultsRequest" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner">
+                <wsdl:part name="body" element="this:Recieve_electronics_provisioning_resultsRequest"/>
+            </wsdl:message>
+            <xs:element name="Recieve_electronics_provisioning_resultsResponse" type="demo:AcknowledgeType" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <wsdl:message name="Recieve_electronics_provisioning_resultsResponse" bpdm:source="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner">
+                <wsdl:part name="body" element="this:Recieve_electronics_provisioning_resultsResponse"/>
+            </wsdl:message>
+            <bpel:binding name="CanonicBindingForOrderManagementimplicitPartner" type="this:ForOrderManagementimplicitPartner" bpdm:isSynchronized="true"/>
+            <wsdl:service name="WFmagic_dQiAMOLvEeSyUMDSxrz6XwService">
+                <wsdl:port name="OrderManagement_for_Sales_managerForThePortTypeProcessPort" binding="this:WFmagic_dQiAMOLvEeSyUMDSxrz6XwServiceBinding">
+                    <address location="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_manager/WFmagic_dQiAMOLvEeSyUMDSxrz6Xw"/>
+                </wsdl:port>
+            </wsdl:service>
+            <bpel:binding name="WFmagic_dQiAMOLvEeSyUMDSxrz6XwServiceBinding" type="SalesOrderReview2:Process" bpdm:isSynchronized="true"/>
+            <wsdl:service name="WFmagic_bj4BIYtiEeOugvlF6XJahgService">
+                <wsdl:port name="OrderManagement_for_Sales_representativeForThePortTypeProcessPort" binding="this:WFmagic_bj4BIYtiEeOugvlF6XJahgServiceBinding">
+                    <address location="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_representative/WFmagic_bj4BIYtiEeOugvlF6XJahg"/>
+                </wsdl:port>
+            </wsdl:service>
+            <bpel:binding name="WFmagic_bj4BIYtiEeOugvlF6XJahgServiceBinding" type="SalesOrderModificationForm1:Process" bpdm:isSynchronized="true"/>
+            <wsdl:service name="Sales_representativeAndOrderManagementForPortTypeProcessPlkService">
+                <wsdl:port name="OrderManagement_for_Sales_representativePort" binding="this:Sales_representativeAndOrderManagementForPortTypeProcessPlkServiceBinding">
+                    <address location="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_representative/Sales_representativeAndOrderManagementForPortTypeProcessPlk"/>
+                </wsdl:port>
+            </wsdl:service>
+            <bpel:binding name="Sales_representativeAndOrderManagementForPortTypeProcessPlkServiceBinding" type="SalesOrderForm1:Process" bpdm:isSynchronized="true"/>
+            <vprop:propertyAlias propertyName="this:orderRef" messageType="SalesOrderForm1:initProcessRequest" part="root">
+                <vprop:query>SalesOrderForm1:taskOutput/bpms_demo_form_elements:SalesOrder/demo:OrderRef/text()</vprop:query>
+            </vprop:propertyAlias>
+            <vprop:propertyAlias propertyName="this:orderRef" messageType="this:Recieve_office_products_provisioning_resultsRequest" part="body">
+                <vprop:query>demo:OfficeOrder/text()</vprop:query>
+            </vprop:propertyAlias>
+            <vprop:propertyAlias propertyName="this:orderRef" messageType="this:Recieve_electronics_provisioning_resultsRequest" part="body">
+                <vprop:query>demo:ElectronicsOrder/text()</vprop:query>
+            </vprop:propertyAlias>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_ltsq0IHgEeOg9duzhzfyfAimplicitPartner" bpdm:label="OrderManagementimplicitPartner"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_ojGKoIHgEeOg9duzhzfyfA" bpdm:label="Sales representative"/>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_6QF48InEEeOOrKP-9bsdmg" bpdm:label="Sales manager"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderForm.gi.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderReview.sampleform.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_base_types.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///rules/ApprovalMethod.bre/dtws_bpms_demo_rules_approvalmethod/META-INF/dtws_bpms_demo_rules_approvalmethod.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderProgressNotification.gi.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///processes/system/ConvertToOrderDetail-Convert.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/TaskManagementServices.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/TokenService.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/OfficeProvisioningService.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///processes/ElectronicsProvisioning-Provisioning.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///processes/system/NofityRole-Notify.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///forms/SalesOrderModificationForm.gi.wsdl"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_form_elements.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///metrics/metrics.xvar"/>
+        <bpdm:namespaceContributor bpdm:url="project:///metrics/metrics.xvar.xsd"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="OrderManagement" bpdm:ID="_ltsq0IHgEeOg9duzhzfyfA">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="sales_representativeAndOrderManagementForPortTypeProcessPlkVar" partnerLinkType="diag:Sales_representativeAndOrderManagementForPortTypeProcessPlk" myRole="OrderManagement_for_Sales_representative" bpdm:enableSharing="false" bpdm:providedService="this:Sales_representativeAndOrderManagementForPortTypeProcessPlkService" bpdm:providedPort="OrderManagement_for_Sales_representativePort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_representative/Sales_representativeAndOrderManagementForPortTypeProcessPlk" bpdm:providedIsDefault="true" bpdm:clientTasks="_ltsq0IHgEeOg9duzhzfyfA:_lt1NsIHgEeOg9duzhzfyfA" bpdm:isManaged="true" bpdm:otherPoolId="_ojGKoIHgEeOg9duzhzfyfA"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk2Var" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk2" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="NofityRole-Notify1:CanonicServiceForclient" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="epr" bpdm:invokedIsDefault="true" bpdm:clientTasks="_jo134InHEeOOrKP-9bsdmg:_jjXsEAVxEeWdZ5JPyJjDsQ" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForPortDtws_bpms_demo_rules_approvalmethodHttpSoap11EndpointPlkVar" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForPortDtws_bpms_demo_rules_approvalmethodHttpSoap11EndpointPlk" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="ns:dtws_bpms_demo_rules_approvalmethod" bpdm:invokedPort="dtws_bpms_demo_rules_approvalmethodHttpSoap11Endpoint" bpdm:invokedSOAPAddress="http://localhost:8080/intalio/ode/processes/dtws_bpms_demo_rules_approvalmethod" bpdm:invokedIsDefault="true" bpdm:clientTasks="_AnxUIItvEeOsMc8Cb1pSSQ:_5f5RNpQvEeOKY_BvkoJSPw" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="wFmagic_bj4BIYtiEeOugvlF6XJahgPlkVar" partnerLinkType="diag:WFmagic_bj4BIYtiEeOugvlF6XJahg" initializePartnerRole="no" myRole="OrderManagement_for_Sales_representativeForThePortTypeProcess" bpdm:enableSharing="false" bpdm:providedService="this:WFmagic_bj4BIYtiEeOugvlF6XJahgService" bpdm:providedPort="OrderManagement_for_Sales_representativeForThePortTypeProcessPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_representative/WFmagic_bj4BIYtiEeOugvlF6XJahg" bpdm:providedIsDefault="true" partnerRole="Sales_representative_for_OrderManagementForSalesOrderModificationFormPort" bpdm:invokedService="SalesOrderModificationForm1:WorkflowSoapService" bpdm:invokedPort="SalesOrderModificationFormPort" bpdm:invokedSOAPAddress="http://bpms.local:8080/fds/workflow/SalesOrderModificationForm" bpdm:invokedIsDefault="true" bpdm:clientTasks="_AnxUIItvEeOsMc8Cb1pSSQ:_M2tS0ItGEeOLJOAEXkwHWw, _AnxUIItvEeOsMc8Cb1pSSQ:_w-haQIthEeOugvlF6XJahg" bpdm:isManaged="true" bpdm:otherPoolId="_ojGKoIHgEeOg9duzhzfyfA"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlkVar" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlk" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="SalesOrderProgressNotification1:WorkflowSoapService" bpdm:invokedPort="SalesOrderProgressNotificationPort" bpdm:invokedSOAPAddress="http://bpms.local:8080/fds/workflow/SalesOrderProgressNotification" bpdm:invokedIsDefault="true" bpdm:clientTasks="_SnVk0JQyEeOKY_BvkoJSPw:_P6CRFpQyEeOKY_BvkoJSPw, _gPGRkJAtEeOb5MqYwHAi3A:_e8ZTlpAtEeOb5MqYwHAi3A, _SsjvEJAsEeOb5MqYwHAi3A:_QPgd0ZAsEeOb5MqYwHAi3A, _22RIMJAsEeOb5MqYwHAi3A:_1p0jNpAsEeOb5MqYwHAi3A, _B24U0JQxEeOKY_BvkoJSPw:_BF2ghpQxEeOKY_BvkoJSPw" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForPortOfficeProvisioningServiceSOAPPlkVar" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForPortOfficeProvisioningServiceSOAPPlk" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="off:OfficeProvisioningService" bpdm:invokedPort="OfficeProvisioningServiceSOAP" bpdm:invokedSOAPAddress="http://felipe.intalio.io/pipes/wss/office_provisioning" bpdm:invokedIsDefault="true" bpdm:clientTasks="_ltsq0IHgEeOg9duzhzfyfA:_bJmBYIw9EeOFFbIosSS-2A" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementVar" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagement" myRole="OrderManagement_for_OrderManagementimplicitPartner" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForOrderManagementimplicitPartner" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/OrderManagementimplicitPartner" bpdm:providedIsDefault="true" bpdm:clientTasks="_ltsq0IHgEeOg9duzhzfyfA:_TLu5QI0JEeOq0qC6DFI7Cw, _ltsq0IHgEeOg9duzhzfyfA:_-I2qUIwhEeO8XZduhURGdg" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk1Var" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk1" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="ConvertToOrderDetail-Convert1:CanonicServiceForclient" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="epr" bpdm:invokedIsDefault="true" bpdm:clientTasks="_ltsq0IHgEeOg9duzhzfyfA:_k9zYUZ_DEeOL5aaeRRkT8A" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="wFmagic_dQiAMOLvEeSyUMDSxrz6XwPlkVar" partnerLinkType="diag:WFmagic_dQiAMOLvEeSyUMDSxrz6Xw" initializePartnerRole="no" myRole="OrderManagement_for_Sales_managerForThePortTypeProcess" bpdm:enableSharing="false" bpdm:providedService="this:WFmagic_dQiAMOLvEeSyUMDSxrz6XwService" bpdm:providedPort="OrderManagement_for_Sales_managerForThePortTypeProcessPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/Sales_manager/WFmagic_dQiAMOLvEeSyUMDSxrz6Xw" bpdm:providedIsDefault="true" partnerRole="Sales_manager_for_OrderManagementForTnsPort" bpdm:invokedService="SalesOrderReview2:WorkflowSoapService" bpdm:invokedPort="tnsPort" bpdm:invokedSOAPAddress="http://bpms.local:8080/fds/workflow/tns" bpdm:invokedIsDefault="true" bpdm:clientTasks="_TDRz0InHEeOOrKP-9bsdmg:_f02TwInFEeOOrKP-9bsdmg, _TDRz0InHEeOOrKP-9bsdmg:_IZpNkInFEeOOrKP-9bsdmg" bpdm:isManaged="true" bpdm:otherPoolId="_6QF48InEEeOOrKP-9bsdmg"/>
+            <bpel:partnerLink name="wFmagic_y4F30OksEeStA5LG34ZtIwPlkVar" partnerLinkType="diag:WFmagic_y4F30OksEeStA5LG34ZtIw" initializePartnerRole="no" myRole="OrderManagement_for_OrderManagementimplicitPartnerForThePortTypeProcess" bpdm:enableSharing="false" bpdm:providedService="this:WFmagic_y4F30OksEeStA5LG34ZtIwService" bpdm:providedPort="OrderManagement_for_OrderManagementimplicitPartnerForThePortTypeProcessPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/OrderManagement/OrderManagementimplicitPartner/WFmagic_y4F30OksEeStA5LG34ZtIw" bpdm:providedIsDefault="true" partnerRole="OrderManagementimplicitPartner_for_OrderManagementForTnsPort" bpdm:invokedService="SalesOrderReview2:WorkflowSoapService" bpdm:invokedPort="tnsPort" bpdm:invokedSOAPAddress="http://bpms.local:8080/fds/workflow/tns" bpdm:invokedIsDefault="true" bpdm:clientTasks="_3jQqJorTEeOCjYSbtlPtMA:_y4JiMOksEeStA5LG34ZtIw, _3jQqJorTEeOCjYSbtlPtMA:_y4F30OksEeStA5LG34ZtIw" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForPortServicePlkVar" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForPortServicePlk" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="tns:TokenService" bpdm:invokedPort="Service" bpdm:invokedSOAPAddress="http://bpms.local:8080/intalio/ode/processes/TokenService.Service/" bpdm:invokedIsDefault="true" bpdm:clientTasks="_BWjogInJEeOOrKP-9bsdmg:_FFXq0QVsEeWRvv_PPi7eAQ" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForPortTaskManagementServicesSOAPPlkVar" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForPortTaskManagementServicesSOAPPlk" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="TaskManagementServices:TaskManagementServices" bpdm:invokedPort="TaskManagementServicesSOAP" bpdm:invokedSOAPAddress="http://bpms.local:8080/intalio/ode/processes/TaskManagementServices.TaskManagementServicesSOAP/" bpdm:invokedIsDefault="true" bpdm:clientTasks="_BWjogInJEeOOrKP-9bsdmg:_N3p_0AVsEeWRvv_PPi7eAQ" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+            <bpel:partnerLink name="orderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk0Var" partnerLinkType="diag:OrderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk0" initializePartnerRole="yes" partnerRole="OrderManagementimplicitPartner_for_OrderManagement" bpdm:invokedService="ElectronicsProvisioning-Provisioning:CanonicServiceForOrder_management" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="epr" bpdm:invokedIsDefault="true" bpdm:clientTasks="_ltsq0IHgEeOg9duzhzfyfA:_myrRNpQ8EeOChfACVLXveg" bpdm:isManaged="true" bpdm:otherPoolId="_ltsq0IHgEeOg9duzhzfyfAimplicitPartner"/>
+        </bpel:partnerLinks>
+        <bpel:correlationSets>
+            <bpel:correlationSet name="order-correlation" properties="this:orderRef"/>
+        </bpel:correlationSets>
+        <bpel:variables xmlns:xvar="http://ode.apache.org/externalVariables">
+            <bpel:variable name="rmRole" type="xs:string" bpdm:id="_090uYIrSEeOCjYSbtlPtMA">
+                <bpel:from>
+                    <bpel:literal bpdm:linkedType="xs:string"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="rmDescription" type="xs:string" bpdm:id="_vFbXoIrSEeOCjYSbtlPtMA">
+                <bpel:from>
+                    <bpel:literal bpdm:linkedType="xs:string"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="rmTaskId" type="xs:string" bpdm:id="_tZFxoIrSEeOCjYSbtlPtMA">
+                <bpel:from>
+                    <bpel:literal bpdm:linkedType="xs:string"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="SalesManagement" element="demo:SalesManagement" bpdm:id="_1t5Y1oQhEeOoEv0kI-gb_A">
+                <bpel:from>
+                    <bpel:literal bpdm:linkedElement="demo:SalesManagement"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="salesOrderFormInitProcessResponseMsg" messageType="SalesOrderForm1:initProcessResponse" bpdm:id="_IteyAIHiEeOg9duzhzfyfA" bpdm:messageIds=" out:_IsxAUIHiEeOg9duzhzfyfA">
+                <bpel:from bpdm:toPart="root">
+                    <bpel:literal bpdm:linkedMessageType="SalesOrderForm1:initProcessResponse" bpdm:linkedPart="root"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="salesOrderFormInitProcessRequestMsg" messageType="SalesOrderForm1:initProcessRequest" bpdm:id="_IWHa4IHiEeOg9duzhzfyfA" bpdm:messageIds="inc:_IUhfcIHiEeOg9duzhzfyfA"/>
+            <bpel:variable name="reviewFinished" type="xs:boolean" bpdm:id="_F5bbAItvEeOsMc8Cb1pSSQ">
+                <bpel:from>
+                    <bpel:literal bpdm:linkedType="xs:boolean"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="SalesOrderByFamily" element="demo:SalesOrderByFamily" bpdm:id="_PTg8UYweEeO8XZduhURGdg">
+                <bpel:from>
+                    <bpel:literal bpdm:linkedElement="demo:SalesOrderByFamily"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="office_producs_provisioningProvisionOrderResponseMsg" messageType="off:ProvisionOrderResponse" binding="off:OfficeProvisioningServiceSOAP" operation="ProvisionOrder" opMsgType="0"/>
+            <bpel:variable name="offProvisionOrderResponseMsg" messageType="off:ProvisionOrderResponse" binding="off:OfficeProvisioningServiceSOAP" operation="ProvisionOrder" opMsgType="1" bpdm:messageIds="inc:_bJmBYIw9EeOFFbIosSS-2AIncoming"/>
+            <bpel:variable name="offProvisionOrderRequestMsg" messageType="off:ProvisionOrderRequest" binding="off:OfficeProvisioningServiceSOAP" operation="ProvisionOrder" opMsgType="0" bpdm:messageIds=" out:_bJmBYIw9EeOFFbIosSS-2AOutgoing">
+                <bpel:from bpdm:toPart="parameters">
+                    <bpel:literal bpdm:linkedMessageType="off:ProvisionOrderRequest" bpdm:linkedPart="parameters" bpdm:binding="off:OfficeProvisioningServiceSOAP" bpdm:opMsgType="0" bpdm:operation="ProvisionOrder"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="thisRecieve_office_products_provisioning_resultsRequestMsg" messageType="this:Recieve_office_products_provisioning_resultsRequest" bpdm:messageIds="inc:_-I2qUIwhEeO8XZduhURGdgIncoming"/>
+            <bpel:variable name="thisRecieve_office_products_provisioning_resultsResponseMsg" messageType="this:Recieve_office_products_provisioning_resultsResponse" bpdm:messageIds=" out:_-I2qUIwhEeO8XZduhURGdgOutgoing">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Recieve_office_products_provisioning_resultsResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="thisRecieve_electronics_provisioning_resultsRequestMsg" messageType="this:Recieve_electronics_provisioning_resultsRequest" bpdm:messageIds="inc:_TLu5QI0JEeOq0qC6DFI7CwIncoming"/>
+            <bpel:variable name="thisRecieve_electronics_provisioning_resultsResponseMsg" messageType="this:Recieve_electronics_provisioning_resultsResponse" bpdm:messageIds=" out:_TLu5QI0JEeOq0qC6DFI7CwOutgoing">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Recieve_electronics_provisioning_resultsResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="SalesOrder" element="metrics:SalesOrder" xvar:id="SalesOrder-_8EzB1o0nEeOm_cpIPo0Ddg" xvar:relates-to="SalesOrder-keys" bpdm:xvarType="metrics:SalesOrder" bpdm:id="_8EzB1o0nEeOm_cpIPo0Ddg"/>
+            <bpel:variable name="SalesItem" element="metrics:SalesItem" xvar:id="SalesItem-_9CCGJo0nEeOm_cpIPo0Ddg" xvar:relates-to="SalesItem-keys" bpdm:xvarType="metrics:SalesItem" bpdm:id="_9CCGJo0nEeOm_cpIPo0Ddg"/>
+            <bpel:variable name="electronicsProvisioning-ProvisioningRecieve_provisioning_requestResponseMsg" messageType="ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestResponse" binding="ElectronicsProvisioning-Provisioning:Order_managementAndProvisioningForCanonicPortPlkServiceBinding" operation="Recieve_provisioning_request" opMsgType="1" bpdm:messageIds="inc:_myrRNpQ8EeOChfACVLXvegIncoming"/>
+            <bpel:variable name="electronicsProvisioning-ProvisioningRecieve_provisioning_requestMsg" messageType="ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestRequest" binding="ElectronicsProvisioning-Provisioning:Order_managementAndProvisioningForCanonicPortPlkServiceBinding" operation="Recieve_provisioning_request" opMsgType="0" bpdm:messageIds=" out:_myrRNpQ8EeOChfACVLXvegOutgoing">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestRequest" bpdm:linkedPart="body" bpdm:binding="ElectronicsProvisioning-Provisioning:Order_managementAndProvisioningForCanonicPortPlkServiceBinding" bpdm:opMsgType="0" bpdm:operation="Recieve_provisioning_request"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg" messageType="ConvertToOrderDetail-Convert1:Recieve_conversion_requestResponse" binding="ConvertToOrderDetail-Convert1:clientAndConvertServiceBinding" operation="Recieve_conversion_request" opMsgType="1" bpdm:messageIds="inc:_k9zYUZ_DEeOL5aaeRRkT8AIncoming"/>
+            <bpel:variable name="convertToOrderDetail-Convert1Recieve_conversion_requestMsg" messageType="ConvertToOrderDetail-Convert1:Recieve_conversion_requestRequest" binding="ConvertToOrderDetail-Convert1:clientAndConvertServiceBinding" operation="Recieve_conversion_request" opMsgType="0" bpdm:messageIds=" out:_k9zYUZ_DEeOL5aaeRRkT8AOutgoing">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="ConvertToOrderDetail-Convert1:Recieve_conversion_requestRequest" bpdm:linkedPart="body" bpdm:binding="ConvertToOrderDetail-Convert1:clientAndConvertServiceBinding" bpdm:opMsgType="0" bpdm:operation="Recieve_conversion_request"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+        </bpel:variables>
+        <bpel:links>
+            <bpel:link name="_5UjN0IwhEeO8XZduhURGdg_to__jONeYI0JEeOq0qC6DFI7Cw"/>
+            <bpel:link name="_Nehe0I0JEeOq0qC6DFI7Cw_to__jONeYI0JEeOq0qC6DFI7Cw"/>
+        </bpel:links>
+        <bpel:sequence>
+            <bpdm:messagingtask eventType="start: message" operation="initProcess" partnerLink="sales_representativeAndOrderManagementForPortTypeProcessPlkVar" portType="SalesOrderForm1:Process" isMyRole="true" enableSharing="false" bpdm:label="Recieve sales order" bpdm:ID="_lt1NsIHgEeOg9duzhzfyfA">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="salesOrderFormInitProcessRequestMsg" bpdm:msgVarScopeId="_ltsq0IHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderForm1:initProcessRequest" bpdm:ID="_IUhfcIHiEeOg9duzhzfyfA">
+                    <bpel:correlation set="order-correlation" initiate="join" pattern="response" bpdm:isSource="false"></bpel:correlation>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="salesOrderFormInitProcessResponseMsg" bpdm:msgVarScopeId="_ltsq0IHgEeOg9duzhzfyfA" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderForm1:initProcessResponse" bpdm:ID="_IsxAUIHiEeOg9duzhzfyfA"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask operation="Recieve_conversion_request" partnerLink="orderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk1Var" portType="ConvertToOrderDetail-Convert1:Forclient" isMyRole="false" enableSharing="false" bpdm:label="Convert sales order to details" bpdm:ID="_k9zYUZ_DEeOL5aaeRRkT8A">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$salesOrderFormInitProcessRequestMsg.root/SalesOrderForm1:taskOutput/bpms_demo_form_elements:SalesOrder</bpel:from>
+                        <bpel:to>$convertToOrderDetail-Convert1Recieve_conversion_requestMsg.body</bpel:to><mapper:mapperLink><mapper:vertice id="33063080" targetPath="$convertToOrderDetail-Convert1Recieve_conversion_requestMsg.body" targetedBy="18913338-arg0"></mapper:vertice><mapper:vertice id="18913338" sourcePath="$salesOrderFormInitProcessRequestMsg.root/SalesOrderForm1:taskOutput/bpms_demo_form_elements:SalesOrder"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="convertToOrderDetail-Convert1Recieve_conversion_requestMsg" bpdm:variableIsManaged="true" bpdm:messageType="ConvertToOrderDetail-Convert1:Recieve_conversion_requestRequest" bpdm:binding="ConvertToOrderDetail-Convert1:clientAndConvertServiceBinding" bpdm:ID="_k9zYUZ_DEeOL5aaeRRkT8AOutgoing"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="ConvertToOrderDetail-Convert1:Recieve_conversion_requestResponse" bpdm:binding="ConvertToOrderDetail-Convert1:clientAndConvertServiceBinding" bpdm:ID="_k9zYUZ_DEeOL5aaeRRkT8AIncoming"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_gPRRAIUGEeO9zuZHhh9O7w">
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$salesOrderFormInitProcessRequestMsg.root/SalesOrderForm1:user</bpel:from>
+                        <bpel:to>$SalesManagement/demo:SalesRep</bpel:to><mapper:mapperLink><mapper:vertice id="1902637378" targetPath="$SalesManagement/demo:SalesRep" targetedBy="1282172316-arg0"></mapper:vertice><mapper:vertice id="1282172316" sourcePath="$salesOrderFormInitProcessRequestMsg.root/SalesOrderForm1:user"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>"RECIEVED"</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:Status</bpel:to><mapper:mapperLink><mapper:vertice id="1146420666" targetPath="$SalesOrder/metrics:Status" targetedBy="568964564-arg0"></mapper:vertice><mapper:vertice id="568964564" dimension="175x25" location="419,545"><mapper:value>"RECIEVED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>current-dateTime()</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:RecievedDate</bpel:to><mapper:mapperLink><mapper:vertice id="936398913" targetPath="$SalesOrder/metrics:RecievedDate" targetedBy="56389547-arg0"></mapper:vertice><mapper:vertice id="56389547" dimension="175x25" location="441,601"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body</bpel:from>
+                        <bpel:to>$SalesManagement/demo:SalesOrder</bpel:to><mapper:mapperLink><mapper:vertice id="8755359" targetPath="$SalesManagement/demo:SalesOrder" targetedBy="19844683-arg0"></mapper:vertice><mapper:vertice id="19844683" sourcePath="$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:OrderRef</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="15318511" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="18778853-arg0"></mapper:vertice><mapper:vertice id="18778853" sourcePath="$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:OrderDate</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:SalesDate</bpel:to><mapper:mapperLink><mapper:vertice id="29014359" targetPath="$SalesOrder/metrics:SalesDate" targetedBy="13687874-arg0"></mapper:vertice><mapper:vertice id="13687874" sourcePath="$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:OrderDate"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:Client/demo:ClientId</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:ClientId</bpel:to><mapper:mapperLink><mapper:vertice id="26302220" targetPath="$SalesOrder/metrics:ClientId" targetedBy="9266060-arg0"></mapper:vertice><mapper:vertice id="9266060" sourcePath="$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:Client/demo:ClientName</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:ClientName</bpel:to><mapper:mapperLink><mapper:vertice id="14789894" targetPath="$SalesOrder/metrics:ClientName" targetedBy="24359430-arg0"></mapper:vertice><mapper:vertice id="24359430" sourcePath="$convertToOrderDetail-Convert1Recieve_conversion_requestResponseMsg.body/demo:Client/demo:ClientName"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>$salesOrderFormInitProcessRequestMsg.root/SalesOrderForm1:user</bpel:from>
+                        <bpel:to>$SalesOrder/metrics:SalesRep</bpel:to><mapper:mapperLink><mapper:vertice id="31078412" targetPath="$SalesOrder/metrics:SalesRep" targetedBy="22088127-arg0"></mapper:vertice><mapper:vertice id="22088127" sourcePath="$salesOrderFormInitProcessRequestMsg.root/SalesOrderForm1:user"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpel:scope bpdm:label="Review order subprocess" bpdm:ID="_AnxUIItvEeOsMc8Cb1pSSQ">
+                <bpdm:linkset bpdm:type="loop" bpdm:loopType="repeatUntil">
+                    <bpel:condition bpdm:loopType="repeatUntil">true() = $reviewFinished<mapper:mapperLink><mapper:vertice id="260969369" targetPath="$repeat until" targetedBy="67661390-arg2"></mapper:vertice><mapper:vertice id="67661390" dimension="175x25" location="443,52"><mapper:value>=</mapper:value></mapper:vertice><mapper:vertice id="1587656429" dimension="175x25" location="225,20" targetedBy="67661390-arg0"><mapper:value>true()</mapper:value></mapper:vertice><mapper:vertice id="1401571856" sourcePath="$reviewFinished" targetedBy="67661390-arg1"></mapper:vertice></mapper:mapperLink></bpel:condition>
+                </bpdm:linkset>
+                <bpel:variables>
+                    <bpel:variable name="salesOrderModificationForm1NotifyTaskCompletionResponseMsg" messageType="SalesOrderModificationForm1:notifyTaskCompletionResponse" bpdm:id="_c6XS8ItiEeOugvlF6XJahg" bpdm:messageIds=" out:_c5phQItiEeOugvlF6XJahg">
+                        <bpel:from bpdm:toPart="root">
+                            <bpel:literal bpdm:linkedMessageType="SalesOrderModificationForm1:notifyTaskCompletionResponse" bpdm:linkedPart="root"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                    <bpel:variable name="salesOrderModificationForm1CreateTaskRequestMsg" messageType="SalesOrderModificationForm1:createTaskRequest" binding="SalesOrderModificationForm1:WorkflowSoapBinding" operation="createTask" opMsgType="0" bpdm:id="_b9JcwItiEeOugvlF6XJahg" bpdm:messageIds=" out:_b8hxsItiEeOugvlF6XJahg">
+                        <bpel:from bpdm:toPart="root">
+                            <bpel:literal bpdm:linkedMessageType="SalesOrderModificationForm1:createTaskRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderModificationForm1:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="createTask"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                    <bpel:variable name="salesOrderModificationForm1NotifyTaskCompletionRequestMsg" messageType="SalesOrderModificationForm1:notifyTaskCompletionRequest" bpdm:id="_cpK1QItiEeOugvlF6XJahg" bpdm:messageIds="inc:_coe4wItiEeOugvlF6XJahg"/>
+                    <bpel:variable name="salesOrderModificationForm1CreateTaskResponseMsg" messageType="SalesOrderModificationForm1:createTaskResponse" binding="SalesOrderModificationForm1:WorkflowSoapBinding" operation="createTask" opMsgType="1" bpdm:id="_cTansItiEeOugvlF6XJahg" bpdm:messageIds="inc:_cSYs8ItiEeOugvlF6XJahg"/>
+                    <bpel:variable name="nsInvokeDecisionTableResponseMsg" messageType="ns:invokeDecisionTableResponse" binding="ns:dtws_bpms_demo_rules_approvalmethodSoap11Binding" operation="invokeDecisionTable" opMsgType="1" bpdm:messageIds="inc:_5f5RNpQvEeOKY_BvkoJSPwIncoming"/>
+                    <bpel:variable name="nsInvokeDecisionTableRequestMsg" messageType="ns:invokeDecisionTableRequest" binding="ns:dtws_bpms_demo_rules_approvalmethodSoap11Binding" operation="invokeDecisionTable" opMsgType="0" bpdm:messageIds=" out:_5f5RNpQvEeOKY_BvkoJSPwOutgoing">
+                        <bpel:from bpdm:toPart="parameters">
+                            <bpel:literal bpdm:linkedMessageType="ns:invokeDecisionTableRequest" bpdm:linkedPart="parameters" bpdm:binding="ns:dtws_bpms_demo_rules_approvalmethodSoap11Binding" bpdm:opMsgType="0" bpdm:operation="invokeDecisionTable"></bpel:literal>
+                        </bpel:from>
+                    </bpel:variable>
+                </bpel:variables>
+                <bpel:sequence>
+                    <bpdm:messagingtask operation="invokeDecisionTable" partnerLink="orderManagementimplicitPartnerAndOrderManagementForPortDtws_bpms_demo_rules_approvalmethodHttpSoap11EndpointPlkVar" portType="ns:dtws_bpms_demo_rules_approvalmethodPortType" isMyRole="false" enableSharing="false" bpdm:label="Evaluate business rule" bpdm:ID="_5f5RNpQvEeOKY_BvkoJSPw">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId</bpel:from>
+                                <bpel:to>$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:customerid</bpel:to><mapper:mapperLink><mapper:vertice id="8802744" targetPath="$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:customerid" targetedBy="26278390-arg0"></mapper:vertice><mapper:vertice id="26278390" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:GlobalDiscount</bpel:from>
+                                <bpel:to>$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:globaldiscount</bpel:to><mapper:mapperLink><mapper:vertice id="23603887" targetPath="$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:globaldiscount" targetedBy="3290524-arg0"></mapper:vertice><mapper:vertice id="3290524" sourcePath="$SalesManagement/demo:SalesOrder/demo:GlobalDiscount"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>count($SalesManagement/demo:SalesOrder/demo:Items)</bpel:from>
+                                <bpel:to>$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:itemcount</bpel:to><mapper:mapperLink><mapper:vertice id="26828109" targetPath="$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:itemcount" targetedBy="26638941-arg1"></mapper:vertice><mapper:vertice id="26638941" dimension="175x25" location="372,192"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="27265035" sourcePath="$SalesManagement/demo:SalesOrder/demo:Items" targetedBy="26638941-arg0"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:TotalPrice</bpel:from>
+                                <bpel:to>$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:totalvalue</bpel:to><mapper:mapperLink><mapper:vertice id="24065141" targetPath="$nsInvokeDecisionTableRequestMsg.parameters/ns:param0/ax21:input/ax22:totalvalue" targetedBy="17636584-arg0"></mapper:vertice><mapper:vertice id="17636584" sourcePath="$SalesManagement/demo:SalesOrder/demo:TotalPrice"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="nsInvokeDecisionTableRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="ns:invokeDecisionTableRequest" bpdm:binding="ns:dtws_bpms_demo_rules_approvalmethodSoap11Binding" bpdm:ID="_5f5RNpQvEeOKY_BvkoJSPwOutgoing"></bpdm:linkset>
+                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="nsInvokeDecisionTableResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="ns:invokeDecisionTableResponse" bpdm:binding="ns:dtws_bpms_demo_rules_approvalmethodSoap11Binding" bpdm:ID="_5f5RNpQvEeOKY_BvkoJSPwIncoming"></bpdm:linkset>
+                        <bpdm:thrownFault msgFaultNcName="Exception" msgFaultTypeQname="ns:Exception"/>
+                    </bpdm:messagingtask>
+                    <bpdm:gateway bpdm:label="Automatic approved" bpdm:ID="_S7VMII0REeOm_cpIPo0Ddg" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                        <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_TT6rQI0REeOm_cpIPo0Ddg" bpdm:targetDisplayName="default"></bpdm:linkset>
+                        <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_UxWSl40REeOm_cpIPo0Ddg" bpdm:targetDisplayName="Yes">
+                            <bpel:condition>"approve" = $nsInvokeDecisionTableResponseMsg.parameters/ns:return/ax21:output/ax22:reviewtype<mapper:mapperLink><mapper:vertice id="1258212836" targetPath="$condition" targetedBy="1858385023-arg2"></mapper:vertice><mapper:vertice id="1858385023" dimension="175x25" location="299,62"><mapper:value>=</mapper:value></mapper:vertice><mapper:vertice id="2058025476" dimension="175x25" location="91,25" targetedBy="1858385023-arg0"><mapper:value>"approve"</mapper:value></mapper:vertice><mapper:vertice id="370049546" sourcePath="$nsInvokeDecisionTableResponseMsg.parameters/ns:return/ax21:output/ax22:reviewtype" targetedBy="1858385023-arg1"></mapper:vertice></mapper:mapperLink></bpel:condition>
+                        </bpdm:linkset>
+                        <bpel:sequence>
+                            <bpel:scope bpdm:label="Manager review" bpdm:ID="_TDRz0InHEeOOrKP-9bsdmg">
+                                <bpel:variables>
+                                    <bpel:variable name="salesOrderReview2CreateTaskRequestMsg" messageType="SalesOrderReview2:createTaskRequest" binding="SalesOrderReview2:WorkflowSoapBinding" operation="createTask" opMsgType="0" bpdm:id="_xC_eEOLvEeSyUMDSxrz6Xw" bpdm:messageIds=" out:_xCjZMOLvEeSyUMDSxrz6Xw">
+                                        <bpel:from bpdm:toPart="root">
+                                            <bpel:literal bpdm:linkedMessageType="SalesOrderReview2:createTaskRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderReview2:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="createTask"></bpel:literal>
+                                        </bpel:from>
+                                    </bpel:variable>
+                                    <bpel:variable name="salesOrderReview2CreateTaskResponseMsg" messageType="SalesOrderReview2:createTaskResponse" binding="SalesOrderReview2:WorkflowSoapBinding" operation="createTask" opMsgType="1" bpdm:id="_xZtU8OLvEeSyUMDSxrz6Xw" bpdm:messageIds="inc:_xYwSsOLvEeSyUMDSxrz6Xw"/>
+                                    <bpel:variable name="salesOrderReview2NotifyTaskCompletionRequestMsg" messageType="SalesOrderReview2:notifyTaskCompletionRequest" bpdm:id="_VOBFgOk1EeSqaPLQlngM5g" bpdm:messageIds="inc:_VM0LoOk1EeSqaPLQlngM5g"/>
+                                    <bpel:variable name="salesOrderReview2NotifyTaskCompletionResponseMsg" messageType="SalesOrderReview2:notifyTaskCompletionResponse" bpdm:id="_WTsUIOk1EeSqaPLQlngM5g" bpdm:messageIds=" out:_WSsOkOk1EeSqaPLQlngM5g">
+                                        <bpel:from bpdm:toPart="root">
+                                            <bpel:literal bpdm:linkedMessageType="SalesOrderReview2:notifyTaskCompletionResponse" bpdm:linkedPart="root"></bpel:literal>
+                                        </bpel:from>
+                                    </bpel:variable>
+                                </bpel:variables>
+                                <bpel:eventHandlers>
+                                    <bpel:onAlarm>
+                                        <bpel:repeatEvery>ode:get-property-value("notification_timeout")<mapper:mapperLink><mapper:vertice id="1022570743" targetPath="$repeatEvery" targetedBy="1484143636-arg1"></mapper:vertice><mapper:vertice id="1484143636" dimension="139x24" location="392,123"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="1299855190" dimension="126x24" location="196,126" targetedBy="1484143636-arg0"><mapper:value>"notification_timeout"</mapper:value></mapper:vertice></mapper:mapperLink></bpel:repeatEvery>
+                                        <bpdm:eventHandler bpdm:label="Non-Int_Timer_Intermediate_Event" bpdm:ID="_e7FvUInHEeOOrKP-9bsdmg" bpdm:type="timer">
+                                            <bpdm:linkset bpdm:type="timer">
+                                                <bpel:repeatEvery>ode:get-property-value("notification_timeout")<mapper:mapperLink><mapper:vertice id="1022570743" targetPath="$repeatEvery" targetedBy="1484143636-arg1"></mapper:vertice><mapper:vertice id="1484143636" dimension="139x24" location="392,123"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="1299855190" dimension="126x24" location="196,126" targetedBy="1484143636-arg0"><mapper:value>"notification_timeout"</mapper:value></mapper:vertice></mapper:mapperLink></bpel:repeatEvery>
+                                            </bpdm:linkset>
+                                        </bpdm:eventHandler>
+                                        <bpel:scope bpdm:label="Delay handler" bpdm:ID="_jo134InHEeOOrKP-9bsdmg">
+                                            <bpel:variables>
+                                                <bpel:variable name="nofityRole-Notify1Recieve_requestResponseMsg" messageType="NofityRole-Notify1:Recieve_requestResponse" binding="NofityRole-Notify1:clientAndNotifyServiceBinding" operation="Recieve_request" opMsgType="1" bpdm:messageIds="inc:_jjXsEAVxEeWdZ5JPyJjDsQIncoming"/>
+                                                <bpel:variable name="nofityRole-Notify1Recieve_requestMsg" messageType="NofityRole-Notify1:Recieve_requestRequest" binding="NofityRole-Notify1:clientAndNotifyServiceBinding" operation="Recieve_request" opMsgType="0" bpdm:messageIds=" out:_jjXsEAVxEeWdZ5JPyJjDsQOutgoing">
+                                                    <bpel:from bpdm:toPart="body">
+                                                        <bpel:literal bpdm:linkedMessageType="NofityRole-Notify1:Recieve_requestRequest" bpdm:linkedPart="body" bpdm:binding="NofityRole-Notify1:clientAndNotifyServiceBinding" bpdm:opMsgType="0" bpdm:operation="Recieve_request"></bpel:literal>
+                                                    </bpel:from>
+                                                </bpel:variable>
+                                            </bpel:variables>
+                                            <bpel:sequence>
+                                                <bpdm:messagingtask operation="Recieve_request" partnerLink="orderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk2Var" portType="NofityRole-Notify1:Forclient" isMyRole="false" enableSharing="false" bpdm:label="Notify by email" bpdm:ID="_jjXsEAVxEeWdZ5JPyJjDsQ">
+                                                    <bpdm:linkset bpdm:type="assignments">
+                                                        <bpel:copy>
+                                                            <bpel:from>$rmRole</bpel:from>
+                                                            <bpel:to>$nofityRole-Notify1Recieve_requestMsg.body/demo:Role</bpel:to><mapper:mapperLink><mapper:vertice id="1527586112" targetPath="$nofityRole-Notify1Recieve_requestMsg.body/demo:Role" targetedBy="1694331398-arg0"></mapper:vertice><mapper:vertice id="1694331398" sourcePath="$rmRole"></mapper:vertice></mapper:mapperLink>
+                                                        </bpel:copy>
+                                                        <bpel:copy>
+                                                            <bpel:from>$rmTaskId</bpel:from>
+                                                            <bpel:to>$nofityRole-Notify1Recieve_requestMsg.body/demo:TaskId</bpel:to><mapper:mapperLink><mapper:vertice id="217774813" targetPath="$nofityRole-Notify1Recieve_requestMsg.body/demo:TaskId" targetedBy="1621484979-arg0"></mapper:vertice><mapper:vertice id="1621484979" sourcePath="$rmTaskId"></mapper:vertice></mapper:mapperLink>
+                                                        </bpel:copy>
+                                                        <bpel:copy>
+                                                            <bpel:from>"Sales order review delayed"</bpel:from>
+                                                            <bpel:to>$nofityRole-Notify1Recieve_requestMsg.body/demo:Subject</bpel:to><mapper:mapperLink><mapper:vertice id="1556325373" targetPath="$nofityRole-Notify1Recieve_requestMsg.body/demo:Subject" targetedBy="347384130-arg0"></mapper:vertice><mapper:vertice id="347384130" dimension="156x24" location="335,78"><mapper:value>"Sales order review delayed"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                        </bpel:copy>
+                                                    </bpdm:linkset>
+                                                    <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="nofityRole-Notify1Recieve_requestMsg" bpdm:variableIsManaged="true" bpdm:messageType="NofityRole-Notify1:Recieve_requestRequest" bpdm:binding="NofityRole-Notify1:clientAndNotifyServiceBinding" bpdm:ID="_jjXsEAVxEeWdZ5JPyJjDsQOutgoing"></bpdm:linkset>
+                                                    <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="nofityRole-Notify1Recieve_requestResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="NofityRole-Notify1:Recieve_requestResponse" bpdm:binding="NofityRole-Notify1:clientAndNotifyServiceBinding" bpdm:ID="_jjXsEAVxEeWdZ5JPyJjDsQIncoming"></bpdm:linkset>
+                                                </bpdm:messagingtask>
+                                            </bpel:sequence>
+                                        </bpel:scope>
+                                    </bpel:onAlarm>
+                                    <bpel:onAlarm bpdm:interrupt="true">
+                                        <bpel:for>ode:get-property-value("broken_sla_timeout")<mapper:mapperLink><mapper:vertice id="1710509186" targetPath="$duration" targetedBy="200423418-arg1"></mapper:vertice><mapper:vertice id="200423418" dimension="139x24" location="484,109"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="955109427" dimension="121x24" location="264,108" targetedBy="200423418-arg0"><mapper:value>"broken_sla_timeout"</mapper:value></mapper:vertice></mapper:mapperLink></bpel:for>
+                                        <bpdm:eventHandler bpdm:label="Timer_Intermediate_Event" bpdm:ID="_nP1-UInIEeOOrKP-9bsdmg" bpdm:type="timer">
+                                            <bpdm:linkset bpdm:type="timer">
+                                                <bpel:for>ode:get-property-value("broken_sla_timeout")<mapper:mapperLink><mapper:vertice id="1710509186" targetPath="$duration" targetedBy="200423418-arg1"></mapper:vertice><mapper:vertice id="200423418" dimension="139x24" location="484,109"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="955109427" dimension="121x24" location="264,108" targetedBy="200423418-arg0"><mapper:value>"broken_sla_timeout"</mapper:value></mapper:vertice></mapper:mapperLink></bpel:for>
+                                            </bpdm:linkset>
+                                        </bpdm:eventHandler>
+                                        <bpel:scope bpdm:label="Broken SLA handler" bpdm:ID="_BWjogInJEeOOrKP-9bsdmg">
+                                            <bpel:variables>
+                                                <bpel:variable name="salesOrderReview2CreateTaskResponseMsg" messageType="SalesOrderReview2:createTaskResponse" binding="SalesOrderReview2:WorkflowSoapBinding" operation="createTask" opMsgType="1" bpdm:messageIds="inc:_y4F30OksEeStA5LG34ZtIwIncoming"/>
+                                                <bpel:variable name="salesOrderReview2CreateTaskRequestMsg" messageType="SalesOrderReview2:createTaskRequest" binding="SalesOrderReview2:WorkflowSoapBinding" operation="createTask" opMsgType="0" bpdm:messageIds=" out:_y4F30OksEeStA5LG34ZtIwOutgoing">
+                                                    <bpel:from bpdm:toPart="root">
+                                                        <bpel:literal bpdm:linkedMessageType="SalesOrderReview2:createTaskRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderReview2:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="createTask"></bpel:literal>
+                                                    </bpel:from>
+                                                </bpel:variable>
+                                                <bpel:variable name="salesOrderReview2NotifyTaskCompletionRequestMsg" messageType="SalesOrderReview2:notifyTaskCompletionRequest" bpdm:messageIds="inc:_y4JiMOksEeStA5LG34ZtIwIncoming"/>
+                                                <bpel:variable name="salesOrderReview2NotifyTaskCompletionResponseMsg" messageType="SalesOrderReview2:notifyTaskCompletionResponse" bpdm:messageIds=" out:_y4JiMOksEeStA5LG34ZtIwOutgoing">
+                                                    <bpel:from bpdm:toPart="root">
+                                                        <bpel:literal bpdm:linkedMessageType="SalesOrderReview2:notifyTaskCompletionResponse" bpdm:linkedPart="root"></bpel:literal>
+                                                    </bpel:from>
+                                                </bpel:variable>
+                                                <bpel:variable name="tnsAuthenticateUserResponseMsg" messageType="tns:authenticateUserResponse" binding="tns:TokenServiceSOAP" operation="authenticateUser" opMsgType="1" bpdm:messageIds="inc:_FFXq0QVsEeWRvv_PPi7eAQIncoming"/>
+                                                <bpel:variable name="tnsAuthenticateUserRequestMsg" messageType="tns:authenticateUser" binding="tns:TokenServiceSOAP" operation="authenticateUser" opMsgType="0" bpdm:messageIds=" out:_FFXq0QVsEeWRvv_PPi7eAQOutgoing">
+                                                    <bpel:from bpdm:toPart="payload">
+                                                        <bpel:literal bpdm:linkedMessageType="tns:authenticateUser" bpdm:linkedPart="payload" bpdm:binding="tns:TokenServiceSOAP" bpdm:opMsgType="0" bpdm:operation="authenticateUser"></bpel:literal>
+                                                    </bpel:from>
+                                                </bpel:variable>
+                                                <bpel:variable name="taskManagementServicesDeleteResponseMsg" messageType="TaskManagementServices:okResponse" binding="TaskManagementServices:TaskManagementServicesSOAP" operation="delete" opMsgType="1" bpdm:messageIds="inc:_N3p_0AVsEeWRvv_PPi7eAQIncoming"/>
+                                                <bpel:variable name="taskManagementServicesDeleteRequestMsg" messageType="TaskManagementServices:deleteRequest" binding="TaskManagementServices:TaskManagementServicesSOAP" operation="delete" opMsgType="0" bpdm:messageIds=" out:_N3p_0AVsEeWRvv_PPi7eAQOutgoing">
+                                                    <bpel:from bpdm:toPart="deleteRequest">
+                                                        <bpel:literal bpdm:linkedMessageType="TaskManagementServices:deleteRequest" bpdm:linkedPart="deleteRequest" bpdm:binding="TaskManagementServices:TaskManagementServicesSOAP" bpdm:opMsgType="0" bpdm:operation="delete"></bpel:literal>
+                                                    </bpel:from>
+                                                </bpel:variable>
+                                            </bpel:variables>
+                                            <bpel:sequence>
+                                                <bpdm:gateway bpdm:label="Parallel_Gateway" bpdm:ID="_HnS1AAVsEeWRvv_PPi7eAQ" bpdm:gatewayType="parallel_and" bpdm:isMerge="false">
+                                                    <bpel:sequence>
+                                                        <bpel:scope bpdm:label="High priority review task for managers" bpdm:ID="_3jQqJorTEeOCjYSbtlPtMA">
+                                                            <bpel:sequence>
+                                                                <bpdm:messagingtask operation="createTask" partnerLink="wFmagic_y4F30OksEeStA5LG34ZtIwPlkVar" portType="SalesOrderReview2:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Request high priority review" bpdm:ID="_y4F30OksEeStA5LG34ZtIw">
+                                                                    <bpdm:linkset bpdm:type="assignments">
+                                                                        <bpel:copy>
+                                                                            <bpel:from>concat("[Broken SLA] ", $rmDescription)</bpel:from>
+                                                                            <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:description</bpel:to><mapper:mapperLink><mapper:vertice id="1483446337" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:description" targetedBy="1021777079-arg2"></mapper:vertice><mapper:vertice id="1021777079" dimension="175x25" location="442,41"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="1140244895" dimension="175x25" location="144,24" targetedBy="1021777079-arg0"><mapper:value>"[Broken SLA] "</mapper:value></mapper:vertice><mapper:vertice id="923067578" sourcePath="$rmDescription" targetedBy="1021777079-arg1"></mapper:vertice></mapper:mapperLink>
+                                                                        </bpel:copy>
+                                                                        <bpel:copy>
+                                                                            <bpel:from>55</bpel:from>
+                                                                            <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:priority</bpel:to><mapper:mapperLink><mapper:vertice id="91605079" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:priority" targetedBy="15874128-arg0"></mapper:vertice><mapper:vertice id="15874128" dimension="79x24" location="490,145"><mapper:value>55</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                                        </bpel:copy>
+                                                                        <bpel:copy>
+                                                                            <bpel:from>$rmRole</bpel:from>
+                                                                            <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="921384077" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:roleOwner" targetedBy="173523697-arg0"></mapper:vertice><mapper:vertice id="173523697" sourcePath="$rmRole"></mapper:vertice></mapper:mapperLink>
+                                                                        </bpel:copy>
+                                                                        <bpel:copy>
+                                                                            <bpel:from>$SalesManagement/demo:SalesOrder</bpel:from>
+                                                                            <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesOrder</bpel:to><mapper:mapperLink><mapper:vertice id="1000294998" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesOrder" targetedBy="184969624-arg0"></mapper:vertice><mapper:vertice id="184969624" sourcePath="$SalesManagement/demo:SalesOrder"></mapper:vertice></mapper:mapperLink>
+                                                                        </bpel:copy>
+                                                                        <bpel:copy>
+                                                                            <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                                                            <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesRepresentative</bpel:to><mapper:mapperLink><mapper:vertice id="597244108" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesRepresentative" targetedBy="1247875603-arg0"></mapper:vertice><mapper:vertice id="1247875603" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                                                        </bpel:copy>
+                                                                    </bpdm:linkset>
+                                                                    <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderReview2CreateTaskRequestMsg" bpdm:msgVarScopeId="_BWjogInJEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:createTaskRequest" bpdm:binding="SalesOrderReview2:WorkflowSoapBinding" bpdm:ID="_y4F30OksEeStA5LG34ZtIwOutgoing"></bpdm:linkset>
+                                                                    <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderReview2CreateTaskResponseMsg" bpdm:msgVarScopeId="_BWjogInJEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:createTaskResponse" bpdm:binding="SalesOrderReview2:WorkflowSoapBinding" bpdm:ID="_y4F30OksEeStA5LG34ZtIwIncoming"></bpdm:linkset>
+                                                                </bpdm:messagingtask>
+                                                                <bpdm:messagingtask operation="notifyTaskCompletion" partnerLink="wFmagic_y4F30OksEeStA5LG34ZtIwPlkVar" portType="SalesOrderReview2:Process" isMyRole="true" enableSharing="false" bpdm:label="Recieve review results" bpdm:ID="_y4JiMOksEeStA5LG34ZtIw">
+                                                                    <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="salesOrderReview2NotifyTaskCompletionRequestMsg" bpdm:msgVarScopeId="_BWjogInJEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:notifyTaskCompletionRequest" bpdm:ID="_y4JiMOksEeStA5LG34ZtIwIncoming"></bpdm:linkset>
+                                                                    <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="salesOrderReview2NotifyTaskCompletionResponseMsg" bpdm:msgVarScopeId="_BWjogInJEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:notifyTaskCompletionResponse" bpdm:ID="_y4JiMOksEeStA5LG34ZtIwOutgoing"></bpdm:linkset>
+                                                                </bpdm:messagingtask>
+                                                            </bpel:sequence>
+                                                        </bpel:scope>
+                                                        <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_S1jPQIrXEeOCjYSbtlPtMA">
+                                                            <bpdm:linkset bpdm:type="assignments">
+                                                                <bpel:copy>
+                                                                    <bpel:from>$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:user</bpel:from>
+                                                                    <bpel:to>$SalesManagement/demo:RevieweManager</bpel:to><mapper:mapperLink><mapper:vertice id="1565476277" targetPath="$SalesManagement/demo:RevieweManager" targetedBy="90978229-arg0"></mapper:vertice><mapper:vertice id="90978229" sourcePath="$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:user"></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                                <bpel:copy>
+                                                                    <bpel:from>$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:taskOutput/demo:SalesOrderReview/demo:Decision</bpel:from>
+                                                                    <bpel:to>$SalesManagement/demo:ReviewDecision</bpel:to><mapper:mapperLink><mapper:vertice id="802965757" targetPath="$SalesManagement/demo:ReviewDecision" targetedBy="1504478346-arg0"></mapper:vertice><mapper:vertice id="1504478346" sourcePath="$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:taskOutput/demo:SalesOrderReview/demo:Decision"></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                            </bpdm:linkset>
+                                                        </bpdm:messagingtask>
+                                                    </bpel:sequence>
+                                                    <bpel:sequence>
+                                                        <bpdm:messagingtask operation="authenticateUser" partnerLink="orderManagementimplicitPartnerAndOrderManagementForPortServicePlkVar" portType="tns:TokenServicePortType" isMyRole="false" enableSharing="false" bpdm:label="Login as administrator" bpdm:ID="_FFXq0QVsEeWRvv_PPi7eAQ">
+                                                            <bpdm:linkset bpdm:type="assignments">
+                                                                <bpel:copy>
+                                                                    <bpel:from>ode:get-property-value("admin_user")</bpel:from>
+                                                                    <bpel:to>$tnsAuthenticateUserRequestMsg.payload/tns:user</bpel:to><mapper:mapperLink><mapper:vertice id="1111310601" targetPath="$tnsAuthenticateUserRequestMsg.payload/tns:user" targetedBy="656232741-arg1"></mapper:vertice><mapper:vertice id="656232741" dimension="139x24" location="506,52"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="482171313" dimension="79x24" location="228,60" targetedBy="656232741-arg0"><mapper:value>"admin_user"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                                <bpel:copy>
+                                                                    <bpel:from>ode:get-property-value("admin_password")</bpel:from>
+                                                                    <bpel:to>$tnsAuthenticateUserRequestMsg.payload/tns:password</bpel:to><mapper:mapperLink><mapper:vertice id="914012875" targetPath="$tnsAuthenticateUserRequestMsg.payload/tns:password" targetedBy="1368770515-arg1"></mapper:vertice><mapper:vertice id="1368770515" dimension="139x24" location="512,109"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="492194702" dimension="107x24" location="216,120" targetedBy="1368770515-arg0"><mapper:value>"admin_password"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                                <bpel:copy>
+                                                                    <bpel:from>ode:get-property-value("token_service_endpoint")</bpel:from>
+                                                                    <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="1194888020" targetPath="$endpoint" targetedBy="1152907246-arg1"></mapper:vertice><mapper:vertice id="1152907246" dimension="139x24" location="578,183"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="49969893" dimension="142x24" location="220,211" targetedBy="1152907246-arg0"><mapper:value>"token_service_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                            </bpdm:linkset>
+                                                            <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="tnsAuthenticateUserRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="tns:authenticateUser" bpdm:binding="tns:TokenServiceSOAP" bpdm:ID="_FFXq0QVsEeWRvv_PPi7eAQOutgoing"></bpdm:linkset>
+                                                            <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="tnsAuthenticateUserResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="tns:authenticateUserResponse" bpdm:binding="tns:TokenServiceSOAP" bpdm:ID="_FFXq0QVsEeWRvv_PPi7eAQIncoming"></bpdm:linkset>
+                                                        </bpdm:messagingtask>
+                                                        <bpdm:messagingtask operation="delete" partnerLink="orderManagementimplicitPartnerAndOrderManagementForPortTaskManagementServicesSOAPPlkVar" portType="TaskManagementServices:TaskManagementServicesPortType" isMyRole="false" enableSharing="false" bpdm:label="Delete previous task" bpdm:ID="_N3p_0AVsEeWRvv_PPi7eAQ">
+                                                            <bpdm:linkset bpdm:type="assignments">
+                                                                <bpel:copy>
+                                                                    <bpel:from>$rmTaskId</bpel:from>
+                                                                    <bpel:to>$taskManagementServicesDeleteRequestMsg.deleteRequest/TaskManagementServices:taskId</bpel:to><mapper:mapperLink><mapper:vertice id="384431967" targetPath="$taskManagementServicesDeleteRequestMsg.deleteRequest/TaskManagementServices:taskId" targetedBy="1361959034-arg0"></mapper:vertice><mapper:vertice id="1361959034" sourcePath="$rmTaskId"></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                                <bpel:copy>
+                                                                    <bpel:from>$tnsAuthenticateUserResponseMsg.payload/tns:token</bpel:from>
+                                                                    <bpel:to>$taskManagementServicesDeleteRequestMsg.deleteRequest/TaskManagementServices:participantToken</bpel:to><mapper:mapperLink><mapper:vertice id="35941137" targetPath="$taskManagementServicesDeleteRequestMsg.deleteRequest/TaskManagementServices:participantToken" targetedBy="1690714362-arg0"></mapper:vertice><mapper:vertice id="1690714362" sourcePath="$tnsAuthenticateUserResponseMsg.payload/tns:token"></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                                <bpel:copy>
+                                                                    <bpel:from>ode:get-property-value("tms_endpoint")</bpel:from>
+                                                                    <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="1122555185" targetPath="$endpoint" targetedBy="987621409-arg1"></mapper:vertice><mapper:vertice id="987621409" dimension="139x24" location="663,135"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="673303715" dimension="91x24" location="386,144" targetedBy="987621409-arg0"><mapper:value>"tms_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                                </bpel:copy>
+                                                            </bpdm:linkset>
+                                                            <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="taskManagementServicesDeleteRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="TaskManagementServices:deleteRequest" bpdm:binding="TaskManagementServices:TaskManagementServicesSOAP" bpdm:ID="_N3p_0AVsEeWRvv_PPi7eAQOutgoing"></bpdm:linkset>
+                                                            <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="taskManagementServicesDeleteResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="TaskManagementServices:okResponse" bpdm:binding="TaskManagementServices:TaskManagementServicesSOAP" bpdm:ID="_N3p_0AVsEeWRvv_PPi7eAQIncoming"></bpdm:linkset>
+                                                            <bpdm:thrownFault msgFaultNcName="accessDeniedFault" msgFaultTypeQname="TaskManagementServices:accessDeniedFault"/>
+                                                            <bpdm:thrownFault msgFaultNcName="invalidInputMessageFault" msgFaultTypeQname="TaskManagementServices:invalidInputMessageFault"/>
+                                                            <bpdm:thrownFault msgFaultNcName="unavailableTaskFault" msgFaultTypeQname="TaskManagementServices:unavailableTaskFault"/>
+                                                            <bpdm:thrownFault msgFaultNcName="invalidParticipantTokenFault" msgFaultTypeQname="TaskManagementServices:invalidParticipantTokenFault"/>
+                                                        </bpdm:messagingtask>
+                                                    </bpel:sequence>
+                                                </bpdm:gateway>
+                                            </bpel:sequence>
+                                        </bpel:scope>
+                                    </bpel:onAlarm>
+                                </bpel:eventHandlers>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask operation="createTask" partnerLink="wFmagic_dQiAMOLvEeSyUMDSxrz6XwPlkVar" portType="SalesOrderReview2:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Request manager to review order" bpdm:ID="_IZpNkInFEeOOrKP-9bsdmg">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:SalesOrder</bpel:from>
+                                                <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesOrder</bpel:to><mapper:mapperLink><mapper:vertice id="340363279" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesOrder" targetedBy="549521853-arg0"></mapper:vertice><mapper:vertice id="549521853" sourcePath="$SalesManagement/demo:SalesOrder"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                                <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesRepresentative</bpel:to><mapper:mapperLink><mapper:vertice id="2055719401" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskInput/demo:SalesOrderReview/demo:SalesRepresentative" targetedBy="1608794873-arg0"></mapper:vertice><mapper:vertice id="1608794873" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>concat("Review order #", $SalesManagement/demo:SalesOrder/demo:OrderRef)</bpel:from>
+                                                <bpel:to>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:description</bpel:to><mapper:mapperLink><mapper:vertice id="508167806" targetPath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:description" targetedBy="56301567-arg2"></mapper:vertice><mapper:vertice id="56301567" dimension="79x24" location="444,48"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="1623447640" dimension="96x24" location="274,8" targetedBy="56301567-arg0"><mapper:value>"Review order #"</mapper:value></mapper:vertice><mapper:vertice id="110815516" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef" targetedBy="56301567-arg1"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderReview2CreateTaskRequestMsg" bpdm:msgVarScopeId="_TDRz0InHEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:createTaskRequest" bpdm:binding="SalesOrderReview2:WorkflowSoapBinding" bpdm:ID="_xCjZMOLvEeSyUMDSxrz6Xw"></bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderReview2CreateTaskResponseMsg" bpdm:msgVarScopeId="_TDRz0InHEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:createTaskResponse" bpdm:binding="SalesOrderReview2:WorkflowSoapBinding" bpdm:ID="_xYwSsOLvEeSyUMDSxrz6Xw"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_kQOIoIrSEeOCjYSbtlPtMA">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderReview2CreateTaskResponseMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:taskId</bpel:from>
+                                                <bpel:to>$rmTaskId</bpel:to><mapper:mapperLink><mapper:vertice id="574816130" targetPath="$rmTaskId" targetedBy="1713464544-arg0"></mapper:vertice><mapper:vertice id="1713464544" sourcePath="$salesOrderReview2CreateTaskResponseMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:taskId"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:description</bpel:from>
+                                                <bpel:to>$rmDescription</bpel:to><mapper:mapperLink><mapper:vertice id="20153675" targetPath="$rmDescription" targetedBy="84602816-arg0"></mapper:vertice><mapper:vertice id="84602816" sourcePath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:description"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:roleOwner</bpel:from>
+                                                <bpel:to>$rmRole</bpel:to><mapper:mapperLink><mapper:vertice id="226879335" targetPath="$rmRole" targetedBy="1980003837-arg0"></mapper:vertice><mapper:vertice id="1980003837" sourcePath="$salesOrderReview2CreateTaskRequestMsg.root/SalesOrderReview2:taskMetaData/SalesOrderReview2:roleOwner"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask operation="notifyTaskCompletion" partnerLink="wFmagic_dQiAMOLvEeSyUMDSxrz6XwPlkVar" portType="SalesOrderReview2:Process" isMyRole="true" enableSharing="false" bpdm:label="Recieves manager review decision" bpdm:ID="_f02TwInFEeOOrKP-9bsdmg">
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="salesOrderReview2NotifyTaskCompletionRequestMsg" bpdm:msgVarScopeId="_TDRz0InHEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:notifyTaskCompletionRequest" bpdm:ID="_VM0LoOk1EeSqaPLQlngM5g"></bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="salesOrderReview2NotifyTaskCompletionResponseMsg" bpdm:msgVarScopeId="_TDRz0InHEeOOrKP-9bsdmg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderReview2:notifyTaskCompletionResponse" bpdm:ID="_WSsOkOk1EeSqaPLQlngM5g"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_K4FpcIrXEeOCjYSbtlPtMA">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:user</bpel:from>
+                                                <bpel:to>$SalesManagement/demo:RevieweManager</bpel:to><mapper:mapperLink><mapper:vertice id="1604657541" targetPath="$SalesManagement/demo:RevieweManager" targetedBy="1226603593-arg0"></mapper:vertice><mapper:vertice id="1226603593" sourcePath="$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:user"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:taskOutput/demo:SalesOrderReview/demo:Decision</bpel:from>
+                                                <bpel:to>$SalesManagement/demo:ReviewDecision</bpel:to><mapper:mapperLink><mapper:vertice id="1994916632" targetPath="$SalesManagement/demo:ReviewDecision" targetedBy="329536880-arg0"></mapper:vertice><mapper:vertice id="329536880" sourcePath="$salesOrderReview2NotifyTaskCompletionRequestMsg.root/SalesOrderReview2:taskOutput/demo:SalesOrderReview/demo:Decision"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                </bpel:sequence>
+                            </bpel:scope>
+                            <bpdm:gateway bpdm:label="Exclusive_Data-Based_Gateway" bpdm:ID="_mq1XoIrXEeOCjYSbtlPtMA" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                                <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_rIywsIrXEeOCjYSbtlPtMA" bpdm:targetDisplayName="Approve">
+                                    <bpel:condition>"Approve" = $SalesManagement/demo:ReviewDecision<mapper:mapperLink><mapper:vertice id="17954109" targetPath="$condition" targetedBy="1441843719-arg2"></mapper:vertice><mapper:vertice id="1441843719" dimension="175x25" location="401,57"><mapper:value>=</mapper:value></mapper:vertice><mapper:vertice id="525410919" dimension="175x25" location="192,24" targetedBy="1441843719-arg0"><mapper:value>"Approve"</mapper:value></mapper:vertice><mapper:vertice id="1329386540" sourcePath="$SalesManagement/demo:ReviewDecision" targetedBy="1441843719-arg1"></mapper:vertice></mapper:mapperLink></bpel:condition>
+                                </bpdm:linkset>
+                                <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_rorKp4rXEeOCjYSbtlPtMA" bpdm:targetDisplayName="default"></bpdm:linkset>
+                                <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_sLGiR4rXEeOCjYSbtlPtMA" bpdm:targetDisplayName="Return">
+                                    <bpel:condition>"Return" = $SalesManagement/demo:ReviewDecision<mapper:mapperLink><mapper:vertice id="1917150890" targetPath="$condition" targetedBy="1855575473-arg2"></mapper:vertice><mapper:vertice id="1855575473" dimension="175x25" location="432,49"><mapper:value>=</mapper:value></mapper:vertice><mapper:vertice id="1871219650" dimension="175x25" location="181,20" targetedBy="1855575473-arg0"><mapper:value>"Return"</mapper:value></mapper:vertice><mapper:vertice id="565106999" sourcePath="$SalesManagement/demo:ReviewDecision" targetedBy="1855575473-arg1"></mapper:vertice></mapper:mapperLink></bpel:condition>
+                                </bpdm:linkset>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Process order" bpdm:ID="_rIfOsIrXEeOCjYSbtlPtMA">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>true()</bpel:from>
+                                                <bpel:to>$reviewFinished</bpel:to><mapper:mapperLink><mapper:vertice id="538326623" targetPath="$reviewFinished" targetedBy="1097190877-arg0"></mapper:vertice><mapper:vertice id="1097190877" dimension="175x25" location="380,82"><mapper:value>true()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                </bpel:sequence>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask eventType="end: empty" bpdm:label="End process" bpdm:ID="_roiAsIrXEeOCjYSbtlPtMA">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>true()</bpel:from>
+                                                <bpel:to>$reviewFinished</bpel:to><mapper:mapperLink><mapper:vertice id="133934250" targetPath="$reviewFinished" targetedBy="2011400051-arg0"></mapper:vertice><mapper:vertice id="2011400051" dimension="175x25" location="396,109"><mapper:value>true()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                </bpel:sequence>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask eventType="intermediate: message" operation="createTask" partnerLink="wFmagic_bj4BIYtiEeOugvlF6XJahgPlkVar" portType="SalesOrderModificationForm1:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Request sales rep to update order" bpdm:ID="_M2tS0ItGEeOLJOAEXkwHWw">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>concat("Update order #", $SalesManagement/demo:SalesOrder/demo:OrderRef)</bpel:from>
+                                                <bpel:to>$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskMetaData/SalesOrderModificationForm1:description</bpel:to><mapper:mapperLink><mapper:vertice id="1551307287" targetPath="$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskMetaData/SalesOrderModificationForm1:description" targetedBy="639733083-arg2"></mapper:vertice><mapper:vertice id="639733083" dimension="175x25" location="404,53"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="202580406" dimension="175x25" location="204,28" targetedBy="639733083-arg0"><mapper:value>"Update order #"</mapper:value></mapper:vertice><mapper:vertice id="1573987241" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef" targetedBy="639733083-arg1"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>""</bpel:from>
+                                                <bpel:to>$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskMetaData/SalesOrderModificationForm1:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="898624767" targetPath="$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskMetaData/SalesOrderModificationForm1:roleOwner" targetedBy="1974220421-arg0"></mapper:vertice><mapper:vertice id="1974220421" dimension="175x25" location="600,180"><mapper:value>""</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                                <bpel:to>$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskMetaData/SalesOrderModificationForm1:userOwner</bpel:to><mapper:mapperLink><mapper:vertice id="542434828" targetPath="$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskMetaData/SalesOrderModificationForm1:userOwner" targetedBy="104915914-arg0"></mapper:vertice><mapper:vertice id="104915914" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:SalesOrder</bpel:from>
+                                                <bpel:to>$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskInput/demo:SalesOrderMod/demo:SalesOrder</bpel:to><mapper:mapperLink><mapper:vertice id="1662525464" targetPath="$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskInput/demo:SalesOrderMod/demo:SalesOrder" targetedBy="1504436786-arg0"></mapper:vertice><mapper:vertice id="1504436786" sourcePath="$SalesManagement/demo:SalesOrder"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:RevieweManager</bpel:from>
+                                                <bpel:to>$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskInput/demo:SalesOrderMod/demo:ReviewManager</bpel:to><mapper:mapperLink><mapper:vertice id="481264766" targetPath="$salesOrderModificationForm1CreateTaskRequestMsg.root/SalesOrderModificationForm1:taskInput/demo:SalesOrderMod/demo:ReviewManager" targetedBy="1836318252-arg0"></mapper:vertice><mapper:vertice id="1836318252" sourcePath="$SalesManagement/demo:RevieweManager"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderModificationForm1CreateTaskRequestMsg" bpdm:msgVarScopeId="_AnxUIItvEeOsMc8Cb1pSSQ" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:createTaskRequest" bpdm:binding="SalesOrderModificationForm1:WorkflowSoapBinding" bpdm:ID="_b8hxsItiEeOugvlF6XJahg"></bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderModificationForm1CreateTaskResponseMsg" bpdm:msgVarScopeId="_AnxUIItvEeOsMc8Cb1pSSQ" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:createTaskResponse" bpdm:binding="SalesOrderModificationForm1:WorkflowSoapBinding" bpdm:ID="_cSYs8ItiEeOugvlF6XJahg"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask eventType="intermediate: message" operation="notifyTaskCompletion" partnerLink="wFmagic_bj4BIYtiEeOugvlF6XJahgPlkVar" portType="SalesOrderModificationForm1:Process" isMyRole="true" enableSharing="false" bpdm:label="Recieve sales order updated" bpdm:ID="_w-haQIthEeOugvlF6XJahg">
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="salesOrderModificationForm1NotifyTaskCompletionRequestMsg" bpdm:msgVarScopeId="_AnxUIItvEeOsMc8Cb1pSSQ" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:notifyTaskCompletionRequest" bpdm:ID="_coe4wItiEeOugvlF6XJahg"></bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="salesOrderModificationForm1NotifyTaskCompletionResponseMsg" bpdm:msgVarScopeId="_AnxUIItvEeOsMc8Cb1pSSQ" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderModificationForm1:notifyTaskCompletionResponse" bpdm:ID="_c5phQItiEeOugvlF6XJahg"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_z1i-0ItuEeOsMc8Cb1pSSQ">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderModificationForm1NotifyTaskCompletionRequestMsg.root/SalesOrderModificationForm1:taskOutput/demo:SalesOrderMod/demo:SalesOrder</bpel:from>
+                                                <bpel:to>$SalesManagement/demo:SalesOrder</bpel:to><mapper:mapperLink><mapper:vertice id="514948487" targetPath="$SalesManagement/demo:SalesOrder" targetedBy="788671975-arg0"></mapper:vertice><mapper:vertice id="788671975" sourcePath="$salesOrderModificationForm1NotifyTaskCompletionRequestMsg.root/SalesOrderModificationForm1:taskOutput/demo:SalesOrderMod/demo:SalesOrder"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$salesOrderModificationForm1NotifyTaskCompletionRequestMsg.root/SalesOrderModificationForm1:user</bpel:from>
+                                                <bpel:to>$SalesManagement/demo:SalesRep</bpel:to><mapper:mapperLink><mapper:vertice id="1577597682" targetPath="$SalesManagement/demo:SalesRep" targetedBy="2092826123-arg0"></mapper:vertice><mapper:vertice id="2092826123" sourcePath="$salesOrderModificationForm1NotifyTaskCompletionRequestMsg.root/SalesOrderModificationForm1:user"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>false()</bpel:from>
+                                                <bpel:to>$reviewFinished</bpel:to><mapper:mapperLink><mapper:vertice id="1959335562" targetPath="$reviewFinished" targetedBy="823341206-arg0"></mapper:vertice><mapper:vertice id="823341206" dimension="175x25" location="504,40"><mapper:value>false()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                </bpel:sequence>
+                            </bpdm:gateway>
+                        </bpel:sequence>
+                        <bpel:sequence>
+                            <bpdm:messagingtask eventType="end: empty" bpdm:label="Empty_End_Event" bpdm:ID="_UxMhkI0REeOm_cpIPo0Ddg">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>"Approve"</bpel:from>
+                                        <bpel:to>$SalesManagement/demo:ReviewDecision</bpel:to><mapper:mapperLink><mapper:vertice id="1999659406" targetPath="$SalesManagement/demo:ReviewDecision" targetedBy="3242490-arg0"></mapper:vertice><mapper:vertice id="3242490" dimension="175x25" location="234,123"><mapper:value>"Approve"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>"Business rule"</bpel:from>
+                                        <bpel:to>$SalesManagement/demo:RevieweManager</bpel:to><mapper:mapperLink><mapper:vertice id="995225167" targetPath="$SalesManagement/demo:RevieweManager" targetedBy="927395258-arg0"></mapper:vertice><mapper:vertice id="927395258" dimension="175x25" location="327,202"><mapper:value>"Business rule"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>true()</bpel:from>
+                                        <bpel:to>$reviewFinished</bpel:to><mapper:mapperLink><mapper:vertice id="93090478" targetPath="$reviewFinished" targetedBy="550067645-arg0"></mapper:vertice><mapper:vertice id="550067645" dimension="175x25" location="347,59"><mapper:value>true()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                            </bpdm:messagingtask>
+                        </bpel:sequence>
+                    </bpdm:gateway>
+                </bpel:sequence>
+            </bpel:scope>
+            <bpel:scope bpdm:label="Gather metrics information" bpdm:ID="_4yH6sI0oEeOm_cpIPo0Ddg">
+                <bpel:sequence>
+                    <bpdm:messagingtask bpdm:label="Split orders" bpdm:ID="_ejT60ItvEeOsMc8Cb1pSSQ">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>bpel:doXslTransform("../transformations/SalesOrderDetailToSalesOrderByFamily.xsl", $SalesManagement/demo:SalesOrder)</bpel:from>
+                                <bpel:to>$SalesOrderByFamily</bpel:to><mapper:mapperLink><mapper:vertice id="469147632" targetPath="$SalesOrderByFamily" targetedBy="2060105425-arg2"></mapper:vertice><mapper:vertice id="2060105425" dimension="175x25" location="252,120"><mapper:value>bpel:doXslTransform()</mapper:value></mapper:vertice><mapper:vertice id="2141893808" dimension="175x25" location="4,56" targetedBy="2060105425-arg0"><mapper:value>"../transformations/SalesOrderDetailToSalesOrderByFamily.xsl"</mapper:value></mapper:vertice><mapper:vertice id="1339875264" sourcePath="$SalesManagement/demo:SalesOrder" targetedBy="2060105425-arg1"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_Vs9u0I0oEeOm_cpIPo0Ddg">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="592368825" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="2097534932-arg0"></mapper:vertice><mapper:vertice id="2097534932" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:TotalPrice</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:TotalAmount</bpel:to><mapper:mapperLink><mapper:vertice id="435655491" targetPath="$SalesOrder/metrics:TotalAmount" targetedBy="729543260-arg0"></mapper:vertice><mapper:vertice id="729543260" sourcePath="$SalesManagement/demo:SalesOrder/demo:TotalPrice"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:GlobalDiscount</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:Discount</bpel:to><mapper:mapperLink><mapper:vertice id="274241253" targetPath="$SalesOrder/metrics:Discount" targetedBy="566638374-arg0"></mapper:vertice><mapper:vertice id="566638374" sourcePath="$SalesManagement/demo:SalesOrder/demo:GlobalDiscount"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>count($SalesManagement/demo:SalesOrder/demo:Items)</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:ItemsCount</bpel:to><mapper:mapperLink><mapper:vertice id="36258289" targetPath="$SalesOrder/metrics:ItemsCount" targetedBy="1857247099-arg1"></mapper:vertice><mapper:vertice id="1857247099" dimension="175x25" location="264,312"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="357336673" sourcePath="$SalesManagement/demo:SalesOrder/demo:Items" targetedBy="1857247099-arg0"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:RevieweManager</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:ReviewManager</bpel:to><mapper:mapperLink><mapper:vertice id="1981304149" targetPath="$SalesOrder/metrics:ReviewManager" targetedBy="401542513-arg0"></mapper:vertice><mapper:vertice id="401542513" sourcePath="$SalesManagement/demo:RevieweManager"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>count($SalesOrderByFamily/demo:Office/demo:Items)</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:OfficeCount</bpel:to><mapper:mapperLink><mapper:vertice id="796275417" targetPath="$SalesOrder/metrics:OfficeCount" targetedBy="1366917878-arg1"></mapper:vertice><mapper:vertice id="1366917878" dimension="175x25" location="223,434"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="767879902" sourcePath="$SalesOrderByFamily/demo:Office/demo:Items" targetedBy="1366917878-arg0"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>count($SalesOrderByFamily/demo:Electronics/demo:Items)</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:ElectronicsCount</bpel:to><mapper:mapperLink><mapper:vertice id="110840891" targetPath="$SalesOrder/metrics:ElectronicsCount" targetedBy="183290531-arg1"></mapper:vertice><mapper:vertice id="183290531" dimension="175x25" location="241,510"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="1978118412" sourcePath="$SalesOrderByFamily/demo:Electronics/demo:Items" targetedBy="183290531-arg0"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                    <bpel:scope bpdm:label="SubProcess" bpdm:ID="_aNe3MI0pEeOm_cpIPo0Ddg">
+                        <bpdm:linkset bpdm:type="loop" bpdm:loopType="forEach" parallel="no" counterName="emptyCounter">
+                            <bpel:condition bpdm:loopType="forEachFinalCounter">count($SalesManagement/demo:SalesOrder/demo:Items)<mapper:mapperLink><mapper:vertice id="1107738298" targetPath="$Final counter" targetedBy="308293682-arg1"></mapper:vertice><mapper:vertice id="308293682" dimension="175x25" location="328,74"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="1807433798" sourcePath="$SalesManagement/demo:SalesOrder/demo:Items" targetedBy="308293682-arg0"></mapper:vertice></mapper:mapperLink></bpel:condition>
+                            <bpel:condition bpdm:loopType="forEachStartCounter">1<mapper:mapperLink><mapper:vertice id="1494145386" targetPath="$Start counter" targetedBy="2134974471-arg0"></mapper:vertice><mapper:vertice id="2134974471" dimension="175x25" location="321,24"><mapper:value>1</mapper:value></mapper:vertice></mapper:mapperLink></bpel:condition>
+                        </bpdm:linkset>
+                        <bpel:sequence>
+                            <bpdm:messagingtask bpdm:label="Extract items" bpdm:ID="_1SwQ0I0oEeOm_cpIPo0Ddg">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Items[$emptyCounter]/demo:ItemRef</bpel:from>
+                                        <bpel:to>$SalesItem/metrics:ItemRef</bpel:to><mapper:mapperLink><mapper:vertice id="2123157236" targetPath="$SalesItem/metrics:ItemRef" targetedBy="1315386900-arg0"></mapper:vertice><mapper:vertice id="1315386900" dimension="70x20" location="20,66"><mapper:value>$SalesManagement</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                        <bpel:to>$SalesItem/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="2017189686" targetPath="$SalesItem/metrics:SalesOrderRef" targetedBy="943776677-arg0"></mapper:vertice><mapper:vertice id="943776677" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Items[$emptyCounter]/demo:ProductName</bpel:from>
+                                        <bpel:to>$SalesItem/metrics:ProductName</bpel:to><mapper:mapperLink><mapper:vertice id="462518575" targetPath="$SalesItem/metrics:ProductName" targetedBy="1806371532-arg0"></mapper:vertice><mapper:vertice id="1806371532" dimension="70x20" location="20,112"><mapper:value>$SalesManagement</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Items[$emptyCounter]/demo:ProductFamily</bpel:from>
+                                        <bpel:to>$SalesItem/metrics:ProductFamily</bpel:to><mapper:mapperLink><mapper:vertice id="710020685" targetPath="$SalesItem/metrics:ProductFamily" targetedBy="1898510063-arg0"></mapper:vertice><mapper:vertice id="1898510063" dimension="70x20" location="20,158"><mapper:value>$SalesManagement</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Items[$emptyCounter]/demo:Quantity</bpel:from>
+                                        <bpel:to>$SalesItem/metrics:Quantity</bpel:to><mapper:mapperLink><mapper:vertice id="946601715" targetPath="$SalesItem/metrics:Quantity" targetedBy="976167029-arg0"></mapper:vertice><mapper:vertice id="976167029" dimension="70x20" location="20,204"><mapper:value>$SalesManagement</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Items[$emptyCounter]/demo:ItemPrice</bpel:from>
+                                        <bpel:to>$SalesItem/metrics:Price</bpel:to><mapper:mapperLink><mapper:vertice id="1811676970" targetPath="$SalesItem/metrics:Price" targetedBy="1831687624-arg0"></mapper:vertice><mapper:vertice id="1831687624" dimension="70x20" location="20,250"><mapper:value>$SalesManagement</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                            </bpdm:messagingtask>
+                        </bpel:sequence>
+                    </bpel:scope>
+                </bpel:sequence>
+            </bpel:scope>
+            <bpdm:gateway bpdm:label="Order approved" bpdm:ID="_ZCc6UItvEeOsMc8Cb1pSSQ" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_c1MMJ4tvEeOsMc8Cb1pSSQ" bpdm:targetDisplayName="default"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_ejdr14tvEeOsMc8Cb1pSSQ" bpdm:targetDisplayName="Yes">
+                    <bpel:condition>"Approve" = $SalesManagement/demo:ReviewDecision<mapper:mapperLink><mapper:vertice id="732959781" targetPath="$condition" targetedBy="173835094-arg2"></mapper:vertice><mapper:vertice id="173835094" dimension="175x25" location="367,42"><mapper:value>=</mapper:value></mapper:vertice><mapper:vertice id="1739916551" dimension="175x25" location="143,11" targetedBy="173835094-arg0"><mapper:value>"Approve"</mapper:value></mapper:vertice><mapper:vertice id="737996483" sourcePath="$SalesManagement/demo:ReviewDecision" targetedBy="173835094-arg1"></mapper:vertice></mapper:mapperLink></bpel:condition>
+                </bpdm:linkset>
+                <bpel:sequence>
+                    <bpel:scope bpdm:label="Nofify rejection" bpdm:ID="_SsjvEJAsEeOb5MqYwHAi3A">
+                        <bpel:variables>
+                            <bpel:variable name="salesOrderProgressNotification1NotifyResponseMsg" messageType="SalesOrderProgressNotification1:notifyResponse" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="1" bpdm:messageIds="inc:_QPgd0ZAsEeOb5MqYwHAi3AIncoming"/>
+                            <bpel:variable name="salesOrderProgressNotification1NotifyRequestMsg" messageType="SalesOrderProgressNotification1:notifyRequest" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="0" bpdm:messageIds=" out:_QPgd0ZAsEeOb5MqYwHAi3AOutgoing">
+                                <bpel:from bpdm:toPart="root">
+                                    <bpel:literal bpdm:linkedMessageType="SalesOrderProgressNotification1:notifyRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="notify"></bpel:literal>
+                                </bpel:from>
+                            </bpel:variable>
+                        </bpel:variables>
+                        <bpel:sequence>
+                            <bpdm:messagingtask operation="notify" partnerLink="orderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlkVar" portType="SalesOrderProgressNotification1:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Notify sales rep" bpdm:ID="_QPgd0ZAsEeOb5MqYwHAi3A">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>concat("Sales order #", " rejected")</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description</bpel:to><mapper:mapperLink><mapper:vertice id="248768688" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description" targetedBy="1139564869-arg2"></mapper:vertice><mapper:vertice id="1139564869" dimension="175x25" location="503,66"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="1249285112" dimension="175x25" location="269,39" targetedBy="1139564869-arg0"><mapper:value>"Sales order #"</mapper:value></mapper:vertice><mapper:vertice id="2006530451" dimension="175x25" location="276,84" targetedBy="1139564869-arg1"><mapper:value>" rejected"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>""</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="1229250201" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner" targetedBy="254480354-arg0"></mapper:vertice><mapper:vertice id="254480354" dimension="175x25" location="604,117"><mapper:value>""</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner</bpel:to><mapper:mapperLink><mapper:vertice id="1757492899" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner" targetedBy="1842064194-arg0"></mapper:vertice><mapper:vertice id="1842064194" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="1807047802" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef" targetedBy="1638085517-arg0"></mapper:vertice><mapper:vertice id="1638085517" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId</bpel:to><mapper:mapperLink><mapper:vertice id="590384741" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId" targetedBy="724229903-arg0"></mapper:vertice><mapper:vertice id="724229903" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName</bpel:to><mapper:mapperLink><mapper:vertice id="1272412308" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName" targetedBy="404625245-arg0"></mapper:vertice><mapper:vertice id="404625245" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>"REJECTED"</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status</bpel:to><mapper:mapperLink><mapper:vertice id="1985858272" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status" targetedBy="704813100-arg0"></mapper:vertice><mapper:vertice id="704813100" dimension="175x25" location="539,261"><mapper:value>"REJECTED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>current-dateTime()</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate</bpel:to><mapper:mapperLink><mapper:vertice id="547333192" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate" targetedBy="2137299186-arg0"></mapper:vertice><mapper:vertice id="2137299186" dimension="175x25" location="548,304"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderProgressNotification1NotifyRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyRequest" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_QPgd0ZAsEeOb5MqYwHAi3AOutgoing"></bpdm:linkset>
+                                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderProgressNotification1NotifyResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyResponse" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_QPgd0ZAsEeOb5MqYwHAi3AIncoming"></bpdm:linkset>
+                            </bpdm:messagingtask>
+                        </bpel:sequence>
+                    </bpel:scope>
+                    <bpdm:messagingtask eventType="end: empty" bpdm:label="Empty_End_Event" bpdm:ID="_c1CbIItvEeOsMc8Cb1pSSQ">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="803048840" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="1341951334-arg0"></mapper:vertice><mapper:vertice id="1341951334" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>"REJECTED"</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:Status</bpel:to><mapper:mapperLink><mapper:vertice id="1056904000" targetPath="$SalesOrder/metrics:Status" targetedBy="2124709627-arg0"></mapper:vertice><mapper:vertice id="2124709627" dimension="175x25" location="382,437"><mapper:value>"REJECTED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>current-dateTime()</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:RejectedDate</bpel:to><mapper:mapperLink><mapper:vertice id="1943907422" targetPath="$SalesOrder/metrics:RejectedDate" targetedBy="1896979207-arg0"></mapper:vertice><mapper:vertice id="1896979207" dimension="175x25" location="387,534"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                </bpel:sequence>
+                <bpel:sequence>
+                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_4wz2oI0pEeOm_cpIPo0Ddg">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="806848229" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="1533964696-arg0"></mapper:vertice><mapper:vertice id="1533964696" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>"APPROVED"</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:Status</bpel:to><mapper:mapperLink><mapper:vertice id="2116528563" targetPath="$SalesOrder/metrics:Status" targetedBy="960339663-arg0"></mapper:vertice><mapper:vertice id="960339663" dimension="175x25" location="282,193"><mapper:value>"APPROVED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>current-dateTime()</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:ApprovedDate</bpel:to><mapper:mapperLink><mapper:vertice id="587506484" targetPath="$SalesOrder/metrics:ApprovedDate" targetedBy="529599358-arg0"></mapper:vertice><mapper:vertice id="529599358" dimension="175x25" location="413,482"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                    <bpel:scope bpdm:label="Notify approval" bpdm:ID="_22RIMJAsEeOb5MqYwHAi3A">
+                        <bpel:variables>
+                            <bpel:variable name="salesOrderProgressNotification1NotifyResponseMsg" messageType="SalesOrderProgressNotification1:notifyResponse" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="1" bpdm:messageIds="inc:_1p0jNpAsEeOb5MqYwHAi3AIncoming"/>
+                            <bpel:variable name="salesOrderProgressNotification1NotifyRequestMsg" messageType="SalesOrderProgressNotification1:notifyRequest" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="0" bpdm:messageIds=" out:_1p0jNpAsEeOb5MqYwHAi3AOutgoing">
+                                <bpel:from bpdm:toPart="root">
+                                    <bpel:literal bpdm:linkedMessageType="SalesOrderProgressNotification1:notifyRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="notify"></bpel:literal>
+                                </bpel:from>
+                            </bpel:variable>
+                        </bpel:variables>
+                        <bpel:sequence>
+                            <bpdm:messagingtask operation="notify" partnerLink="orderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlkVar" portType="SalesOrderProgressNotification1:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Notify sales rep" bpdm:ID="_1p0jNpAsEeOb5MqYwHAi3A">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>concat("Sales order #", $SalesManagement/demo:SalesOrder/demo:OrderRef, " approved")</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description</bpel:to><mapper:mapperLink><mapper:vertice id="996165372" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description" targetedBy="800163523-arg2"></mapper:vertice><mapper:vertice id="800163523" dimension="175x25" location="501,62"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="1412387945" dimension="175x25" location="277,37" targetedBy="800163523-arg0"><mapper:value>"Sales order #"</mapper:value></mapper:vertice><mapper:vertice id="612831563" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef" targetedBy="800163523-arg1"></mapper:vertice><mapper:vertice id="1850327324" dimension="175x25" location="279,126" targetedBy="800163523-arg3"><mapper:value>" approved"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>""</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="1950119150" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner" targetedBy="951471840-arg0"></mapper:vertice><mapper:vertice id="951471840" dimension="175x25" location="802,102"><mapper:value>""</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner</bpel:to><mapper:mapperLink><mapper:vertice id="1352878270" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner" targetedBy="1592701429-arg0"></mapper:vertice><mapper:vertice id="1592701429" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="1527033418" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef" targetedBy="1357951281-arg0"></mapper:vertice><mapper:vertice id="1357951281" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId</bpel:to><mapper:mapperLink><mapper:vertice id="807869537" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId" targetedBy="1039267782-arg0"></mapper:vertice><mapper:vertice id="1039267782" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName</bpel:to><mapper:mapperLink><mapper:vertice id="1421856747" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName" targetedBy="1881600779-arg0"></mapper:vertice><mapper:vertice id="1881600779" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>"APPROVED"</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status</bpel:to><mapper:mapperLink><mapper:vertice id="881951786" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status" targetedBy="861382403-arg0"></mapper:vertice><mapper:vertice id="861382403" dimension="175x25" location="537,250"><mapper:value>"APPROVED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>current-dateTime()</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate</bpel:to><mapper:mapperLink><mapper:vertice id="1977730333" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate" targetedBy="314422718-arg0"></mapper:vertice><mapper:vertice id="314422718" dimension="175x25" location="559,296"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderProgressNotification1NotifyRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyRequest" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_1p0jNpAsEeOb5MqYwHAi3AOutgoing"></bpdm:linkset>
+                                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderProgressNotification1NotifyResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyResponse" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_1p0jNpAsEeOb5MqYwHAi3AIncoming"></bpdm:linkset>
+                            </bpdm:messagingtask>
+                        </bpel:sequence>
+                    </bpel:scope>
+                    <bpdm:gateway bpdm:label="Parallel_Gateway" bpdm:ID="_0ldogIwhEeO8XZduhURGdg" bpdm:gatewayType="parallel_and" bpdm:isMerge="false">
+                        <bpel:sequence>
+                            <bpdm:gateway bpdm:label="Has office products" bpdm:ID="_3hEeAIwhEeO8XZduhURGdg" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                                <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_5Us-14whEeO8XZduhURGdg" bpdm:targetDisplayName="default"></bpdm:linkset>
+                                <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_61jtkIwhEeO8XZduhURGdg" bpdm:targetDisplayName="Yes">
+                                    <bpel:condition>count($SalesOrderByFamily/demo:Office/demo:Items)&gt; 0<mapper:mapperLink><mapper:vertice id="867599799" targetPath="$condition" targetedBy="1426372918-arg2"></mapper:vertice><mapper:vertice id="1426372918" dimension="175x25" location="407,122"><mapper:value>&gt;</mapper:value></mapper:vertice><mapper:vertice id="1521056644" dimension="175x25" location="171,56" targetedBy="1426372918-arg0"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="1179079784" sourcePath="$SalesOrderByFamily/demo:Office/demo:Items" targetedBy="1521056644-arg0"></mapper:vertice><mapper:vertice id="1594437869" dimension="175x25" location="235,152" targetedBy="1426372918-arg1"><mapper:value>0</mapper:value></mapper:vertice></mapper:mapperLink></bpel:condition>
+                                </bpdm:linkset>
+                                <bpel:sequence></bpel:sequence>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask operation="ProvisionOrder" partnerLink="orderManagementimplicitPartnerAndOrderManagementForPortOfficeProvisioningServiceSOAPPlkVar" portType="off:OfficeProvisioningService" isMyRole="false" enableSharing="false" bpdm:label="Trigger office product provisioning" bpdm:ID="_bJmBYIw9EeOFFbIosSS-2A">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$SalesOrderByFamily/demo:Office</bpel:from>
+                                                <bpel:to>$offProvisionOrderRequestMsg.parameters/demo:OfficeOrder</bpel:to><mapper:mapperLink><mapper:vertice id="1403828259" targetPath="$offProvisionOrderRequestMsg.parameters/demo:OfficeOrder" targetedBy="1029146439-arg0"></mapper:vertice><mapper:vertice id="1029146439" sourcePath="$SalesOrderByFamily/demo:Office"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>ode:get-property-value("office_service_endpoint")</bpel:from>
+                                                <bpel:to endpointReference="partnerRole"/><mapper:mapperLink><mapper:vertice id="564937150" targetPath="$endpoint" targetedBy="1177465958-arg1"></mapper:vertice><mapper:vertice id="1177465958" dimension="139x24" location="448,159"><mapper:value>ode:get-property-value()</mapper:value></mapper:vertice><mapper:vertice id="443234034" dimension="142x24" location="186,178" targetedBy="1177465958-arg0"><mapper:value>"office_service_endpoint"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="offProvisionOrderRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="off:ProvisionOrderRequest" bpdm:binding="off:OfficeProvisioningServiceSOAP" bpdm:ID="_bJmBYIw9EeOFFbIosSS-2AOutgoing"></bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="offProvisionOrderResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="off:ProvisionOrderResponse" bpdm:binding="off:OfficeProvisioningServiceSOAP" bpdm:ID="_bJmBYIw9EeOFFbIosSS-2AIncoming"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask operation="Recieve_office_products_provisioning_results" partnerLink="orderManagementimplicitPartnerAndOrderManagementVar" portType="this:ForOrderManagementimplicitPartner" isMyRole="true" enableSharing="false" bpdm:label="Recieve office products provisioning results" bpdm:ID="_-I2qUIwhEeO8XZduhURGdg">
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisRecieve_office_products_provisioning_resultsRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_office_products_provisioning_resultsRequest" bpdm:ID="_-I2qUIwhEeO8XZduhURGdgIncoming">
+                                            <bpel:correlation set="order-correlation" initiate="join" bpdm:isSource="false"></bpel:correlation>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$ode:pid</bpel:from>
+                                                <bpel:to>$thisRecieve_office_products_provisioning_resultsResponseMsg.body/demo:ProcessInstance</bpel:to><mapper:mapperLink><mapper:vertice id="1636135457" targetPath="$thisRecieve_office_products_provisioning_resultsResponseMsg.body/demo:ProcessInstance" targetedBy="263005689-arg0"></mapper:vertice><mapper:vertice id="263005689" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>current-dateTime()</bpel:from>
+                                                <bpel:to>$thisRecieve_office_products_provisioning_resultsResponseMsg.body/demo:Timestamp</bpel:to><mapper:mapperLink><mapper:vertice id="1884226908" targetPath="$thisRecieve_office_products_provisioning_resultsResponseMsg.body/demo:Timestamp" targetedBy="225400310-arg0"></mapper:vertice><mapper:vertice id="225400310" dimension="175x25" location="336,96"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_office_products_provisioning_resultsResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_office_products_provisioning_resultsResponse" bpdm:ID="_-I2qUIwhEeO8XZduhURGdgOutgoing"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_bJ3KcI0qEeOm_cpIPo0Ddg">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>current-dateTime()</bpel:from>
+                                                <bpel:to>$SalesOrder/metrics:OfficeProvisionedDate</bpel:to><mapper:mapperLink><mapper:vertice id="983673840" targetPath="$SalesOrder/metrics:OfficeProvisionedDate" targetedBy="787437411-arg0"></mapper:vertice><mapper:vertice id="787437411" dimension="175x25" location="274,352"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                                <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="904766371" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="622902525-arg0"></mapper:vertice><mapper:vertice id="622902525" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>"OFFICEPROVISIONED"</bpel:from>
+                                                <bpel:to>$SalesOrder/metrics:Status</bpel:to><mapper:mapperLink><mapper:vertice id="12572479" targetPath="$SalesOrder/metrics:Status" targetedBy="1969933402-arg0"></mapper:vertice><mapper:vertice id="1969933402" dimension="175x25" location="338,195"><mapper:value>"OFFICEPROVISIONED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpel:scope bpdm:label="Notify office products provisioned" bpdm:ID="_gPGRkJAtEeOb5MqYwHAi3A">
+                                        <bpel:variables>
+                                            <bpel:variable name="salesOrderProgressNotification1NotifyResponseMsg" messageType="SalesOrderProgressNotification1:notifyResponse" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="1" bpdm:messageIds="inc:_e8ZTlpAtEeOb5MqYwHAi3AIncoming"/>
+                                            <bpel:variable name="salesOrderProgressNotification1NotifyRequestMsg" messageType="SalesOrderProgressNotification1:notifyRequest" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="0" bpdm:messageIds=" out:_e8ZTlpAtEeOb5MqYwHAi3AOutgoing">
+                                                <bpel:from bpdm:toPart="root">
+                                                    <bpel:literal bpdm:linkedMessageType="SalesOrderProgressNotification1:notifyRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="notify"></bpel:literal>
+                                                </bpel:from>
+                                            </bpel:variable>
+                                        </bpel:variables>
+                                        <bpel:sequence>
+                                            <bpdm:messagingtask operation="notify" partnerLink="orderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlkVar" portType="SalesOrderProgressNotification1:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Nofity sales rep" bpdm:ID="_e8ZTlpAtEeOb5MqYwHAi3A">
+                                                <bpdm:linkset bpdm:type="assignments">
+                                                    <bpel:copy>
+                                                        <bpel:from>concat("Sales order #", $SalesManagement/demo:SalesOrder/demo:OrderRef, " office products provisioned")</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description</bpel:to><mapper:mapperLink><mapper:vertice id="19590300" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description" targetedBy="24909983-arg3"></mapper:vertice><mapper:vertice id="24909983" dimension="175x25" location="434,27"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="17447824" dimension="175x25" location="191,22" targetedBy="24909983-arg0"><mapper:value>"Sales order #"</mapper:value></mapper:vertice><mapper:vertice id="21104790" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef" targetedBy="24909983-arg1"></mapper:vertice><mapper:vertice id="23402378" dimension="175x25" location="202,83" targetedBy="24909983-arg2"><mapper:value>" office products provisioned"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>""</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="8711646" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner" targetedBy="4577194-arg0"></mapper:vertice><mapper:vertice id="4577194" dimension="175x25" location="659,110"><mapper:value>""</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner</bpel:to><mapper:mapperLink><mapper:vertice id="27812821" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner" targetedBy="8733557-arg0"></mapper:vertice><mapper:vertice id="8733557" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="24650666" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef" targetedBy="20060791-arg0"></mapper:vertice><mapper:vertice id="20060791" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId</bpel:to><mapper:mapperLink><mapper:vertice id="19470506" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId" targetedBy="25362503-arg0"></mapper:vertice><mapper:vertice id="25362503" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName</bpel:to><mapper:mapperLink><mapper:vertice id="1475890" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName" targetedBy="24717678-arg0"></mapper:vertice><mapper:vertice id="24717678" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>"OFFICE PRODUCTS PROVISIONED"</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status</bpel:to><mapper:mapperLink><mapper:vertice id="15200356" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status" targetedBy="26465906-arg0"></mapper:vertice><mapper:vertice id="26465906" dimension="175x25" location="630,200"><mapper:value>"OFFICE PRODUCTS PROVISIONED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>current-dateTime()</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate</bpel:to><mapper:mapperLink><mapper:vertice id="4961769" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate" targetedBy="30433494-arg0"></mapper:vertice><mapper:vertice id="30433494" dimension="175x25" location="691,262"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                </bpdm:linkset>
+                                                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderProgressNotification1NotifyRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyRequest" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_e8ZTlpAtEeOb5MqYwHAi3AOutgoing"></bpdm:linkset>
+                                                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderProgressNotification1NotifyResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyResponse" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_e8ZTlpAtEeOb5MqYwHAi3AIncoming"></bpdm:linkset>
+                                            </bpdm:messagingtask>
+                                        </bpel:sequence>
+                                    </bpel:scope>
+                                </bpel:sequence>
+                            </bpdm:gateway>
+                            <bpdm:gateway bpdm:label="Exclusive_Data-Based_Gateway" bpdm:ID="_5UjN0IwhEeO8XZduhURGdg" bpdm:gatewayType="data_xor" bpdm:isMerge="true"></bpdm:gateway>
+                        </bpel:sequence>
+                        <bpel:sequence>
+                            <bpdm:gateway bpdm:label="Has electronics products" bpdm:ID="_CGBqgIwiEeO8XZduhURGdg" bpdm:gatewayType="data_xor" bpdm:isMerge="false">
+                                <bpdm:linkset bpdm:type="case" bpdm:default="true" bpdm:ID="_Ne-Kx40JEeOq0qC6DFI7Cw" bpdm:targetDisplayName="default"></bpdm:linkset>
+                                <bpdm:linkset bpdm:type="case" bpdm:default="false" bpdm:ID="_RnEokI0JEeOq0qC6DFI7Cw" bpdm:targetDisplayName="Yes">
+                                    <bpel:condition>count($SalesOrderByFamily/demo:Electronics/demo:Items)&gt; 0<mapper:mapperLink><mapper:vertice id="628930126" targetPath="$condition" targetedBy="1716609518-arg2"></mapper:vertice><mapper:vertice id="1716609518" dimension="175x25" location="330,113"><mapper:value>&gt;</mapper:value></mapper:vertice><mapper:vertice id="87675948" dimension="175x25" location="97,81" targetedBy="1716609518-arg0"><mapper:value>count()</mapper:value></mapper:vertice><mapper:vertice id="1857784624" sourcePath="$SalesOrderByFamily/demo:Electronics/demo:Items" targetedBy="87675948-arg0"></mapper:vertice><mapper:vertice id="1060644044" dimension="175x25" location="156,177" targetedBy="1716609518-arg1"><mapper:value>0</mapper:value></mapper:vertice></mapper:mapperLink></bpel:condition>
+                                </bpdm:linkset>
+                                <bpel:sequence></bpel:sequence>
+                                <bpel:sequence>
+                                    <bpdm:messagingtask operation="Recieve_provisioning_request" partnerLink="orderManagementimplicitPartnerAndOrderManagementForCanonicPortPlk0Var" portType="ElectronicsProvisioning-Provisioning:ForOrder_management" isMyRole="false" enableSharing="false" bpdm:label="Request electronics provisioning" bpdm:ID="_myrRNpQ8EeOChfACVLXveg">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$SalesOrderByFamily/demo:Electronics</bpel:from>
+                                                <bpel:to>$electronicsProvisioning-ProvisioningRecieve_provisioning_requestMsg.body/demo:ElectronicsOrder</bpel:to><mapper:mapperLink><mapper:vertice id="25055113" targetPath="$electronicsProvisioning-ProvisioningRecieve_provisioning_requestMsg.body/demo:ElectronicsOrder" targetedBy="15739437-arg0"></mapper:vertice><mapper:vertice id="15739437" sourcePath="$SalesOrderByFamily/demo:Electronics"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="electronicsProvisioning-ProvisioningRecieve_provisioning_requestMsg" bpdm:variableIsManaged="true" bpdm:messageType="ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestRequest" bpdm:binding="ElectronicsProvisioning-Provisioning:Order_managementAndProvisioningForCanonicPortPlkServiceBinding" bpdm:ID="_myrRNpQ8EeOChfACVLXvegOutgoing"></bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="electronicsProvisioning-ProvisioningRecieve_provisioning_requestResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="ElectronicsProvisioning-Provisioning:Recieve_provisioning_requestResponse" bpdm:binding="ElectronicsProvisioning-Provisioning:Order_managementAndProvisioningForCanonicPortPlkServiceBinding" bpdm:ID="_myrRNpQ8EeOChfACVLXvegIncoming"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask operation="Recieve_electronics_provisioning_results" partnerLink="orderManagementimplicitPartnerAndOrderManagementVar" portType="this:ForOrderManagementimplicitPartner" isMyRole="true" enableSharing="false" bpdm:label="Recieve electronics provisioning results" bpdm:ID="_TLu5QI0JEeOq0qC6DFI7Cw">
+                                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisRecieve_electronics_provisioning_resultsRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_electronics_provisioning_resultsRequest" bpdm:ID="_TLu5QI0JEeOq0qC6DFI7CwIncoming">
+                                            <bpel:correlation set="order-correlation" initiate="join" bpdm:isSource="false"></bpel:correlation>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>$ode:pid</bpel:from>
+                                                <bpel:to>$thisRecieve_electronics_provisioning_resultsResponseMsg.body/demo:ProcessInstance</bpel:to><mapper:mapperLink><mapper:vertice id="1777512943" targetPath="$thisRecieve_electronics_provisioning_resultsResponseMsg.body/demo:ProcessInstance" targetedBy="387768278-arg0"></mapper:vertice><mapper:vertice id="387768278" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>current-dateTime()</bpel:from>
+                                                <bpel:to>$thisRecieve_electronics_provisioning_resultsResponseMsg.body/demo:Timestamp</bpel:to><mapper:mapperLink><mapper:vertice id="1039069154" targetPath="$thisRecieve_electronics_provisioning_resultsResponseMsg.body/demo:Timestamp" targetedBy="1754606527-arg0"></mapper:vertice><mapper:vertice id="1754606527" dimension="175x25" location="288,115"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_electronics_provisioning_resultsResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_electronics_provisioning_resultsResponse" bpdm:ID="_TLu5QI0JEeOq0qC6DFI7CwOutgoing"></bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpdm:messagingtask eventType="intermediate: empty" bpdm:label="Empty_Intermediate_Event" bpdm:ID="_g8TqMI0qEeOm_cpIPo0Ddg">
+                                        <bpdm:linkset bpdm:type="assignments">
+                                            <bpel:copy>
+                                                <bpel:from>current-dateTime()</bpel:from>
+                                                <bpel:to>$SalesOrder/metrics:ElectronicsProvisionedDate</bpel:to><mapper:mapperLink><mapper:vertice id="338054909" targetPath="$SalesOrder/metrics:ElectronicsProvisionedDate" targetedBy="709789049-arg0"></mapper:vertice><mapper:vertice id="709789049" dimension="175x25" location="309,232"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                                <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="1130996415" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="2089303766-arg0"></mapper:vertice><mapper:vertice id="2089303766" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                            <bpel:copy>
+                                                <bpel:from>"ELECTRONICSPROVISIONED"</bpel:from>
+                                                <bpel:to>$SalesOrder/metrics:Status</bpel:to><mapper:mapperLink><mapper:vertice id="677674626" targetPath="$SalesOrder/metrics:Status" targetedBy="184168583-arg0"></mapper:vertice><mapper:vertice id="184168583" dimension="175x25" location="372,179"><mapper:value>"ELECTRONICSPROVISIONED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                            </bpel:copy>
+                                        </bpdm:linkset>
+                                    </bpdm:messagingtask>
+                                    <bpel:scope bpdm:label="Nofify electronics products provisioned" bpdm:ID="_B24U0JQxEeOKY_BvkoJSPw">
+                                        <bpel:variables>
+                                            <bpel:variable name="salesOrderProgressNotification1NotifyResponseMsg" messageType="SalesOrderProgressNotification1:notifyResponse" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="1" bpdm:messageIds="inc:_BF2ghpQxEeOKY_BvkoJSPwIncoming"/>
+                                            <bpel:variable name="salesOrderProgressNotification1NotifyRequestMsg" messageType="SalesOrderProgressNotification1:notifyRequest" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="0" bpdm:messageIds=" out:_BF2ghpQxEeOKY_BvkoJSPwOutgoing">
+                                                <bpel:from bpdm:toPart="root">
+                                                    <bpel:literal bpdm:linkedMessageType="SalesOrderProgressNotification1:notifyRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="notify"></bpel:literal>
+                                                </bpel:from>
+                                            </bpel:variable>
+                                        </bpel:variables>
+                                        <bpel:sequence>
+                                            <bpdm:messagingtask operation="notify" partnerLink="orderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlkVar" portType="SalesOrderProgressNotification1:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Notify sales rep" bpdm:ID="_BF2ghpQxEeOKY_BvkoJSPw">
+                                                <bpdm:linkset bpdm:type="assignments">
+                                                    <bpel:copy>
+                                                        <bpel:from>concat("Sales order #", $SalesManagement/demo:SalesOrder/demo:OrderRef, " electronics products provisioned")</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description</bpel:to><mapper:mapperLink><mapper:vertice id="5416667" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description" targetedBy="19368460-arg3"></mapper:vertice><mapper:vertice id="19368460" dimension="175x25" location="337,46"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="25248560" dimension="175x25" location="124,21" targetedBy="19368460-arg0"><mapper:value>"Sales order #"</mapper:value></mapper:vertice><mapper:vertice id="31113942" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef" targetedBy="19368460-arg1"></mapper:vertice><mapper:vertice id="21274220" dimension="175x25" location="133,111" targetedBy="19368460-arg2"><mapper:value>" electronics products provisioned"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>""</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="23892935" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner" targetedBy="28744467-arg0"></mapper:vertice><mapper:vertice id="28744467" dimension="175x25" location="720,96"><mapper:value>""</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner</bpel:to><mapper:mapperLink><mapper:vertice id="22209921" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner" targetedBy="9082457-arg0"></mapper:vertice><mapper:vertice id="9082457" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="13230084" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef" targetedBy="26751022-arg0"></mapper:vertice><mapper:vertice id="26751022" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId</bpel:to><mapper:mapperLink><mapper:vertice id="15424284" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId" targetedBy="14104886-arg0"></mapper:vertice><mapper:vertice id="14104886" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName</bpel:to><mapper:mapperLink><mapper:vertice id="23503693" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName" targetedBy="7381607-arg0"></mapper:vertice><mapper:vertice id="7381607" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName"></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>"ELECTRONICS PRODUCTS PROVISIONED"</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status</bpel:to><mapper:mapperLink><mapper:vertice id="32269795" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status" targetedBy="24343144-arg0"></mapper:vertice><mapper:vertice id="24343144" dimension="175x25" location="596,214"><mapper:value>"ELECTRONICS PRODUCTS PROVISIONED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                        <bpel:from>current-dateTime()</bpel:from>
+                                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate</bpel:to><mapper:mapperLink><mapper:vertice id="27573264" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate" targetedBy="31469284-arg0"></mapper:vertice><mapper:vertice id="31469284" dimension="175x25" location="620,277"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                                    </bpel:copy>
+                                                </bpdm:linkset>
+                                                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderProgressNotification1NotifyRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyRequest" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_BF2ghpQxEeOKY_BvkoJSPwOutgoing"></bpdm:linkset>
+                                                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderProgressNotification1NotifyResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyResponse" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_BF2ghpQxEeOKY_BvkoJSPwIncoming"></bpdm:linkset>
+                                            </bpdm:messagingtask>
+                                        </bpel:sequence>
+                                    </bpel:scope>
+                                </bpel:sequence>
+                            </bpdm:gateway>
+                            <bpdm:gateway bpdm:label="Exclusive_Data-Based_Gateway" bpdm:ID="_Nehe0I0JEeOq0qC6DFI7Cw" bpdm:gatewayType="data_xor" bpdm:isMerge="true"></bpdm:gateway>
+                        </bpel:sequence>
+                    </bpdm:gateway>
+                    <bpel:scope bpdm:label="Notify order delivered" bpdm:ID="_SnVk0JQyEeOKY_BvkoJSPw">
+                        <bpel:variables>
+                            <bpel:variable name="salesOrderProgressNotification1NotifyResponseMsg" messageType="SalesOrderProgressNotification1:notifyResponse" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="1" bpdm:messageIds="inc:_P6CRFpQyEeOKY_BvkoJSPwIncoming"/>
+                            <bpel:variable name="salesOrderProgressNotification1NotifyRequestMsg" messageType="SalesOrderProgressNotification1:notifyRequest" binding="SalesOrderProgressNotification1:WorkflowSoapBinding" operation="notify" opMsgType="0" bpdm:messageIds=" out:_P6CRFpQyEeOKY_BvkoJSPwOutgoing">
+                                <bpel:from bpdm:toPart="root">
+                                    <bpel:literal bpdm:linkedMessageType="SalesOrderProgressNotification1:notifyRequest" bpdm:linkedPart="root" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:opMsgType="0" bpdm:operation="notify"></bpel:literal>
+                                </bpel:from>
+                            </bpel:variable>
+                        </bpel:variables>
+                        <bpel:sequence>
+                            <bpdm:messagingtask operation="notify" partnerLink="orderManagementimplicitPartnerAndOrderManagementForSalesOrderProgressNotificationPortPlkVar" portType="SalesOrderProgressNotification1:Workflow" isMyRole="false" enableSharing="false" bpdm:label="Notify sales rep" bpdm:ID="_P6CRFpQyEeOKY_BvkoJSPw">
+                                <bpdm:linkset bpdm:type="assignments">
+                                    <bpel:copy>
+                                        <bpel:from>concat("Sales order #", $SalesManagement/demo:SalesOrder/demo:OrderRef, " delivered")</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description</bpel:to><mapper:mapperLink><mapper:vertice id="20668853" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:description" targetedBy="17584455-arg3"></mapper:vertice><mapper:vertice id="17584455" dimension="175x25" location="350,55"><mapper:value>concat()</mapper:value></mapper:vertice><mapper:vertice id="24410060" dimension="175x25" location="127,22" targetedBy="17584455-arg0"><mapper:value>"Sales order #"</mapper:value></mapper:vertice><mapper:vertice id="27448561" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef" targetedBy="17584455-arg1"></mapper:vertice><mapper:vertice id="29832829" dimension="175x25" location="108,108" targetedBy="17584455-arg2"><mapper:value>" delivered"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>""</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner</bpel:to><mapper:mapperLink><mapper:vertice id="21036193" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:roleOwner" targetedBy="28766836-arg0"></mapper:vertice><mapper:vertice id="28766836" dimension="175x25" location="752,120"><mapper:value>""</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesRep</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner</bpel:to><mapper:mapperLink><mapper:vertice id="15036388" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:metadata/SalesOrderProgressNotification1:userOwner" targetedBy="19215059-arg0"></mapper:vertice><mapper:vertice id="19215059" sourcePath="$SalesManagement/demo:SalesRep"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="26177429" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:SalesOrderRef" targetedBy="7296996-arg0"></mapper:vertice><mapper:vertice id="7296996" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId</bpel:to><mapper:mapperLink><mapper:vertice id="784317" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientId" targetedBy="14034708-arg0"></mapper:vertice><mapper:vertice id="14034708" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientId"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName</bpel:to><mapper:mapperLink><mapper:vertice id="24050464" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:ClientName" targetedBy="28798860-arg0"></mapper:vertice><mapper:vertice id="28798860" sourcePath="$SalesManagement/demo:SalesOrder/demo:Client/demo:ClientName"></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>"DELIVERED"</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status</bpel:to><mapper:mapperLink><mapper:vertice id="9489812" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:Status" targetedBy="1370487-arg0"></mapper:vertice><mapper:vertice id="1370487" dimension="175x25" location="521,271"><mapper:value>"DELIVERED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                    <bpel:copy>
+                                        <bpel:from>current-dateTime()</bpel:from>
+                                        <bpel:to>$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate</bpel:to><mapper:mapperLink><mapper:vertice id="15681132" targetPath="$salesOrderProgressNotification1NotifyRequestMsg.root/SalesOrderProgressNotification1:input/demo:SalesOrderProgress/demo:LastUpdate" targetedBy="32308955-arg0"></mapper:vertice><mapper:vertice id="32308955" dimension="175x25" location="677,312"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                                    </bpel:copy>
+                                </bpdm:linkset>
+                                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="salesOrderProgressNotification1NotifyRequestMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyRequest" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_P6CRFpQyEeOKY_BvkoJSPwOutgoing"></bpdm:linkset>
+                                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="salesOrderProgressNotification1NotifyResponseMsg" bpdm:variableIsManaged="true" bpdm:messageType="SalesOrderProgressNotification1:notifyResponse" bpdm:binding="SalesOrderProgressNotification1:WorkflowSoapBinding" bpdm:ID="_P6CRFpQyEeOKY_BvkoJSPwIncoming"></bpdm:linkset>
+                            </bpdm:messagingtask>
+                        </bpel:sequence>
+                    </bpel:scope>
+                    <bpdm:messagingtask eventType="end: empty" bpdm:label="Empty_End_Event" bpdm:ID="_kM0bsI0JEeOq0qC6DFI7Cw">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$SalesManagement/demo:SalesOrder/demo:OrderRef</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:SalesOrderRef</bpel:to><mapper:mapperLink><mapper:vertice id="1076525131" targetPath="$SalesOrder/metrics:SalesOrderRef" targetedBy="1281211549-arg0"></mapper:vertice><mapper:vertice id="1281211549" sourcePath="$SalesManagement/demo:SalesOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>current-dateTime()</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:DeliveredDate</bpel:to><mapper:mapperLink><mapper:vertice id="830859525" targetPath="$SalesOrder/metrics:DeliveredDate" targetedBy="854128794-arg0"></mapper:vertice><mapper:vertice id="854128794" dimension="175x25" location="406,218"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                            <bpel:copy>
+                                <bpel:from>"DELIVERED"</bpel:from>
+                                <bpel:to>$SalesOrder/metrics:Status</bpel:to><mapper:mapperLink><mapper:vertice id="181160361" targetPath="$SalesOrder/metrics:Status" targetedBy="1246379529-arg0"></mapper:vertice><mapper:vertice id="1246379529" dimension="175x25" location="393,130"><mapper:value>"DELIVERED"</mapper:value></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                </bpel:sequence>
+            </bpdm:gateway>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

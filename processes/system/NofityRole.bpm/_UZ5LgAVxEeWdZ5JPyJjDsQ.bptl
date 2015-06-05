@@ -1,0 +1,16 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<bpt:template xmlns:bpt="http://www.intalio/designer/business-process-data-modeling/template" ID="_UZ5LgAVxEeWdZ5JPyJjDsQ" displayName="NotifyRole" ownerPoolId="_iEl9wAVtEeWdZ5JPyJjDsQ" ownerPoolNcName="client" ownerPoolIsExecutable="false" version="6000089">
+    <bpt:partnerPool ID="_hBYnYIrNEeOCjYSbtlPtMA" ncName="Notify" isExecutable="true"/>
+    <bpt:container displayName="sequence" containerType="sequence">
+        <bpt:activity ID="_jzcsQAVtEeWdZ5JPyJjDsQ" displayName="Send request" activityType="Task" messaging="invokerequestresponsebound">
+            <bpt:generatedOperation providingPoolId="_hBYnYIrNEeOCjYSbtlPtMA" generatedPartnerLinkTypeLocalName="clientAndNotify" generatedService="CanonicServiceForclient" generatedOperation="Recieve_request" generatedPort="canonicPort">
+                <bpt:input name="Recieve_request" generatedMessageTypeLocalName="Recieve_requestRequest">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}NotificationType" generatedElementLocalName="Recieve_requestRequest"/>
+                </bpt:input>
+                <bpt:output name="Recieve_requestResponse" generatedMessageTypeLocalName="Recieve_requestResponse">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}AcknowledgeType" generatedElementLocalName="Recieve_requestResponse"/>
+                </bpt:output>
+            </bpt:generatedOperation>
+        </bpt:activity>
+    </bpt:container>
+</bpt:template>

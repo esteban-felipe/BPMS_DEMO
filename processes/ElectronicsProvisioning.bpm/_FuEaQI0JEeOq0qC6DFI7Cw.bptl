@@ -1,0 +1,16 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<bpt:template xmlns:bpt="http://www.intalio/designer/business-process-data-modeling/template" ID="_FuEaQI0JEeOq0qC6DFI7Cw" displayName="ElectronicsTemplate" ownerPoolId="_3vGlAI0IEeOq0qC6DFI7Cw" ownerPoolNcName="Order_management" ownerPoolIsExecutable="false" version="6000089">
+    <bpt:partnerPool ID="_2UqAQI0IEeOq0qC6DFI7Cw" ncName="Provisioning" isExecutable="true"/>
+    <bpt:container displayName="sequence" containerType="sequence">
+        <bpt:activity ID="_46jrgI0IEeOq0qC6DFI7Cw" displayName="Request electronics provisioning" activityType="Task" messaging="invokerequestresponsebound">
+            <bpt:generatedOperation providingPoolId="_2UqAQI0IEeOq0qC6DFI7Cw" generatedPartnerLinkTypeLocalName="Order_managementAndProvisioningForCanonicPortPlk" generatedService="CanonicServiceForOrder_management" generatedOperation="Recieve_provisioning_request" generatedPort="canonicPort">
+                <bpt:input name="Recieve_provisioning_request" generatedMessageTypeLocalName="Recieve_provisioning_requestRequest">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}ElectronicsRequestType" generatedElementLocalName="Recieve_provisioning_requestRequest"/>
+                </bpt:input>
+                <bpt:output name="Recieve_provisioning_requestResponse" generatedMessageTypeLocalName="Recieve_provisioning_requestResponse">
+                    <bpt:part name="body" attachedSchemaObject="project:///schemas/bpms_demo_base_types.xsd?xsdtype={http://demo.intalio.com/base_types}AcknowledgeType" generatedElementLocalName="Recieve_provisioning_requestResponse"/>
+                </bpt:output>
+            </bpt:generatedOperation>
+        </bpt:activity>
+    </bpt:container>
+</bpt:template>

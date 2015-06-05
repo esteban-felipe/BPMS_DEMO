@@ -1,0 +1,212 @@
+<serialization xmlns="urn:tibco.com/v3.0" jsxversion="3.9">
+  <name/>
+  <icon/>
+  <description/>
+  <onBeforeDeserialize/>
+  <onAfterDeserialize/>
+  <object type="jsx3.gui.Block">
+    <variants jsxoverflow="1"/>
+    <strings jsxheight="100%" jsxwidth="100%" jsxname="root"/>
+    <object type="jsx3.gui.Block">
+      <variants/>
+      <strings jsxwidth="100%" jsxpadding="5 10 0 10" jsxname="header" jsxrelativeposition="1"/>
+      <object type="jsx3.gui.Block">
+        <variants jsxrelativeposition="1"/>
+        <strings jsxwidth="100%" jsxname="form-title" jsxclassname="form-title" jsxtext="Update sales order"/>
+      </object>
+      <object type="jsx3.gui.Block">
+        <variants jsxrelativeposition="1"/>
+        <strings jsxwidth="100%" jsxname="required-note" jsxtext="&lt;strong&gt;Note:&lt;/strong&gt; Required fields are marked with an asterisk (&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;)."/>
+      </object>
+    </object>
+    <object type="com.intalio.ria.Section">
+      <variants/>
+      <strings riaTitleText="SalesOrder" jsxname="SalesOrder" jsxclassname="fieldset"/>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Reviewer manager" jsxname="ReviewManager-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="ReviewManager" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Order reference" jsxname="OrderRef-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="OrderRef" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Order date" jsxname="OrderDate-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="OrderDate" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Client ID" jsxname="ClientId-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="ClientId" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Client name" jsxname="ClientName-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="ClientName" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Contact" jsxname="ContactName-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="ContactName" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Contact phone" jsxname="ContactPhone-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="ContactPhone" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Contact email" jsxname="ContactEmail-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="ContactEmail" jsxtext="[text output]"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Order items" jsxname="Items-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxheight="250" jsxwidth="1000" jsxoverflow="1"/>
+          <strings jsxname="matrix-block" jsxrelativeposition="1"/>
+          <object type="jsx3.gui.Matrix">
+            <variants jsxautorow="1" jsxselectionmodel="0" jsxpagingmodel="1" jsxjsxxmlasync="1"/>
+            <strings jsxheaderborder="1px solid #dfdfef" jsxbodyborder="1px solid #dfdfef" jsxxmlid="Items-nomap" jsxname="Items" jsxbgcolor="#efefff"/>
+            <events jsxaftercommit="var _ancestor = this.getParent().getParent(); if(_ancestor.isType('com.intalio.ria.Field')){_ancestor.validate(this, objEVENT);}"/>
+            <xslparameters jsx_rowbg2="#efefff" jsx_rowbg1="#ffffff"/>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants jsxwidth="50"/>
+              <strings jsxcellpadding="1" jsxtextalign="center" jsxpadding="2" jsxcelltextalign="center" jsxname="deleteButtonColumn" jsxvaluetemplate="@empty" jsxtext="Delete"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.ImageButton">
+                <variants jsxstate="0" jsxenabled="1" jsxheight="16" jsxwidth="16" jsxprefetch="1" jsxtype="0"/>
+                <strings jsximage="jsx:///images/list/delete.gif" jsxname="deleteButtonMask"/>
+                <events jsxexecute="var _recordId = this.emGetSession().recordId; var _deletedNode = this.getParent().getParent().deleteRecord(this.emGetSession().recordId, true);if(_deletedNode){this.getParent().getParent().doEvent('recordDeleted',{objNode:_deletedNode,strRECORDID:_recordId});}; var _ancestor = this.getParent().getParent().getParent().getParent(); if(_ancestor.isType('com.intalio.ria.Field')){_ancestor.validate(this, objEVENT);}"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ItemRef" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="ItemRef" jsxtext="ItemRef"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="ItemRef" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ProductId" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="ProductId" jsxtext="ProductId"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="ProductId" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ProductFamily" jsxcellpadding="3 0 0 4" jsxwidth="100" jsxpadding="2" jsxformathandler="@lookup" jsxname="ProductFamily" jsxvaluetemplate="@empty" jsxtext="ProductFamily"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.Select">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxxml="&lt;data jsxid=&quot;jsxroot&quot;&gt; &lt;record jsxid=&quot;Electronics&quot; jsxtext=&quot;Electronics&quot; jsxtip=&quot;Electronics&quot;/&gt; &lt;record jsxid=&quot;Furniture&quot; jsxtext=&quot;Furniture&quot; jsxtip=&quot;Furniture&quot;/&gt; &lt;record jsxid=&quot;Office&quot; jsxtext=&quot;Office&quot; jsxtip=&quot;Office&quot;/&gt;&lt;/data&gt;" jsxname="ProductFamily" jsxdisplay="none"/>
+                <events jsxselect="com.intalio.ria.validate(this, objEVENT);"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ProductName" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="ProductName" jsxtext="ProductName"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="ProductName" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ProductPrice" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="ProductPrice" jsxtext="ProductPrice"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="ProductPrice" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="Quantity" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="Quantity" jsxtext="Quantity"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="Quantity" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ItemDiscount" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="ItemDiscount" jsxtext="ItemDiscount"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="ItemDiscount" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+            <object type="jsx3.gui.Matrix.Column">
+              <variants/>
+              <strings jsxpath="ItemPrice" jsxcellpadding="3" jsxwidth="100" jsxpadding="2" jsxname="ItemPrice" jsxtext="ItemPrice"/>
+              <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
+              <object type="jsx3.gui.TextBox">
+                <variants jsxrelativeposition="0" jsxleft="0" jsxtop="0"/>
+                <strings jsxname="ItemPrice" jsxdisplay="none"/>
+                <events jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);" jsxkeydown="1;"/>
+              </object>
+            </object>
+          </object>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Global Discount" jsxname="GlobalDiscount-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.TextBox">
+          <variants/>
+          <strings jsxpadding="2 2 0 0" jsxname="GlobalDiscount" jsxmargin="0 4 0 0" jsxvalue=""/>
+          <events jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);"/>
+        </object>
+      </object>
+      <object type="com.intalio.ria.Field">
+        <variants/>
+        <strings riaLabelText="Total price" jsxname="TotalPrice-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
+        <object type="jsx3.gui.Block">
+          <variants jsxrelativeposition="1" jsxoverflow="3"/>
+          <strings jsxname="TotalPrice" jsxtext="[text output]"/>
+        </object>
+      </object>
+    </object>
+  </object>
+</serialization>

@@ -1,0 +1,343 @@
+<?xml version="1.0"?><data jsxid="jsxroot" jsxnamespace="jsx3.ide.mapper.Mapper" jsxversion="1.0">
+  <record jsxid="mi_1" jxstext="Operation (Transaction)" type="T" jsxopen="1" opname="jsxtransaction">
+    <headers jsxid="mi_2">
+      <record jsxid="mi_3" name="Content-Type" value="text/xml"/>
+    </headers>
+    <record jsxid="mi_4" jsxtext="Input (request)" type="I" jsxopen="1" src="../../schemas/bpms_demo_base_types.xsd">
+      <record jsxid="mi_5" jsxtext="SalesOrderMod" type="C" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='SalesOrderMod']" datatype="" tns="http://demo.intalio.com/base_types" jsxopen="1">
+        <record jsxid="mi_6" jsxtext="SalesOrder" type="C" datatype="" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='SalesOrder']" jsxopen="1">
+          <restrictions>
+            <record jsxid="mi_7" name="nillable" value="true"/>
+          </restrictions>
+          <record jsxid="mi_8" jsxtext="OrderRef" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='OrderRef']">
+            <restrictions>
+              <record jsxid="mi_9" name="nillable" value="true"/>
+            </restrictions>
+            <mappings jsxid="mi_10">
+              <record jsxid="mi_11" name="DOM" value="OrderRef"/>
+            </mappings>
+          </record>
+          <record jsxid="mi_12" jsxtext="OrderDate" type="E" datatype="date" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='OrderDate']" jsxSelectMask="Script">
+            <restrictions>
+              <record jsxid="mi_13" name="nillable" value="true"/>
+            </restrictions>
+            <mappings jsxid="mi_14">
+              
+            <record jsxid="x8227" name="DOM" value="OrderDate"/></mappings>
+          </record>
+          <record jsxid="mi_16" jsxtext="Client" type="C" datatype="" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='Client']">
+            <restrictions>
+              <record jsxid="mi_17" name="nillable" value="true"/>
+            </restrictions>
+            <record jsxid="mi_18" jsxtext="ClientId" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ClientId']">
+              <restrictions>
+                <record jsxid="mi_19" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_20">
+                <record jsxid="mi_21" name="DOM" value="ClientId"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_22" jsxtext="ClientName" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ClientName']">
+              <restrictions>
+                <record jsxid="mi_23" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_24">
+                <record jsxid="mi_25" name="DOM" value="ClientName"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_26" jsxtext="ContactName" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ContactName']">
+              <restrictions>
+                <record jsxid="mi_27" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_28">
+                <record jsxid="mi_29" name="DOM" value="ContactName"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_30" jsxtext="ContactPhone" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ContactPhone']">
+              <restrictions>
+                <record jsxid="mi_31" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_32">
+                <record jsxid="mi_33" name="DOM" value="ContactPhone"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_34" jsxtext="ContactEmail" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ContactEmail']">
+              <restrictions>
+                <record jsxid="mi_35" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_36">
+                <record jsxid="mi_37" name="DOM" value="ContactEmail"/>
+              </mappings>
+            </record>
+          </record>
+          <record jsxid="mi_38" jsxtext="Items" type="C" datatype="" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='Items']">
+            <restrictions>
+              <record jsxid="mi_39" name="maxoccur" value="unbounded"/>
+              <record jsxid="mi_40" name="nillable" value="true"/>
+            </restrictions>
+            <record jsxid="mi_41" jsxtext="ItemRef" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ItemRef']">
+              <restrictions>
+                <record jsxid="mi_42" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_43">
+                <record jsxid="mi_44" name="CDF Attribute" value="ItemRef"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_45" jsxtext="ProductId" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductId']">
+              <restrictions>
+                <record jsxid="mi_46" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_47">
+                <record jsxid="mi_48" name="CDF Attribute" value="ProductId"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_49" jsxtext="ProductFamily" type="E" datatype="ProductFamilyType" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductFamily']">
+              <restrictions>
+                <record jsxid="mi_50" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_51">
+                <record jsxid="mi_52" name="CDF Attribute" value="ProductFamily"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_53" jsxtext="ProductName" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductName']">
+              <restrictions>
+                <record jsxid="mi_54" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_55">
+                <record jsxid="mi_56" name="CDF Attribute" value="ProductName"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_57" jsxtext="ProductPrice" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductPrice']">
+              <restrictions>
+                <record jsxid="mi_58" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_59">
+                <record jsxid="mi_60" name="CDF Attribute" value="ProductPrice"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_61" jsxtext="Quantity" type="E" datatype="int" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='Quantity']">
+              <restrictions>
+                <record jsxid="mi_62" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_63">
+                <record jsxid="mi_64" name="CDF Attribute" value="Quantity"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_65" jsxtext="ItemDiscount" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ItemDiscount']">
+              <restrictions>
+                <record jsxid="mi_66" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_67">
+                <record jsxid="mi_68" name="CDF Attribute" value="ItemDiscount"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_69" jsxtext="ItemPrice" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ItemPrice']">
+              <restrictions>
+                <record jsxid="mi_70" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_71">
+                <record jsxid="mi_72" name="CDF Attribute" value="ItemPrice"/>
+              </mappings>
+            </record>
+            <mappings jsxid="mi_73">
+              <record jsxid="mi_74" name="Script" value="if(typeof(this._i_74)=='undefined'){this._i_74=-1;my.getCDFDocument('Items-nomap','OUTBOUND');}"/>
+              <record jsxid="mi_75" name="CDF Record"/>
+            </mappings>
+          </record>
+          <record jsxid="mi_76" jsxtext="GlobalDiscount" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='GlobalDiscount']">
+            <restrictions>
+              <record jsxid="mi_77" name="minoccur" value="0"/>
+            </restrictions>
+            <mappings jsxid="mi_78">
+              <record jsxid="mi_79" name="DOM" value="GlobalDiscount"/>
+            </mappings>
+          </record>
+          <record jsxid="mi_80" jsxtext="TotalPrice" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='TotalPrice']">
+            <restrictions>
+              <record jsxid="mi_81" name="nillable" value="true"/>
+            </restrictions>
+            <mappings jsxid="mi_82">
+              <record jsxid="mi_83" name="DOM" value="TotalPrice"/>
+            </mappings>
+          </record>
+        </record>
+        <record jsxid="mi_84" jsxtext="ReviewManager" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ReviewManager']">
+          <restrictions>
+            <record jsxid="mi_85" name="nillable" value="true"/>
+          </restrictions>
+          <mappings jsxid="mi_86">
+            <record jsxid="mi_87" name="DOM" value="ReviewManager"/>
+          </mappings>
+        </record>
+      </record>
+    </record>
+    <record jsxid="mi_88" jsxtext="Output (response)" type="O" jsxopen="1" src="../../schemas/bpms_demo_base_types.xsd">
+      <record jsxid="mi_89" jsxtext="SalesOrderMod" type="C" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='SalesOrderMod']" datatype="" tns="http://demo.intalio.com/base_types" jsxopen="1">
+        <record jsxid="mi_90" jsxtext="SalesOrder" type="C" datatype="" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='SalesOrder']" jsxopen="1">
+          <restrictions>
+            <record jsxid="mi_91" name="nillable" value="true"/>
+          </restrictions>
+          <record jsxid="mi_92" jsxtext="OrderRef" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='OrderRef']">
+            <restrictions>
+              <record jsxid="mi_93" name="nillable" value="true"/>
+            </restrictions>
+            <mappings jsxid="mi_94">
+              <record jsxid="mi_95" name="DOM" value="OrderRef"/>
+            </mappings>
+          </record>
+          <record jsxid="mi_96" jsxtext="OrderDate" type="E" datatype="date" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='OrderDate']" jsxselected="1" jsxSelectMask="Script">
+            <restrictions>
+              <record jsxid="mi_97" name="nillable" value="true"/>
+            </restrictions>
+            <mappings jsxid="mi_98">
+              
+            <record jsxid="x73961" name="DOM" value="OrderDate"/></mappings>
+          </record>
+          <record jsxid="mi_100" jsxtext="Client" type="C" datatype="" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='Client']">
+            <restrictions>
+              <record jsxid="mi_101" name="nillable" value="true"/>
+            </restrictions>
+            <record jsxid="mi_102" jsxtext="ClientId" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ClientId']">
+              <restrictions>
+                <record jsxid="mi_103" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_104">
+                <record jsxid="mi_105" name="DOM" value="ClientId"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_106" jsxtext="ClientName" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ClientName']">
+              <restrictions>
+                <record jsxid="mi_107" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_108">
+                <record jsxid="mi_109" name="DOM" value="ClientName"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_110" jsxtext="ContactName" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ContactName']">
+              <restrictions>
+                <record jsxid="mi_111" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_112">
+                <record jsxid="mi_113" name="DOM" value="ContactName"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_114" jsxtext="ContactPhone" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ContactPhone']">
+              <restrictions>
+                <record jsxid="mi_115" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_116">
+                <record jsxid="mi_117" name="DOM" value="ContactPhone"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_118" jsxtext="ContactEmail" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ContactEmail']">
+              <restrictions>
+                <record jsxid="mi_119" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_120">
+                <record jsxid="mi_121" name="DOM" value="ContactEmail"/>
+              </mappings>
+            </record>
+          </record>
+          <record jsxid="mi_122" jsxtext="Items" type="C" datatype="" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='Items']">
+            <restrictions>
+              <record jsxid="mi_123" name="maxoccur" value="unbounded"/>
+              <record jsxid="mi_124" name="nillable" value="true"/>
+            </restrictions>
+            <record jsxid="mi_125" jsxtext="ItemRef" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ItemRef']">
+              <restrictions>
+                <record jsxid="mi_126" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_127">
+                <record jsxid="mi_128" name="CDF Attribute" value="ItemRef"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_129" jsxtext="ProductId" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductId']">
+              <restrictions>
+                <record jsxid="mi_130" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_131">
+                <record jsxid="mi_132" name="CDF Attribute" value="ProductId"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_133" jsxtext="ProductFamily" type="E" datatype="ProductFamilyType" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductFamily']">
+              <restrictions>
+                <record jsxid="mi_134" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_135">
+                <record jsxid="mi_136" name="CDF Attribute" value="ProductFamily"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_137" jsxtext="ProductName" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductName']">
+              <restrictions>
+                <record jsxid="mi_138" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_139">
+                <record jsxid="mi_140" name="CDF Attribute" value="ProductName"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_141" jsxtext="ProductPrice" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ProductPrice']">
+              <restrictions>
+                <record jsxid="mi_142" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_143">
+                <record jsxid="mi_144" name="CDF Attribute" value="ProductPrice"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_145" jsxtext="Quantity" type="E" datatype="int" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='Quantity']">
+              <restrictions>
+                <record jsxid="mi_146" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_147">
+                <record jsxid="mi_148" name="CDF Attribute" value="Quantity"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_149" jsxtext="ItemDiscount" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ItemDiscount']">
+              <restrictions>
+                <record jsxid="mi_150" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_151">
+                <record jsxid="mi_152" name="CDF Attribute" value="ItemDiscount"/>
+              </mappings>
+            </record>
+            <record jsxid="mi_153" jsxtext="ItemPrice" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ItemPrice']">
+              <restrictions>
+                <record jsxid="mi_154" name="nillable" value="true"/>
+              </restrictions>
+              <mappings jsxid="mi_155">
+                <record jsxid="mi_156" name="CDF Attribute" value="ItemPrice"/>
+              </mappings>
+            </record>
+            <mappings jsxid="mi_157">
+              <record jsxid="mi_158" name="Script" value="if(typeof(this._i_158)=='undefined'){this._i_158=-1;my.getCDFDocument('Items-nomap','INBOUND');}"/>
+              <record jsxid="mi_159" name="CDF Record"/>
+            </mappings>
+          </record>
+          <record jsxid="mi_160" jsxtext="GlobalDiscount" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='GlobalDiscount']">
+            <restrictions>
+              <record jsxid="mi_161" name="minoccur" value="0"/>
+            </restrictions>
+            <mappings jsxid="mi_162">
+              <record jsxid="mi_163" name="DOM" value="GlobalDiscount"/>
+            </mappings>
+          </record>
+          <record jsxid="mi_164" jsxtext="TotalPrice" type="E" datatype="double" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='TotalPrice']">
+            <restrictions>
+              <record jsxid="mi_165" name="nillable" value="true"/>
+            </restrictions>
+            <mappings jsxid="mi_166">
+              <record jsxid="mi_167" name="DOM" value="TotalPrice"/>
+            </mappings>
+          </record>
+        </record>
+        <record jsxid="mi_168" jsxtext="ReviewManager" type="E" datatype="string" tns="http://demo.intalio.com/base_types" path="//jsx1:schema[@targetNamespace='http://demo.intalio.com/base_types']//jsx1:element[@name='ReviewManager']">
+          <restrictions>
+            <record jsxid="mi_169" name="nillable" value="true"/>
+          </restrictions>
+          <mappings jsxid="mi_170">
+            <record jsxid="mi_171" name="DOM" value="ReviewManager"/>
+          </mappings>
+        </record>
+      </record>
+    </record>
+  </record>
+</data>

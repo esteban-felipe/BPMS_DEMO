@@ -1,0 +1,103 @@
+﻿<bpel:process xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:mapper="http://www.intalio.com/designer/mapper" xmlns:this="http://thisdiagram/Provisioning" xmlns:OrderManagement-OrderManagement="http://demo.intalio.com/processes/OrderManagement/OrderManagement" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Order_management="http://thisdiagram/Order_management" xmlns:demo="http://demo.intalio.com/base_types" xmlns:diag="http://thisdiagram" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ode="http://www.apache.org/ode/type/extension" targetNamespace="http://thisdiagram/Provisioning">
+    <bpdm:dependencies version="6000089">
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Provisioning" bpdm:prefix="this" bpdm:type="this_process"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/processes/OrderManagement/OrderManagement" bpdm:prefix="OrderManagement-OrderManagement" bpdm:comment="contrib=&apos;project:///services/OrderManagement-OrderManagement.wsdl"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema" bpdm:prefix="xs"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/2001/XMLSchema-instance" bpdm:prefix="xsi"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram/Order_management" bpdm:prefix="Order_management" bpdm:comment="contrib=&apos;partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://demo.intalio.com/base_types" bpdm:prefix="demo" bpdm:comment="contrib=&apos;project:///schemas/bpms_demo_base_types.xsd"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://thisdiagram" bpdm:prefix="diag" bpdm:comment="contrib=&apos;partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw"></bpdm:namespaceDefinition>
+        <bpdm:namespaceDefinition bpdm:uri="http://www.w3.org/XML/1998/namespace" bpdm:prefix="xml"></bpdm:namespaceDefinition>
+        <bpdm:namespaceContributor bpdm:url="thisprocess://this-process-types" bpdm:label="process defined this-process-types">
+            <wsdl:portType name="ForOrder_management">
+                <wsdl:operation name="Recieve_provisioning_request" bpdm:source="partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw">
+                    <wsdl:input message="this:Recieve_provisioning_requestRequest" name="Recieve_provisioning_request"/>
+                    <wsdl:output message="this:Recieve_provisioning_requestResponse" name="Recieve_provisioning_requestResponse"/>
+                </wsdl:operation>
+            </wsdl:portType>
+            <bpel:binding name="CanonicBindingForOrder_management" type="this:ForOrder_management" bpdm:isSynchronized="true"/>
+            <xs:element name="Recieve_provisioning_requestRequest" type="demo:ElectronicsRequestType" bpdm:source="partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw"/>
+            <wsdl:message name="Recieve_provisioning_requestRequest" bpdm:source="partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw">
+                <wsdl:part name="body" element="this:Recieve_provisioning_requestRequest"/>
+            </wsdl:message>
+            <xs:element name="Recieve_provisioning_requestResponse" type="demo:AcknowledgeType" bpdm:source="partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw"/>
+            <wsdl:message name="Recieve_provisioning_requestResponse" bpdm:source="partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw">
+                <wsdl:part name="body" element="this:Recieve_provisioning_requestResponse"/>
+            </wsdl:message>
+        </bpdm:namespaceContributor>
+        <bpdm:namespaceContributor bpdm:url="partner-pool:///_3vGlAI0IEeOq0qC6DFI7Cw" bpdm:label="Order management"/>
+        <bpdm:namespaceContributor bpdm:url="project:///schemas/bpms_demo_base_types.xsd"/>
+        <bpdm:namespaceContributor bpdm:url="project:///services/OrderManagement-OrderManagement.wsdl"/>
+    </bpdm:dependencies>
+    <bpel:scope bpdm:label="Provisioning" bpdm:ID="_2UqAQI0IEeOq0qC6DFI7Cw">
+        <bpel:partnerLinks>
+            <bpel:partnerLink name="order_managementAndProvisioningForCanonicPortPlkVar" partnerLinkType="diag:Order_managementAndProvisioningForCanonicPortPlk" initializePartnerRole="yes" myRole="Provisioning_for_Order_management" bpdm:enableSharing="false" bpdm:providedService="this:CanonicServiceForOrder_management" bpdm:providedPort="canonicPort" bpdm:provideSOAPAddress="${deploy_serverUrl}${deploy_baseSoapServicesUrl}/${deploy_bundleNcName}/${diagram_relativeURL}/Provisioning/Order_management" bpdm:providedIsDefault="true" partnerRole="Order_management_for_Provisioning" bpdm:invokedService="OrderManagement-OrderManagement:CanonicServiceForOrderManagementimplicitPartner" bpdm:invokedPort="canonicPort" bpdm:invokedSOAPAddress="http://bpms.local:8080/intalio/ode/processes/BPMS_DEMO/processes/OrderManagement/OrderManagement/OrderManagementimplicitPartner" bpdm:invokedIsDefault="true" bpdm:clientTasks="_2UqAQI0IEeOq0qC6DFI7Cw:_2UqAQo0IEeOq0qC6DFI7Cw, _2UqAQI0IEeOq0qC6DFI7Cw:_Hn-FsI0KEeOq0qC6DFI7Cw" bpdm:isManaged="true" bpdm:otherPoolId="_3vGlAI0IEeOq0qC6DFI7Cw"/>
+        </bpel:partnerLinks>
+        <bpel:variables>
+            <bpel:variable name="thisRecieve_provisioning_requestRequestMsg" messageType="this:Recieve_provisioning_requestRequest" bpdm:id="_7WBoYI0IEeOq0qC6DFI7Cw" bpdm:messageIds="inc:_7VmxoI0IEeOq0qC6DFI7Cw"/>
+            <bpel:variable name="thisRecieve_provisioning_requestResponseMsg" messageType="this:Recieve_provisioning_requestResponse" bpdm:id="_9SjmiY0IEeOq0qC6DFI7Cw" bpdm:messageIds=" out:_9SeG8I0IEeOq0qC6DFI7Cw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="this:Recieve_provisioning_requestResponse" bpdm:linkedPart="body"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg" messageType="OrderManagement-OrderManagement:Recieve_electronics_provisioning_resultsRequest" binding="OrderManagement-OrderManagement:CanonicBindingForOrderManagementimplicitPartner" operation="Recieve_electronics_provisioning_results" opMsgType="0" bpdm:id="_IeuukI0KEeOq0qC6DFI7Cw" bpdm:messageIds=" out:_Id19wI0KEeOq0qC6DFI7Cw">
+                <bpel:from bpdm:toPart="body">
+                    <bpel:literal bpdm:linkedMessageType="OrderManagement-OrderManagement:Recieve_electronics_provisioning_resultsRequest" bpdm:linkedPart="body" bpdm:binding="OrderManagement-OrderManagement:CanonicBindingForOrderManagementimplicitPartner" bpdm:opMsgType="0" bpdm:operation="Recieve_electronics_provisioning_results"></bpel:literal>
+                </bpel:from>
+            </bpel:variable>
+            <bpel:variable name="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsResponseMsg" messageType="OrderManagement-OrderManagement:Recieve_electronics_provisioning_resultsResponse" binding="OrderManagement-OrderManagement:CanonicBindingForOrderManagementimplicitPartner" operation="Recieve_electronics_provisioning_results" opMsgType="1" bpdm:id="_JI-lcI0KEeOq0qC6DFI7Cw" bpdm:messageIds="inc:_JHohoI0KEeOq0qC6DFI7Cw"/>
+        </bpel:variables>
+        <bpel:sequence>
+            <bpdm:messagingtask operation="Recieve_provisioning_request" partnerLink="order_managementAndProvisioningForCanonicPortPlkVar" portType="this:ForOrder_management" isMyRole="true" enableSharing="false" bpdm:label="Recieve provisioning request" bpdm:ID="_2UqAQo0IEeOq0qC6DFI7Cw">
+                <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="receive" bpdm:messageVariable="thisRecieve_provisioning_requestRequestMsg" bpdm:msgVarScopeId="_2UqAQI0IEeOq0qC6DFI7Cw" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_provisioning_requestRequest" bpdm:ID="_7VmxoI0IEeOq0qC6DFI7Cw"></bpdm:linkset>
+                <bpdm:linkset bpdm:type="assignments">
+                    <bpel:copy>
+                        <bpel:from>$ode:pid</bpel:from>
+                        <bpel:to>$thisRecieve_provisioning_requestResponseMsg.body/demo:ProcessInstance</bpel:to><mapper:mapperLink><mapper:vertice id="1909195580" targetPath="$thisRecieve_provisioning_requestResponseMsg.body/demo:ProcessInstance" targetedBy="1551601913-arg0"></mapper:vertice><mapper:vertice id="1551601913" sourcePath="$ode:pid"></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from>current-dateTime()</bpel:from>
+                        <bpel:to>$thisRecieve_provisioning_requestResponseMsg.body/demo:Timestamp</bpel:to><mapper:mapperLink><mapper:vertice id="1890729073" targetPath="$thisRecieve_provisioning_requestResponseMsg.body/demo:Timestamp" targetedBy="1858049775-arg0"></mapper:vertice><mapper:vertice id="1858049775" dimension="175x25" location="181,99"><mapper:value>current-dateTime()</mapper:value></mapper:vertice></mapper:mapperLink>
+                    </bpel:copy>
+                </bpdm:linkset>
+                <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="reply" bpdm:messageVariable="thisRecieve_provisioning_requestResponseMsg" bpdm:msgVarScopeId="_2UqAQI0IEeOq0qC6DFI7Cw" bpdm:variableIsManaged="true" bpdm:messageType="this:Recieve_provisioning_requestResponse" bpdm:ID="_9SeG8I0IEeOq0qC6DFI7Cw"></bpdm:linkset>
+            </bpdm:messagingtask>
+            <bpdm:messagingtask bpdm:label="Stock required products" bpdm:ID="_JxiW0I2lEeOkXdq2wVPX-w"></bpdm:messagingtask>
+            <bpdm:messagingtask bpdm:label="Create shipping label" bpdm:ID="_Rq11YI2lEeOkXdq2wVPX-w"></bpdm:messagingtask>
+            <bpdm:messagingtask bpdm:label="Pack products" bpdm:ID="_WCYdYI2lEeOkXdq2wVPX-w"></bpdm:messagingtask>
+            <bpdm:messagingtask bpdm:label="Verify products order" bpdm:ID="_YY4asI2lEeOkXdq2wVPX-w"></bpdm:messagingtask>
+            <bpdm:gateway bpdm:label="Parallel_Gateway" bpdm:ID="_gU3Z0I2lEeOkXdq2wVPX-w" bpdm:gatewayType="parallel_and" bpdm:isMerge="false">
+                <bpel:sequence>
+                    <bpdm:messagingtask bpdm:label="Deliver products" bpdm:ID="_n3gr4I2lEeOkXdq2wVPX-w"></bpdm:messagingtask>
+                    <bpdm:messagingtask eventType="end: empty" bpdm:label="Empty_End_Event" bpdm:ID="_raKTQI2lEeOkXdq2wVPX-w"></bpdm:messagingtask>
+                </bpel:sequence>
+                <bpel:sequence>
+                    <bpdm:messagingtask eventType="intermediate: timer" bpdm:label="Timer_Intermediate_Event" bpdm:ID="_-jlwkI0IEeOq0qC6DFI7Cw">
+                        <bpdm:linkset bpdm:type="timer">
+                            <bpel:for>ode:get-property-value("electronics_process_duration")
+<mapper:mapperLink>
+  <mapper:vertice id="615755096" targetPath="$duration" targetedBy="1766322253-arg1"></mapper:vertice>
+  <mapper:vertice id="1766322253" dimension="139x24" location="710,58">
+    <mapper:value>ode:get-property-value()</mapper:value>
+  </mapper:vertice>
+  <mapper:vertice id="540705320" dimension="170x24" location="387,78" targetedBy="1766322253-arg0">
+    <mapper:value>"electronics_process_duration"</mapper:value>
+  </mapper:vertice>
+</mapper:mapperLink></bpel:for>
+                        </bpdm:linkset>
+                    </bpdm:messagingtask>
+                    <bpdm:messagingtask eventType="end: message" operation="Recieve_electronics_provisioning_results" partnerLink="order_managementAndProvisioningForCanonicPortPlkVar" portType="OrderManagement-OrderManagement:ForOrderManagementimplicitPartner" isMyRole="false" enableSharing="false" bpdm:label="Send results" bpdm:ID="_Hn-FsI0KEeOq0qC6DFI7Cw">
+                        <bpdm:linkset bpdm:type="assignments">
+                            <bpel:copy>
+                                <bpel:from>$thisRecieve_provisioning_requestRequestMsg.body/demo:ElectronicsOrder/demo:OrderRef</bpel:from>
+                                <bpel:to>$orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg.body/demo:ElectronicsOrder</bpel:to><mapper:mapperLink><mapper:vertice id="371941024" targetPath="$orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg.body/demo:ElectronicsOrder" targetedBy="636170757-arg0"></mapper:vertice><mapper:vertice id="636170757" sourcePath="$thisRecieve_provisioning_requestRequestMsg.body/demo:ElectronicsOrder/demo:OrderRef"></mapper:vertice></mapper:mapperLink>
+                            </bpel:copy>
+                        </bpdm:linkset>
+                        <bpdm:linkset bpdm:type="outgoingMessage" bpdm:bpeltype="invoke-request" bpdm:messageVariable="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsMsg" bpdm:msgVarScopeId="_2UqAQI0IEeOq0qC6DFI7Cw" bpdm:variableIsManaged="true" bpdm:messageType="OrderManagement-OrderManagement:Recieve_electronics_provisioning_resultsRequest" bpdm:binding="OrderManagement-OrderManagement:CanonicBindingForOrderManagementimplicitPartner" bpdm:ID="_Id19wI0KEeOq0qC6DFI7Cw"></bpdm:linkset>
+                        <bpdm:linkset bpdm:type="incomingMessage" bpdm:bpeltype="invoke-receive" bpdm:messageVariable="orderManagement-OrderManagementRecieve_electronics_provisioning_resultsResponseMsg" bpdm:msgVarScopeId="_2UqAQI0IEeOq0qC6DFI7Cw" bpdm:variableIsManaged="true" bpdm:messageType="OrderManagement-OrderManagement:Recieve_electronics_provisioning_resultsResponse" bpdm:binding="OrderManagement-OrderManagement:CanonicBindingForOrderManagementimplicitPartner" bpdm:ID="_JHohoI0KEeOq0qC6DFI7Cw"></bpdm:linkset>
+                    </bpdm:messagingtask>
+                </bpel:sequence>
+            </bpdm:gateway>
+        </bpel:sequence>
+    </bpel:scope>
+</bpel:process>

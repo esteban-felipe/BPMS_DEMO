@@ -1,0 +1,6 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<rest:descriptor xmlns:rest="http://www.intalio/designer/business-process-data-modeling/rest" resourceURL="http://intalio.local/api/rest/v1/dev_product?fields=io_uuid,dev_product_id,dev_name,dev_family,dev_price" ID="_0OnoMeVCEeSLpsJK2pkXkg">
+  <rest:operation verb="GET" name="read_all_products" ID="_0OpdYOVCEeSLpsJK2pkXkg" restservice_type="json">
+    <rest:output type="project:///schemas/products_db.xsd?xsdelement={__project:///schemas/products_db.xsd}iob_response_root" name="response" headerDirection="request" contentType="application/json" responseRootElement="true" ID="_0OqrgOVCEeSLpsJK2pkXkg"/>
+  </rest:operation>
+</rest:descriptor>

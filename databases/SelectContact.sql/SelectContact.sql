@@ -1,0 +1,1 @@
+SELECT ContactId, Name, Email, Phone FROM Contact WHERE ClientId = ?

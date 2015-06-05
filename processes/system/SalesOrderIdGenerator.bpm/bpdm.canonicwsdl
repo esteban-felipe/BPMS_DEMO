@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:bpdm="http://www.intalio/designer/business-process-data-modeling" xmlns:diag="http://thisdiagram" targetNamespace="http://thisdiagram" bpdm:version="6000089" bpdm:canid="_Jiys8X-_EeOqK-xulEikBg" bpdm:displayName="diag">
+  <pnlk:partnerLinkType name="ID_GeneratorimplicitPartnerAndID_Generator" bpdm:poolOneId="_JjsE0H-_EeOqK-xulEikBg" bpdm:poolOneIsExecutable="true" bpdm:poolOneName="ID Generator" bpdm:poolTwoId="_JjsE0H-_EeOqK-xulEikBgimplicitPartner" bpdm:poolTwoIsExecutable="false" bpdm:poolTwoName="ID GeneratorimplicitPartner">
+    <pnlk:role name="ID_Generator_for_ID_GeneratorimplicitPartner" portType="{http://thisdiagram/ID_Generator}ForID_GeneratorimplicitPartner" bpdm:thisPoolId="_JjsE0H-_EeOqK-xulEikBg">
+      <wsdl:portType name="ForID_GeneratorimplicitPartner">
+        <wsdl:operation name="Generate_ID" bpdm:canid="_Jj-_wH-_EeOqK-xulEikBg._Jj-_wH-_EeOqK-xulEikBgimplicitTask._NOFS8H-_EeOqK-xulEikBg.">
+          <wsdl:input message="ID_Generator:Generate_IDRequest" name="Generate_ID" bpdm:canid="_Jj-_wH-_EeOqK-xulEikBgIncoming" bpdm:senderId="_Jj-_wH-_EeOqK-xulEikBgimplicitTask" bpdm:receiverId="_Jj-_wH-_EeOqK-xulEikBg" bpdm:senderName="Generate ID-implicitTask" bpdm:receiverName="Generate ID" bpdm:receiverPoolId="_JjsE0H-_EeOqK-xulEikBg" bpdm:dataobjectPointer="builtin:///xsd?xsdtype={http://www.w3.org/2001/XMLSchema}string" bpdm:bodyPartElemName="Generate_IDRequest" bpdm:bodyPartElemType="{http://www.w3.org/2001/XMLSchema}string"></wsdl:input>
+          <wsdl:output message="ID_Generator:Generate_IDResponse" name="Generate_IDResponse" bpdm:canid="_NOFS8H-_EeOqK-xulEikBgOutgoing" bpdm:senderId="_NOFS8H-_EeOqK-xulEikBg" bpdm:receiverId="_Jj-_wH-_EeOqK-xulEikBgimplicitTask" bpdm:senderName="Send ID" bpdm:receiverName="Generate ID-implicitTask" bpdm:receiverPoolId="_JjsE0H-_EeOqK-xulEikBgimplicitPartner" bpdm:dataobjectPointer="builtin:///xsd?xsdtype={http://www.w3.org/2001/XMLSchema}string" bpdm:bodyPartElemName="Generate_IDResponse" bpdm:bodyPartElemType="{http://www.w3.org/2001/XMLSchema}string"></wsdl:output>
+        </wsdl:operation>
+      </wsdl:portType>
+    </pnlk:role>
+  </pnlk:partnerLinkType>
+</wsdl:definitions>

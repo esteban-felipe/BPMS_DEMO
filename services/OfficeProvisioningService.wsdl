@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:off="http://demo.office.intalio.com/OfficeProvisioningService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OfficeProvisioningService" targetNamespace="http://demo.office.intalio.com/OfficeProvisioningService/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://demo.office.intalio.com/OfficeProvisioningService/" xmlns:Q1="http://demo.intalio.com/base_types">
+            <xsd:import schemaLocation="../schemas/bpms_demo_base_types.xsd" namespace="http://demo.intalio.com/base_types"></xsd:import>
+            <xsd:element name="OfficeProvisioningOrder"
+            	type="Q1:OfficeRequestType">
+
+            </xsd:element>
+            <xsd:element name="OfficeProvisioningOrderResponse"
+            	type="Q1:AcknowledgeType">
+
+            </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProvisionOrderRequest">
+    <wsdl:part element="off:OfficeProvisioningOrder" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ProvisionOrderResponse">
+    <wsdl:part element="off:OfficeProvisioningOrderResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="OfficeProvisioningService">
+    <wsdl:operation name="ProvisionOrder">
+      <wsdl:input message="off:ProvisionOrderRequest"/>
+      <wsdl:output message="off:ProvisionOrderResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OfficeProvisioningServiceSOAP" type="off:OfficeProvisioningService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ProvisionOrder">
+      <soap:operation soapAction="http://demo.office.intalio.com/OfficeProvisioningService/ProvisionOrder"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OfficeProvisioningService">
+    <wsdl:port binding="off:OfficeProvisioningServiceSOAP" name="OfficeProvisioningServiceSOAP">
+      <soap:address location="http://felipe.intalio.io/pipes/wss/office_provisioning"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
